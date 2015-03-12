@@ -10,8 +10,11 @@ Ontology-Driven Extraction is a prototype of ProM plugin that is built to suppor
 1. `ProM` is a Maven project. You may move it into your Eclipse workspace
 2. `sakila.sql.zip` is the databases
 3. `README.md` is this readme file
-4. Other important files under `/ProM/src/main/resources/example/` are listed below:
-  * 
+4. Some examples for the ontology, mapping, and annotation is given under `/ProM/src/main/resources/example/`:
+  * `ontology.owl` is the domain and event ontology
+  * `ontology.obda` is the first mapping, which is the mapping from database to the domain ontology
+  * `anno.annotation` is the annotation
+ Note: you may use different ontology, mapping, and annotation files and put them into this folder
 
 # How to install
 1. Import the database `sakila.sql.zip` into your local server.
