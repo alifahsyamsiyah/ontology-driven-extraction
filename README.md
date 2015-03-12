@@ -14,7 +14,7 @@ Ontology-Driven Extraction is a prototype of ProM plugin that is built to suppor
   * `ontology.owl` is the domain and event ontology
   * `ontology.obda` is the first mapping, which is the mapping from database to the domain ontology
   * `anno.annotation` is the annotation
- Note: you may use different ontology, mapping, and annotation files and put them into this folder
+Note: you may use different ontology, mapping, and annotation files and put them into this folder
 
 # How to install
 1. Import the database `sakila.sql.zip` into your local server.
