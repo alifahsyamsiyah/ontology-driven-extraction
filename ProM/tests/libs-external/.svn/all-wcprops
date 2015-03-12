@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/repos/prom/!svn/ver/17325/TestSuite
+END
+cobertura.jar
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/prom/!svn/ver/17325/TestSuite/cobertura.jar
+END
+mockito-all-1.9.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/prom/!svn/ver/15509/TestSuite/mockito-all-1.9.5.jar
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/prom/!svn/ver/17319/TestSuite/.project
+END
+cobertura-2.0.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/prom/!svn/ver/17321/TestSuite/cobertura-2.0.3.jar
+END
+junit-4.8.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/prom/!svn/ver/165/TestSuite/junit-4.8.1.jar
+END

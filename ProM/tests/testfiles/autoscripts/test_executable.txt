@@ -1,0 +1,2 @@
+print("Test for execution of a test script...");
+print("done");

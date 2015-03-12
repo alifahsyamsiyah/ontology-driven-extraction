@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model
+END
+ProMViewType.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/prom/!svn/ver/1586/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMViewType.java
+END
+ProMResource.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMResource.java
+END
+ProMPOResource.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMPOResource.java
+END
+AbstractAuthored.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/AbstractAuthored.java
+END
+ProMParameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMParameter.java
+END
+ProMResourceType.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMResourceType.java
+END
+ProMAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMAction.java
+END
+ProMTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/prom/!svn/ver/2580/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMTask.java
+END
+ProMView.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/prom/!svn/ver/12594/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMView.java
+END
+ProMResourceTypeInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/prom/!svn/ver/13672/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMResourceTypeInformation.java
+END
+ProMCResource.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/model/ProMCResource.java
+END

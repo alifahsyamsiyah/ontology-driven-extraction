@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/search
+END
+BreadthFirstExpandCollection.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/search/BreadthFirstExpandCollection.java
+END
+NodeExpander.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/search/NodeExpander.java
+END
+ExpandCollection.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/search/ExpandCollection.java
+END
+MultiThreadedSearcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/search/MultiThreadedSearcher.java
+END
+DepthFirstExpandCollection.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/search/DepthFirstExpandCollection.java
+END

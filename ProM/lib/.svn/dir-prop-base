@@ -1,0 +1,9 @@
+K 13
+svn:externals
+V 352
+ProM-Framework.jar https://svn.win.tue.nl/repos/prom/Releases/Framework/ProM-Framework.jar
+ProM-Contexts.jar https://svn.win.tue.nl/repos/prom/Releases/Framework/ProM-Contexts.jar
+ProM-Models.jar https://svn.win.tue.nl/repos/prom/Releases/Framework/ProM-Models.jar
+ProM-Plugins.jar https://svn.win.tue.nl/repos/prom/Releases/Framework/ProM-Plugins.jar
+
+END

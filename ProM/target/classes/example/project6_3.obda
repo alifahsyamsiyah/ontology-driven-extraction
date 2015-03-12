@@ -1,0 +1,17 @@
+[PrefixDeclaration]
+:		http://myproject.org/odbs#
+
+[SourceDeclaration]
+sourceUri	database
+connectionUrl	jdbc:mysql://localhost/sakila
+username	root
+password	
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	director
+target		:director{idDirector} a :Director . 
+source		SELECT director_id as idDirector
+			FROM director
+]]
+

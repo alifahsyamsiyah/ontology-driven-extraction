@@ -1,0 +1,4 @@
+print("Test for recognition of unexecutable statements by JUnit...");
+print("done");
+
+this_is_not_a_plugin();

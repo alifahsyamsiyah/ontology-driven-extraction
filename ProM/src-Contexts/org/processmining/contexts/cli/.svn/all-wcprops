@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/prom/!svn/ver/12437/Framework/trunk/src-Contexts/org/processmining/contexts/cli
+END
+CLI.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/prom/!svn/ver/1409/Framework/trunk/src-Contexts/org/processmining/contexts/cli/CLI.java
+END
+CLIContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/cli/CLIContext.java
+END
+PromTestException.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/prom/!svn/ver/1365/Framework/trunk/src-Contexts/org/processmining/contexts/cli/PromTestException.java
+END
+CLIPluginContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/prom/!svn/ver/12437/Framework/trunk/src-Contexts/org/processmining/contexts/cli/CLIPluginContext.java
+END
+PromTestFramework.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/prom/!svn/ver/3422/Framework/trunk/src-Contexts/org/processmining/contexts/cli/PromTestFramework.java
+END
+CLIProgressBar.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/prom/!svn/ver/55/Framework/trunk/src-Contexts/org/processmining/contexts/cli/CLIProgressBar.java
+END

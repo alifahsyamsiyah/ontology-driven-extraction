@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/prom/!svn/ver/11453/Framework/trunk/src-Framework/org/processmining/framework/providedobjects
+END
+ContextAwareObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/providedobjects/ContextAwareObject.java
+END
+ProvidedObjectID.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/providedobjects/ProvidedObjectID.java
+END
+ProvidedObjectManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/prom/!svn/ver/11439/Framework/trunk/src-Framework/org/processmining/framework/providedobjects/ProvidedObjectManager.java
+END
+ProvidedObjectDeletedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/providedobjects/ProvidedObjectDeletedException.java
+END
+SubstitutionType.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/providedobjects/SubstitutionType.java
+END
+ProvidedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/providedobjects/ProvidedObject.java
+END

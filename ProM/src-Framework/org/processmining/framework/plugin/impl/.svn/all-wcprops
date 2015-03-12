@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl
+END
+MacroPluginDescriptorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/MacroPluginDescriptorImpl.java
+END
+PluginDescriptorIDImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/PluginDescriptorIDImpl.java
+END
+DependsOnUnknownException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/DependsOnUnknownException.java
+END
+AbstractPluginContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/prom/!svn/ver/11439/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/AbstractPluginContext.java
+END
+AbstractGlobalContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/AbstractGlobalContext.java
+END
+PluginManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/prom/!svn/ver/16980/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/PluginManagerImpl.java
+END
+PluginContextIDImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/PluginContextIDImpl.java
+END
+FieldSetException.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/FieldSetException.java
+END
+FieldNotSetException.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/FieldNotSetException.java
+END
+ProgressBarImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/ProgressBarImpl.java
+END
+AbstractPluginDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/AbstractPluginDescriptor.java
+END
+PluginCacheEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/PluginCacheEntry.java
+END
+PluginDescriptorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/PluginDescriptorImpl.java
+END
+PluginExecutionResultImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/impl/PluginExecutionResultImpl.java
+END

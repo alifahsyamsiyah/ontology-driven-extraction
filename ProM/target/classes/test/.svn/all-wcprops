@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/prom/!svn/ver/17490/Framework/trunk/src-Plugins/test
+END
+BuildDependencyGraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/prom/!svn/ver/55/Framework/trunk/src-Plugins/test/BuildDependencyGraph.java
+END
+RemoveEdgePoints.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/prom/!svn/ver/333/Framework/trunk/src-Plugins/test/RemoveEdgePoints.java
+END
+SerializationTests.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/prom/!svn/ver/55/Framework/trunk/src-Plugins/test/SerializationTests.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/prom/!svn/ver/270/Framework/trunk/src-Framework/org/processmining/framework/plugin/events
+END
+Logger.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/Logger.java
+END
+NameChangeListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/NameChangeListener.java
+END
+ProMEventListenerList.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/ProMEventListenerList.java
+END
+ProvidedObjectLifeCycleListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/ProvidedObjectLifeCycleListener.java
+END
+FutureListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/FutureListener.java
+END
+PluginLifeCycleEventListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/PluginLifeCycleEventListener.java
+END
+ConnectionObjectListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/prom/!svn/ver/270/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/ConnectionObjectListener.java
+END
+ProgressEventListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/plugin/events/ProgressEventListener.java
+END

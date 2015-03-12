@@ -1,0 +1,21 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t
+WHERE { ?t a :Director .}
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?e a :Film; :hasDirector ?t .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?a ?e
+WHERE { ?e a :Film; :title ?a .}
+
+attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?a ?r ?e
+WHERE { ?e a :Film; :genre ?a. ?e ?r ?a .}
+
+

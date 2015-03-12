@@ -1,0 +1,6 @@
+// this test cannot be run automatically. it will throw an assertion failed
+// error that needs to be caught separately
+
+print("Starting example script...");
+
+junit.framework.Assert.assertTrue("fail test", false);

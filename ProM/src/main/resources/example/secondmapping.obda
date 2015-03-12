@@ -1,0 +1,121 @@
+[PrefixDeclaration]
+:		http://myproject.org/odbs#
+
+[SourceDeclaration]
+sourceUri	database
+connectionUrl	jdbc:mysql://localhost/sakila
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	activityname00
+target		:event{e} a :Event . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname01
+target		:ext{a}{e} a :Extension . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname02
+target		:attr{a}{e} a :Attribute . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname03
+target		:attr{a}{e} :keyA "concept:name"^^xsd:string . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname04
+target		:attr{a}{e} :typeA "literal"^^xsd:string . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname05
+target		:attr{a}{e} :valueA {a} . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname06
+target		:event{e} :contain3 :attr{a}{e} . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	activityname07
+target		:ext{a}{e} :declare2 :attr{a}{e} . 
+source		 select distinct qview1.`title` as `a`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) 
+
+mappingId	attribute00
+target		:event{e} a :Event .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute01
+target		:ext{r}{e} a :Extension .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute02
+target		:attr{r}{e} a :Attribute .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute03
+target		:attr{r}{e} :keyA :key{r}{e} .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute04
+target		:attr{r}{e} :valueA {a} .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute05
+target		:attr{r}{e} :typeA "literal"^^xsd:string .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute06
+target		:event{e} :contain3 :attr{r}{e} .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	attribute07
+target		:ext{r}{e} :declare2 :attr{r}{e} .
+source		 select qview1.`title` as `a`, 'http://myproject.org/odbs#title' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`title` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#languagefilm' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview3.`name` = qview4.`name`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) union select qview3.`name` as `a`, 'http://myproject.org/odbs#genre' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) and (qview3.`name` = qview6.`name`) union select qview1.`release_year` as `a`, 'http://myproject.org/odbs#releasedate' as `r`, qview1.`film_id` as `e` from film qview1, film_category qview2, category qview3, language qview4, film_category qview5, category qview6 where (qview1.`film_id` = qview2.`film_id`) and (qview2.`category_id` = qview3.`category_id`) and (qview1.`release_year` = qview3.`name`) and (qview1.`language_id` = qview4.`language_id`) and (qview1.`film_id` = qview5.`film_id`) and (qview5.`category_id` = qview6.`category_id`) 
+
+mappingId	event00
+target		:event{e} a :Event . 
+source		 select distinct qview1.`film_id` as `e`, qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	event01
+target		:trace{t} a :Trace . 
+source		 select distinct qview1.`film_id` as `e`, qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	event02
+target		:trace{t} :contain2 :event{e} . 
+source		 select distinct qview1.`film_id` as `e`, qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace00
+target		:trace{t} a :Trace . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace01
+target		:ext{t} a :Extension . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace02
+target		:attr{t} a :Attribute . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace03
+target		:attr{t} :keyA "concept:name"^^xsd:string . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace04
+target		:attr{t} :valueA {t} . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace05
+target		:attr{t} :typeA "literal"^^xsd:string . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace06
+target		:trace{t} :contain5 :attr{t} . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+mappingId	trace07
+target		:ext{t} :declare2 :attr{t} . 
+source		 select distinct qview1.`director_id` as `t` from director qview1, film qview2 where (qview1.`film_id` = qview2.`film_id`) 
+
+]]
+

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/prom/!svn/ver/16854/Framework/trunk/src-Models/org/processmining/models/jgraph/views
+END
+JGraphPortView.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/jgraph/views/JGraphPortView.java
+END
+JGraphEdgeView.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/prom/!svn/ver/16854/Framework/trunk/src-Models/org/processmining/models/jgraph/views/JGraphEdgeView.java
+END
+JGraphShapeView.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/prom/!svn/ver/16854/Framework/trunk/src-Models/org/processmining/models/jgraph/views/JGraphShapeView.java
+END

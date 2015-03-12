@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src-Framework"/>
+	<classpathentry kind="src" path="src-Plugins"/>
+	<classpathentry kind="src" path="src-Contexts"/>
+	<classpathentry kind="src" path="src-Models"/>
+	<classpathentry kind="src" path="tests/src-test"/>
+	<classpathentry kind="lib" path="lib/axis.jar"/>
+	<classpathentry kind="lib" path="lib/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="lib/collections-generic-4.01.jar"/>
+	<classpathentry kind="lib" path="lib/colt.jar"/>
+	<classpathentry kind="lib" path="lib/commons-compress-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/FilterableSortableTablePanel.jar"/>
+	<classpathentry kind="lib" path="lib/flanagan.jar"/>
+	<classpathentry kind="lib" path="lib/jargs.jar"/>
+	<classpathentry kind="lib" path="lib/jcommon-1.0.16.jar"/>
+	<classpathentry kind="lib" path="lib/jlfgr-1_0.jar"/>
+	<classpathentry kind="lib" path="lib/jung-algorithms-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jung-api-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jung-graph-impl-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jung-io-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jung-visualization-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/simmetrics.jar"/>
+	<classpathentry kind="lib" path="lib/slickerbox1.0rc1.jar"/>
+	<classpathentry kind="lib" path="lib/Spex.jar"/>
+	<classpathentry kind="lib" path="lib/TableLayout-20050920.jar"/>
+	<classpathentry kind="lib" path="lib/weka.jar"/>
+	<classpathentry kind="lib" path="lib/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="lib/xstream-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-export-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphics2d-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-emf-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-java-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-pdf-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-ps-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-svg-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-swf-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio-tests-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-io-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-swing-2.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-util-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-xml-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jas-plotter-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/openide-lookup-1.9-patched-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/Uitopia.jar"/>
+	<classpathentry kind="lib" path="lib/UITopiaResources.jar"/>
+	<classpathentry kind="lib" path="lib/jgraph.jar"/>
+	<classpathentry kind="lib" path="lib/commons-math-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jfreechart-1.0.14.jar"/>
+	<classpathentry kind="lib" path="lib/jfreechart-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/junit-3.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/OpenXES-XStream.jar"/>
+	<classpathentry kind="lib" path="lib/OpenXES.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

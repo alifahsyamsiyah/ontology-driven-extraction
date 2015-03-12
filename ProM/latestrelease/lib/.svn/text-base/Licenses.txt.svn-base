@@ -1,0 +1,110 @@
+BeanShell:		Lightweight Scripting for Java.
+			File: bsh-2.0b4.jar
+			License: LGPL license
+			URL: www.beanshell.org
+			The sources should be conveyed with ProM.
+
+Colt:			High Performance Scientific and Technical Computing in Java.
+			File: colt.jar
+			License: CERN license
+			URL: acs.lbl.gov/~hoschek/colt/
+			The text of the license should appear in supporting documentation.
+
+JArgs:		Command line option parsing suite for Java
+			File: jargs.jar
+			License: BSD license
+			URL: jargs.sourceforge.net
+			The text of the license should appear in supporting documentation.
+
+JGraph:		Graph component for Java.
+			File: jgraph.jar
+			License: LGPL license
+			URL: www.jgraph.com
+			The sources should be conveyed with ProM.
+
+JGraph Layout:	Automatic positioning of the graph, network or diagram accordingly to general layout rules.
+			File: jgraphlayout(-dev).jar
+			License: JGraph Layout license
+			URL: www.jgraph.com
+			Only the jar file should be conveyed with ProM. Not the sources.
+
+Java look and feel Graphics Repository:
+			Collection of toolbar button graphics.
+			File:jlfgr-1_0.jar
+			License: Berkeley license
+			URL: java.sun.com/developer/techDocs/hi/repository/
+			The text of the license should appear in supporting documentation.
+
+MyDoggy:		Java docking framework to be used in cross-platform Swing applications.
+			File: mydoggy-[api|plaf|res]-1.4.1.jar
+			License: LGPL license
+			URL: mydoggy.sourceforge.net
+			The sources should be conveyed with ProM.
+
+OpenXES:		Log handling library.
+			File: OpenXES.jar
+			URL: ga1717.tm.tue.nl/user/christian/projects/
+			License: (L)GPL?
+
+SlickerBox:		Java Swing components meant to enable developers to rapidly build maintainable GUIs with style and ease.
+			File: slickerbox0.5.jar
+			URL: ga1717.tm.tue.nl/user/christian/projects/slickerbox
+			License: (L)GPL?
+
+TableLayout:	An Alternative to GridBagLayout.
+			File: TableLayout-20050920.jar
+			License: Berkeley license
+			URL: tablelayout.dev.java.net
+			The text of the license should appear in supporting documentation.
+
+XML Pull Parser:	Implementation of XmlPull API.
+			File: xpp3_min-1-1.4c.jar
+			URL: www.extreme.indiana.edu/xgws/xsoap/xpp/
+			License: Extreme! Lab Software License
+			The text of the license should appear in supporting documentation.
+
+Xstream:		Simple library to serialize objects to XML and back again.
+			File: xstream-1.3.jar
+			License: BSD license
+			URL: xstream.codehaus.org
+			The text of the license should appear in supporting documentation.
+
+SwingWorker:	Java backport of the standard swingworker of java 1.6
+			File: swing-worker-1.2.jar
+			License: LGPL
+			URL: swingworker.dev.java.net
+			The sources should be conveyed with ProM.
+
+JFreeChart:		Java library for making charts
+			File: jfreechars-1.0.11.jar
+			License: LGPL
+			URL: http://www.jfree.org/jfreechart/
+			The sources should be conveyed with ProM.
+			
+Commons Math:	Commons Math is a library of lightweight, self-contained mathematics
+			and statistics components addressing the most common problems not
+			available in the Java programming language or Commons Lang.
+			File: commons-math-1.2.jar
+			License: Apache License 2.0
+			URL: http://commons.apache.org/math/
+			A copy of the license should be conveyed with ProM.
+
+JWizard: JWizard is a wizard component, which is like a dialog
+            that leads the user through a series of steps to complete some
+            task. This component is very easy to use and contains the
+            common features of a wizard: a logo on the left side, a title
+            for the wizard, a title for each wizard step, Back Next,
+            Finish, Cancel and Help buttons, etc. It is fully
+            internationalized and ready for localization.
+            URL tutorial: http://flib.sourceforge.net/JWizard/doc/api/index.html tutorial].
+            URL API: http://flib.sourceforge.net/JWizard/doc/api/index.html API].
+            License: Artistic license.
+            The jar file should be conveyed with ProM and
+            instructions where to get it.
+
+SwingLayout: SwingLayout is a Java 5 backport that includes the
+            javax.swing.!GroupLayout (although the APIs differ)
+            Overview (incomplete) of changes if you want to go from javax.swing.!GroupLayout to the
+            backport: http://kendes.blogspot.com/2008/03/grouplayout-converting-java-6-to-java-5.html
+            License: LGPL
+			The sources should be conveyed with ProM.

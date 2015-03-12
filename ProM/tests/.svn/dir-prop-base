@@ -1,0 +1,17 @@
+K 10
+svn:ignore
+V 86
+cobertura.ser
+TEST-*.txt
+TEST-*.xml
+bin-test
+cover-html
+bin-test-instrument
+cover-xml
+
+K 13
+svn:externals
+V 58
+libs-external https://svn.win.tue.nl/repos/prom/TestSuite
+
+END

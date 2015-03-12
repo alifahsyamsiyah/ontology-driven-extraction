@@ -1,0 +1,25 @@
+package.name=ProM
+
+# name of build project
+test.projectname=${package.name}.test
+
+# location of plugin code, binaries, and test files (can be modified)
+home=${test.basedir}/..
+#bin=${home}/bindist # set in build.xml
+#src=${home}/src     # set in build.xml
+
+# location of tests and test files
+dir.test-src=${test.basedir}/src-test/
+dir.test-bin=${test.basedir}/bin-test/
+dir.testfiles=${test.basedir}/testfiles/
+
+# location of scripted tests
+dir.autoscripts=${dir.testfiles}/autoscripts
+# location of inclass method tests
+dir.inclassTests=${home}/dist/ProM-Framework.jar,${home}/dist/ProM-Contexts.jar,${home}/dist/ProM-Models.jar,${home}/dist/ProM-Plugins.jar
+# default JUnit tests
+test.default=org/processmining/tests/**/*.java
+
+# location of test results (can be modified)
+dir.coveragereport.html=${test.basedir}/cover-html
+dir.coveragereport.xml=${test.basedir}/cover-xml

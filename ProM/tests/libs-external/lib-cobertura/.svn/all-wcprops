@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/prom/!svn/ver/17324/TestSuite/lib-cobertura
+END
+asm-3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/prom/!svn/ver/17323/TestSuite/lib-cobertura/asm-3.0.jar
+END
+asm-tree-3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/prom/!svn/ver/17323/TestSuite/lib-cobertura/asm-tree-3.0.jar
+END
+log4j-1.2.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/prom/!svn/ver/165/TestSuite/lib-cobertura/log4j-1.2.9.jar
+END
+jakarta-oro-2.0.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/prom/!svn/ver/17323/TestSuite/lib-cobertura/jakarta-oro-2.0.8.jar
+END

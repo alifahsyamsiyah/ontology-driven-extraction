@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.1
+Created-By: 1.6.0_21-b06 (Sun Microsystems Inc.)
+Built-By: hudson
+Specification-Title: OpenXES
+Specification-Version: 1.5
+Specification-Vendor: code.deckfour.org
+Implementation-Title: OpenXES
+Implementation-Version: 1.5 May 26 2011
+Implementation-Vendor: code.deckfour.org
+Sealed: false
+

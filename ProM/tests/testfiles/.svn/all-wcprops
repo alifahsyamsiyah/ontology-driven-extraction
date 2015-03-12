@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/prom/!svn/ver/16998/Framework/trunk/tests/testfiles
+END
+test_PromFrameWork_notExecutable.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/prom/!svn/ver/1502/Framework/trunk/tests/testfiles/test_PromFrameWork_notExecutable.txt
+END
+test_PromFrameWork_JUnitFailTest.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/prom/!svn/ver/1502/Framework/trunk/tests/testfiles/test_PromFrameWork_JUnitFailTest.txt
+END
+testresult_AllInclassMethodTests_basicFileTest.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/prom/!svn/ver/1502/Framework/trunk/tests/testfiles/testresult_AllInclassMethodTests_basicFileTest.txt
+END
+test_PromFramework_invokeOtherPlugins1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/prom/!svn/ver/16998/Framework/trunk/tests/testfiles/test_PromFramework_invokeOtherPlugins1.txt
+END
+test_PromFramework_invokeOtherPlugins2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/prom/!svn/ver/16998/Framework/trunk/tests/testfiles/test_PromFramework_invokeOtherPlugins2.txt
+END

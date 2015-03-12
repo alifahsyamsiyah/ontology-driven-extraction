@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/prom/!svn/ver/16868/Framework/trunk/src-Framework/org/processmining/framework/connections
+END
+ConnectionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/prom/!svn/ver/11439/Framework/trunk/src-Framework/org/processmining/framework/connections/ConnectionManager.java
+END
+Connection.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/prom/!svn/ver/270/Framework/trunk/src-Framework/org/processmining/framework/connections/Connection.java
+END
+DynamicConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/prom/!svn/ver/270/Framework/trunk/src-Framework/org/processmining/framework/connections/DynamicConnection.java
+END
+ConnectionAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/connections/ConnectionAnnotation.java
+END
+ConnectionID.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/connections/ConnectionID.java
+END
+ConnectionCannotBeObtained.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/prom/!svn/ver/16868/Framework/trunk/src-Framework/org/processmining/framework/connections/ConnectionCannotBeObtained.java
+END

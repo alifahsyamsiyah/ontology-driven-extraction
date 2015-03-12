@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph
+END
+AbstractDirectedHypergraphNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/AbstractDirectedHypergraphNode.java
+END
+AbstractDirectedHypergraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/AbstractDirectedHypergraph.java
+END
+DirectedHypergraphNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/prom/!svn/ver/55/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/DirectedHypergraphNode.java
+END
+DirectedIncomingHyperedge.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/repos/prom/!svn/ver/55/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/DirectedIncomingHyperedge.java
+END
+DirectedHypergraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/DirectedHypergraph.java
+END
+AbstractDirectedIncomingHyperedge.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/AbstractDirectedIncomingHyperedge.java
+END
+DirectedOutgoingHyperedge.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/repos/prom/!svn/ver/55/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/DirectedOutgoingHyperedge.java
+END
+AbstractDirectedOutgoingHyperedge.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/prom/!svn/ver/270/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/AbstractDirectedOutgoingHyperedge.java
+END
+DirectedHypergraphElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/repos/prom/!svn/ver/55/Framework/trunk/src-Models/org/processmining/models/graphbased/directedhypergraph/DirectedHypergraphElement.java
+END

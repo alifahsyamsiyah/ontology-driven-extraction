@@ -1,0 +1,5 @@
+print("Testing plugin call: StringVisualizer...");
+
+comp = string_visualizer("This is a test.");
+
+junit.framework.Assert.assertNotNull("StringVisualizer returned non-null JComponent", comp);

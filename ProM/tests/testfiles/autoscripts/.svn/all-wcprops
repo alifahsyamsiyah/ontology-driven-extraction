@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/prom/!svn/ver/1512/Framework/trunk/tests/testfiles/autoscripts
+END
+test_executable.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/prom/!svn/ver/1502/Framework/trunk/tests/testfiles/autoscripts/test_executable.txt
+END
+test_StringVisualizer.txt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/prom/!svn/ver/1512/Framework/trunk/tests/testfiles/autoscripts/test_StringVisualizer.txt
+END

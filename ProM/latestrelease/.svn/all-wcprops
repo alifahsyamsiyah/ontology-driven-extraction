@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/prom/!svn/ver/18263/Releases/Framework
+END
+ProM-Plugins.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/prom/!svn/ver/17812/Releases/Framework/ProM-Plugins.jar
+END
+ProM-Models.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/prom/!svn/ver/17812/Releases/Framework/ProM-Models.jar
+END
+ProM.ini
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/prom/!svn/ver/16538/Releases/Framework/ProM.ini
+END
+ProM-Framework.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/prom/!svn/ver/17812/Releases/Framework/ProM-Framework.jar
+END
+ProM-Contexts.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/prom/!svn/ver/17812/Releases/Framework/ProM-Contexts.jar
+END
