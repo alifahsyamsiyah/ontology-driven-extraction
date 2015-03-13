@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_20" class="java.beans.XMLDecoder">
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
  <object class="com.jformdesigner.model.FormModel">
   <void property="contentType">
    <string>form/swing</string>
@@ -40,11 +40,11 @@
            <class>org.jdesktop.layout.GroupLayout</class>
            <void method="setProperty">
             <string>$horizontalGroup</string>
-            <string>par l {seq l {space :p:26:p, par t:::p {comp scrollPane2::l:::x:1, comp scrollPane1::l::387:x:1, comp label1::l:p::p, par t:l {comp processButton::t:p::p, seq t {comp label3:::p::p, space :p:347:p}}}, space ::48:x}}</string>
+            <string>par l {seq {space :p:26:p, par t:::p {comp scrollPane1::l:::x:1, seq t {comp processButton:::p::p, space :p:138:p}, seq l {par t {comp label1::l:p::p, comp label3::l:p::p}, space :p:264:p}, comp scrollPane2::l:::x:1}, space ::45:x}}</string>
            </void>
            <void method="setProperty">
             <string>$verticalGroup</string>
-            <string>par l {seq {space :::p, comp label1:::p::p, space :p:11:p, comp scrollPane1:::p:89:p, space u:::p, comp processButton:::p::p, space s:::p, comp label3:::p::p, space u:::p, comp scrollPane2::::231:x, space :::p}}</string>
+            <string>par l {seq {space :::p, comp label1:::p::p, space :p:11:p, comp scrollPane1:::p:89:p, space :::p, comp processButton:::p::p, space :p:20:p, comp label3:::p::p, space u:::p, comp scrollPane2:::p:184:p, space ::95:x}}</string>
            </void>
           </object>
           <void property="name">
@@ -130,72 +130,6 @@
           <void method="setProperty">
            <string>value</string>
            <string>Center</string>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.jformdesigner.model.FormContainer">
-          <string>javax.swing.JPanel</string>
-          <object class="com.jformdesigner.model.FormLayoutManager">
-           <class>java.awt.GridBagLayout</class>
-           <void method="setProperty">
-            <string>$columnSpecs</string>
-            <string>0:1.0, 0, 0, 80, 0, 80</string>
-           </void>
-           <void method="setProperty">
-            <string>$rowSpecs</string>
-            <string>0, 0, 0</string>
-           </void>
-           <void method="setProperty">
-            <string>$hGap</string>
-            <int>5</int>
-           </void>
-           <void method="setProperty">
-            <string>$vGap</string>
-            <int>5</int>
-           </void>
-          </object>
-          <void method="setProperty">
-           <string>border</string>
-           <object class="javax.swing.border.EmptyBorder">
-            <int>12</int>
-            <int>0</int>
-            <int>0</int>
-            <int>0</int>
-           </object>
-          </void>
-          <void property="name">
-           <string>buttonBar</string>
-          </void>
-          <void method="add">
-           <object class="com.jformdesigner.model.FormComponent">
-            <string>javax.swing.JButton</string>
-            <void method="setProperty">
-             <string>text</string>
-             <string>Create Event Log</string>
-            </void>
-            <void property="name">
-             <string>processButton2</string>
-            </void>
-           </object>
-           <object class="com.jformdesigner.model.FormLayoutConstraints">
-            <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-            <void method="setProperty">
-             <string>gridy</string>
-             <int>1</int>
-            </void>
-            <void method="setProperty">
-             <string>gridx</string>
-             <int>2</int>
-            </void>
-           </object>
-          </void>
-         </object>
-         <object class="com.jformdesigner.model.FormLayoutConstraints">
-          <class>java.lang.String</class>
-          <void method="setProperty">
-           <string>value</string>
-           <string>South</string>
           </void>
          </object>
         </void>

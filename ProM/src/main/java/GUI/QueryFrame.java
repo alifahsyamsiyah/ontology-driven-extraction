@@ -51,6 +51,7 @@ public class QueryFrame extends JPanel {
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+		// Generated using JFormDesigner Evaluation license - lili lala
 		dialogPane = new JPanel();
 		contentPanel = new JPanel();
 		label1 = new JLabel();
@@ -60,10 +61,16 @@ public class QueryFrame extends JPanel {
 		label3 = new JLabel();
 		scrollPane2 = new JScrollPane();
 		textArea2 = new JTextArea();
-		buttonBar = new JPanel();
-		processButton2 = new JButton();
 
 		//======== this ========
+
+		// JFormDesigner evaluation mark
+		setBorder(new javax.swing.border.CompoundBorder(
+			new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+				"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+				javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+				java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
+
 		setLayout(new BorderLayout());
 
 		//======== dialogPane ========
@@ -100,15 +107,17 @@ public class QueryFrame extends JPanel {
 						.addGroup(contentPanelLayout.createSequentialGroup()
 							.addGap(26, 26, 26)
 							.addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-								.addComponent(scrollPane2, GroupLayout.Alignment.LEADING)
-								.addComponent(scrollPane1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
-								.addComponent(label1, GroupLayout.Alignment.LEADING)
-								.addGroup(GroupLayout.Alignment.LEADING, contentPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addComponent(scrollPane1, GroupLayout.Alignment.LEADING)
+								.addGroup(contentPanelLayout.createSequentialGroup()
 									.addComponent(processButton)
-									.addGroup(contentPanelLayout.createSequentialGroup()
-										.addComponent(label3)
-										.addGap(347, 347, 347))))
-							.addContainerGap(48, Short.MAX_VALUE))
+									.addGap(138, 138, 138))
+								.addGroup(GroupLayout.Alignment.LEADING, contentPanelLayout.createSequentialGroup()
+									.addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+										.addComponent(label1, GroupLayout.Alignment.LEADING)
+										.addComponent(label3, GroupLayout.Alignment.LEADING))
+									.addGap(264, 264, 264))
+								.addComponent(scrollPane2, GroupLayout.Alignment.LEADING))
+							.addContainerGap(45, Short.MAX_VALUE))
 				);
 				contentPanelLayout.setVerticalGroup(
 					contentPanelLayout.createParallelGroup()
@@ -117,37 +126,23 @@ public class QueryFrame extends JPanel {
 							.addComponent(label1)
 							.addGap(11, 11, 11)
 							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(processButton)
-							.addGap(18, 18, 18)
+							.addGap(20, 20, 20)
 							.addComponent(label3)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-							.addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-							.addContainerGap())
+							.addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(95, Short.MAX_VALUE))
 				);
 			}
 			dialogPane.add(contentPanel, BorderLayout.CENTER);
-
-			//======== buttonBar ========
-			{
-				buttonBar.setBorder(new EmptyBorder(12, 0, 0, 0));
-				buttonBar.setLayout(new GridBagLayout());
-				((GridBagLayout)buttonBar.getLayout()).columnWidths = new int[] {0, 0, 0, 85, 0, 80};
-				((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-
-				//---- processButton2 ----
-				processButton2.setText("Create Event Log");
-				buttonBar.add(processButton2, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
-					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-					new Insets(0, 0, 5, 5), 0, 0));
-			}
-			dialogPane.add(buttonBar, BorderLayout.SOUTH);
 		}
 		add(dialogPane, BorderLayout.CENTER);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+	// Generated using JFormDesigner Evaluation license - lili lala
 	private JPanel dialogPane;
 	private JPanel contentPanel;
 	private JLabel label1;
@@ -157,7 +152,5 @@ public class QueryFrame extends JPanel {
 	private JLabel label3;
 	private JScrollPane scrollPane2;
 	private JTextArea textArea2;
-	private JPanel buttonBar;
-	private JButton processButton2;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

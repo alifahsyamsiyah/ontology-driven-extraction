@@ -44,7 +44,7 @@
            </void>
            <void method="setProperty">
             <string>$verticalGroup</string>
-            <string>par l {seq {space :::p, par b {comp textField1::b:p::p, comp label1::b:p::p}, space s:::p, par b {comp textField2::b:p::p, comp label2::b:p::p}, space s:::p, par b {comp label3::b:p::p, comp textField3::b:p::p}, space ::34:x}}</string>
+            <string>par l {seq {space :::p, par b {comp textField1::b:p::p, comp label1::b:p::p}, space s:::p, par b {comp textField2::b:p::p, comp label2::b:p::p}, space s:::p, par b {comp label3::b:p::p, comp textField3::b:p::p}, space :::x}}</string>
            </void>
           </object>
           <void property="name">
@@ -130,7 +130,7 @@
            </void>
            <void method="setProperty">
             <string>$rowSpecs</string>
-            <string>0, 0</string>
+            <string>0, 0, 0</string>
            </void>
            <void method="setProperty">
             <string>$hGap</string>
@@ -154,36 +154,25 @@
            <string>buttonBar</string>
           </void>
           <void method="add">
-           <object class="com.jformdesigner.model.FormContainer">
-            <string>javax.swing.JScrollPane</string>
-            <object class="com.jformdesigner.model.FormLayoutManager">
-             <class>javax.swing.JScrollPane</class>
-            </object>
-            <void property="name">
-             <string>scrollPane1</string>
+           <object class="com.jformdesigner.model.FormComponent">
+            <string>javax.swing.JTextArea</string>
+            <void method="setProperty">
+             <string>visible</string>
+             <boolean>false</boolean>
             </void>
-            <void method="add">
-             <object class="com.jformdesigner.model.FormComponent">
-              <string>javax.swing.JTextArea</string>
-              <void method="setProperty">
-               <string>visible</string>
-               <boolean>false</boolean>
-              </void>
-              <void method="setProperty">
-               <string>text</string>
-               <string>Second mapping is successfully created. Click finish to go to the next step.</string>
-              </void>
-              <void property="name">
-               <string>textArea1</string>
-              </void>
-             </object>
+            <void method="setProperty">
+             <string>text</string>
+             <string>Second mapping is successfully created. Click finish to go to the next step.</string>
+            </void>
+            <void property="name">
+             <string>textArea1</string>
             </void>
            </object>
            <object class="com.jformdesigner.model.FormLayoutConstraints">
             <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
             <void method="setProperty">
-             <string>gridwidth</string>
-             <int>3</int>
+             <string>gridy</string>
+             <int>2</int>
             </void>
            </object>
           </void>

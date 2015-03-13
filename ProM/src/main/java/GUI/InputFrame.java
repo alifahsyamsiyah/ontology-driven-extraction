@@ -52,7 +52,7 @@ public class InputFrame extends JPanel {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+				//scrollPane1.setVisible(true);
 				textArea1.setVisible(true);
 			}
 			
@@ -72,7 +72,6 @@ public class InputFrame extends JPanel {
 		label3 = new JLabel();
 		textField3 = new JTextField();
 		buttonBar = new JPanel();
-		scrollPane1 = new JScrollPane();
 		textArea1 = new JTextArea();
 		createButton = new JButton();
 
@@ -128,7 +127,7 @@ public class InputFrame extends JPanel {
 							.addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(label3)
 								.addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(34, Short.MAX_VALUE))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				);
 			}
 			dialogPane.add(contentPanel, BorderLayout.CENTER);
@@ -140,23 +139,18 @@ public class InputFrame extends JPanel {
 				((GridBagLayout)buttonBar.getLayout()).columnWidths = new int[] {0, 85, 80};
 				((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
 
-				//======== scrollPane1 ========
-				{
-
-					//---- textArea1 ----
-					textArea1.setVisible(false);
-					textArea1.setText("Second mapping is successfully created. Click finish to go to the next step.");
-					scrollPane1.setViewportView(textArea1);
-				}
-				buttonBar.add(scrollPane1, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
+				//---- textArea1 ----
+				textArea1.setVisible(false);
+				textArea1.setText("Second mapping is successfully created. Click finish to go to the next step.");
+				buttonBar.add(textArea1, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-					new Insets(0, 0, 5, 0), 0, 0));
+					new Insets(0, 0, 0, 5), 0, 0));
 
 				//---- createButton ----
 				createButton.setText("Create Second Mapping");
 				buttonBar.add(createButton, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-					new Insets(0, 0, 0, 5), 0, 0));
+					new Insets(0, 0, 5, 5), 0, 0));
 			}
 			dialogPane.add(buttonBar, BorderLayout.SOUTH);
 		}
@@ -174,7 +168,6 @@ public class InputFrame extends JPanel {
 	private JLabel label3;
 	private JTextField textField3;
 	private JPanel buttonBar;
-	private JScrollPane scrollPane1;
 	private JTextArea textArea1;
 	private JButton createButton;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
