@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.deckfour.xes.extension.XExtension;
@@ -19,6 +20,7 @@ import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.deckfour.xes.model.XVisitor;
+import org.deckfour.xes.model.buffered.XTraceIterator;
 import org.deckfour.xes.model.impl.XAttributeMapImpl;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
@@ -46,7 +48,7 @@ public class XTraceOnDemandImpl extends ArrayList<XEvent> implements XTrace {
 	private String[] getEventIDs() {
 		// to get the current trace
 		
-		String sparql = "PREFIX : <http://myproject.org/odbs#> \n" +
+		/*String sparql = "PREFIX : <http://myproject.org/odbs#> \n" +
 				"SELECT DISTINCT ?event \n"+
 				"WHERE { "+traceID+" a :Trace ; :contain2 ?event . }";
 		
@@ -58,9 +60,10 @@ public class XTraceOnDemandImpl extends ArrayList<XEvent> implements XTrace {
 			e.printStackTrace();
 		}
 		return result.split(", \n"); //NOOOOO YOU NEED TO SORT!
+		*/		
 		
 		// for sorting timestamp
-		/*
+		
 		String sparql = "PREFIX : <http://myproject.org/odbs#> \n" +
 				"SELECT DISTINCT ?date ?event \n"+
 				"WHERE { "+traceID+" a :Trace ; :contain2 ?event .\n"
@@ -74,13 +77,13 @@ public class XTraceOnDemandImpl extends ArrayList<XEvent> implements XTrace {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("result: "+result);
 		String[] elem =  result.split("\n");
 		
 		String[][] arr = new String[elem.length][2];
 		for(int i = 0; i < elem.length; i++) {
 			String[] tmp = elem[i].split(", ");
-			arr[i][0] = tmp[0];
+			arr[i][0] = tmp[0]; 
 			arr[i][1] = tmp[1];
 		}
 		
@@ -92,18 +95,16 @@ public class XTraceOnDemandImpl extends ArrayList<XEvent> implements XTrace {
             }
         });
 		
+		String[] sortedEventIDs = new String[elem.length];
 		for(int i = 0; i < elem.length; i++) {
-			eventIDs[i] = arr[i][1];
+			sortedEventIDs[i] = arr[i][1];
 		}
 		
-		return eventIDs;
-		*/
-		
-		
+		return sortedEventIDs;
 	}
 	
 	public XEvent get(int index) {
-		System.out.println("enter get");
+		System.out.println("-----enter get in trace");
 		
 		String eventID = eventIDs[index];
 		
@@ -122,12 +123,14 @@ public class XTraceOnDemandImpl extends ArrayList<XEvent> implements XTrace {
 		
 		String[] elem = result.split("\n");
 		
-		XAttributeMapImpl attrMap = new XAttributeMapImpl();;
+		XAttributeMapImpl attrMap = new XAttributeMapImpl();
+		
 		for(int i = 0; i < elem.length; i++) {
 			String[] tmp = elem[i].split(", ");
 			String type = tmp[0].replaceAll("\"", "").replace("^^xsd:string", "");
 			String key = tmp[1].replaceAll("\"", "").replace("^^xsd:string", "");
-			String value = tmp[2].replaceAll("\"", "").replace("^^xsd:string", "");
+			key = (key.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+			String value = tmp[2].replaceAll("\"", "").replace("^^xsd:string", "");			
 			
 			XExtensionManager extManager = XExtensionManager.instance();
 			XExtension extension = extManager.getByUri(XConceptExtension.EXTENSION_URI);
@@ -220,10 +223,33 @@ public class XTraceOnDemandImpl extends ArrayList<XEvent> implements XTrace {
 		if(size() == 0) return true;
 		else return false;
 	}
+	
+	/*public Iterator<XEvent> iterator(){
+		return new XTraceOnDemandIterator(this, eventIDs);
+	}*/
+	
+	/*public Iterator<XEvent> iterator() {
+		try {
+			return new XTraceOnDemandIterator2(eventIDs, ontology, mapping);
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidPredicateDeclarationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}*/
 
 	public XAttributeMap getAttributes() {
 		// TODO Auto-generated method stub
-		System.out.println("enter getAttributes");
+		System.out.println("-----enter getAttributes in trace");
 		return attributeMap;
 		
 		/*String sparql = "PREFIX : <http://myproject.org/odbs#> \n" +

@@ -269,5 +269,8 @@ BIND ("123" AS ?price)
 
 [QueryItem="tessss"]
 PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?s ?l
-WHERE {?s a :Staff; :lastName ?l .}
+SELECT DISTINCT ?e ?x ?y
+WHERE { ?e a :Rental; :dateOfRent ?t; :idRental ?i. FILTER(?i < "10"^^xsd:integer) .  ?e :paymentRental ?x; :dateOfPayment ?y . }
+
+[QueryItem="tessssss"]
+

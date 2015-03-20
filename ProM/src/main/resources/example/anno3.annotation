@@ -1,0 +1,49 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t
+WHERE { ?t a :Customer . }
+
+event-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?a ?t
+WHERE { ?a a :Rental; :customerRental ?t; :dateOfReturn ?x. ?a ?e ?x . }
+
+timestamp-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?a
+WHERE { ?a a :Rental; :dateOfReturn ?t . ?a ?e ?t . }
+
+activityname-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?a ?e
+WHERE { ?e a :Rental; :dateOfReturn ?t; :return ?x. ?e ?n ?x . ?e ?a ?t . }
+
+event-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?a ?t
+WHERE { ?a a :Rental; :customerRental ?t; :dateOfRent ?x. ?a ?e ?x . }
+
+timestamp-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?a
+WHERE { ?a a :Rental; :dateOfRent ?t . ?a ?e ?t . }
+
+activityname-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?a ?e
+WHERE { ?e a :Rental; :dateOfRent ?t; :rent ?x. ?e ?n ?x . ?e ?a ?t . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?r a :Rental; :customerRental ?t. ?r :paymentRental ?e . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?x . ?e ?n ?x . }
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?t. }

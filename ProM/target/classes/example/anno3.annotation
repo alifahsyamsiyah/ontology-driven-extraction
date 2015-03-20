@@ -1,0 +1,34 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t
+WHERE { ?t a :Customer . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?e a :Rental; :customerRental ?t. ?e ?n ?x . }
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?e a :Rental; :dateOfRent ?t . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?e a :Rental; :dateOfRent ?x. ?e ?n ?x .  }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?r a :Rental; :customerRental ?t. ?r :paymentRental ?e . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?x . ?e ?n ?x . }
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?t. }

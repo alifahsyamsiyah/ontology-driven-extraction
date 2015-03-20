@@ -6,6 +6,7 @@ import it.unibz.krdb.obda.exception.InvalidPredicateDeclarationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -72,6 +73,8 @@ public class XLogOnDemandImpl extends ArrayList<XTrace> implements XLog {
 	}
 
 	public XTrace get(int index) {
+		System.out.println("-----enter get in log");
+		
 		XTrace xtrace = null;
 		String traceID = traceIDs[index];
 				
@@ -105,6 +108,10 @@ public class XLogOnDemandImpl extends ArrayList<XTrace> implements XLog {
 		
 		return xtrace;
 	}
+	
+	/*public Iterator<XTrace> iterator() {
+		return new XLogOnDemandIterator(this, traceIDs);
+	}*/
 
 	public XAttributeMap getAttributes() {
 		// TODO Auto-generated method stub

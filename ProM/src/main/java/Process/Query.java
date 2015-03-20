@@ -178,7 +178,7 @@ public class Query {
 			QuestOWLStatement qst = (QuestOWLStatement) st;
 			sqlQuery = qst.getUnfolding(sparqlQuery);
 
-			System.out.println();
+			/*System.out.println();
 			System.out.println("The input SPARQL query:");
 			System.out.println("=======================");
 			System.out.println(sparqlQuery);
@@ -187,7 +187,7 @@ public class Query {
 			System.out.println("The output SQL query:");
 			System.out.println("=====================");
 			System.out.println(sqlQuery);
-			System.out.println();
+			System.out.println();*/
 			
 		} finally {
 			/* Close connection and resources */

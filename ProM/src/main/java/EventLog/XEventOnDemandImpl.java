@@ -43,7 +43,7 @@ public class XEventOnDemandImpl implements XEvent {
 
 	public XAttributeMap getAttributes() {
 		// TODO Auto-generated method stub
-		System.out.println("enter getAttribute Event");
+		System.out.println("-----enter getAttribute in event");
 		return attributeMap;
 	}
 

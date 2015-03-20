@@ -69,7 +69,7 @@ public class ProcessMining {
 								"WHERE { ?t a :Trace ; :contain5 ?ta. ?ta :valueA ?vat ."
 										+ "?t :contain2 ?e. ?e :contain3 ?a. ?a :typeA ?te ; :keyA ?ke; :valueA ?ve."
 										+ "?ev :declare2 ?a . }" +
-							    "ORDER BY ?t";
+							    "ORDER BY ?t ?e";
 				
 			// materialize event logs
 			Query query = new Query("src/main/resources/example/"+inputFrame.ontology,"src/main/resources/example/secondmapping.obda");	

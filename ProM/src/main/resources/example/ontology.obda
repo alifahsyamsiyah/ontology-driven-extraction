@@ -91,20 +91,21 @@ source		SELECT s.store_id as idStore, i.inventory_id as idInventory
 			WHERE s.store_id = i.store_id
 
 mappingId	rental
-target		:rental{idRental} a :Rental ; :idRental {idRental} ; :dateOfRent {dateRent} ; :dateOfReturn {dateReturn} . 
-source		SELECT r.rental_id as idRental, r.rental_date as dateRent, r.return_date as dateReturn
+target		:rental{idRental} a :Rental ; :idRental {idRental} ; :dateOfRent {dateRent} ; :dateOfReturn {dateReturn} ; :rent {idRental} ; :return {dateUpdate} . 
+source		SELECT r.rental_id as idRental, r.rental_date as dateRent, r.return_date as dateReturn, r.last_update as dateUpdate
 			FROM rental as r
+			WHERE r.rental_id < 10
 
 mappingId	payment
-target		:payment{idPayment} a :Payment ; :idPayment {idPayment} ; :price {price} ; :dateOfPayment {datePayment} . 
-source		SELECT p.payment_id as idPayment, p.amount as price, p.payment_date as datePayment
+target		:payment{idPayment} a :Payment ; :idPayment {idPayment} ; :price {price} ; :dateOfPayment {datePayment} ; :pay {dateUpdate} . 
+source		SELECT p.payment_id as idPayment, p.amount as price, p.payment_date as datePayment, p.last_update as dateUpdate
 			FROM payment as p
 
 mappingId	customerRental
 target		:rental{idRental} :customerRental :customer{idCustomer} . 
 source		SELECT c.customer_id as idCustomer, r.rental_id as idRental
 			FROM customer as c, rental as r
-			WHERE c.customer_id = r.customer_id
+			WHERE c.customer_id = r.customer_id AND r.rental_id < 10
 
 mappingId	basedOn
 target		:rental{idRental} :basedOn :inventory{idInventory} . 
@@ -116,7 +117,7 @@ mappingId	paymentRental
 target		:rental{idRental} :paymentRental :payment{idPayment} . 
 source		SELECT r.rental_id as idRental, p.payment_id as idPayment
 			         FROM payment as p, rental as r
-			         WHERE p.rental_id = r.rental_id
+			         WHERE p.rental_id = r.rental_id AND r.rental_id < 10
 
 mappingId	worksIn
 target		:staff{idStaff} :worksIn :store{idStore} . 

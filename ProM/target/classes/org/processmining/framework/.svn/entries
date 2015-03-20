@@ -1,89 +1,0 @@
-10
-
-dir
-18494
-https://svn.win.tue.nl/repos/prom/Framework/trunk/src-Framework/org/processmining/framework
-https://svn.win.tue.nl/repos/prom
-
-
-
-2014-12-12T07:36:03.314416Z
-17811
-hverbeek
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-a68f48d4-8d00-424f-b812-3f22a534a02a
-
-ProMID.java
-file
-
-
-
-
-2015-01-22T09:27:22.416000Z
-0b80f77a0ec11bed0ca840fc50d0f444
-2010-12-10T09:21:45.626115Z
-8
-bfvdonge
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-985
-
-abstractplugins
-dir
-
-annotations
-dir
-
-boot
-dir
-
-connections
-dir
-
-packages
-dir
-
-plugin
-dir
-
-providedobjects
-dir
-
-util
-dir
-
-xstream
-dir
-

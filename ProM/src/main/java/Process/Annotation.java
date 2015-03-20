@@ -136,12 +136,8 @@ public class Annotation {
 
 				for(int i = 0; i < listofsql.size(); i++) {					
 					String[] arr = listofvar.get(i).split(" ");
-					String e = arr[0], t;
-					for(int j = 1; j < arr.length-1; j++) {
-						e = e + "," + arr[j];
-					}
-					e = e.replace("?", ""); // event
-					t = arr[arr.length-1].replace("?", ""); // trace
+					String e = arr[0].replace("?", ""); // event
+					String t = arr[1].replace("?", ""); // trace
 					
 					int c = 0;
 					
@@ -164,6 +160,34 @@ public class Annotation {
 							+ ":trace{" + t + "} :contain2 :event{" + e + "} .\n");
 					
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
+				}
+				
+			/*
+			 * Write a mapping for event from attribute
+			 */	
+			} else if(key.equals("event-attribute")) {
+
+				for(int i = 0; i < listofsql.size(); i++) {					
+					String[] arr = listofvar.get(i).split(" ");
+					String e = arr[0].replace("?", ""); // attribute which is annotated as an event
+					String a = arr[1].replace("?", ""); // class containing the event
+					String t = arr[2].replace("?", ""); // trace
+					
+					int c = 0;
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++; 
+					secondmapping.write("target\t\t:event{" + e + "}{" + a + "} a :Event . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++; 
+					secondmapping.write("target\t\t:trace{" + t + "} a :Trace . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++; 
+					secondmapping.write("target\t\t:trace{" + t + "} :contain2 :event{" + e + "}{" + a + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+				
 				}
 			
 			/*
@@ -220,6 +244,52 @@ public class Annotation {
 							+ ":ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} .\n");
 					
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
+				}
+				
+			/*
+			 * Write a mapping for timestamp from event-attribute
+			 */
+			} else if(key.equals("timestamp-attribute")) {
+					
+				for(int i = 0; i < listofsql.size(); i++) {					
+					String[] arr = listofvar.get(i).split(" ");
+					String t = arr[0].replace("?", ""); // timestamp
+					String e = arr[1].replace("?", ""); // attribute which is annotated as an event
+					String a = arr[2].replace("?", ""); // class containing the event
+					int c = 0;
+						
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "}{" + a + "} a :Event . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+						
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:ext{" + t + "}{" +e+ "} a :Extension . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} a :Attribute . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} :keyA \"time:timestamp\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} :typeA \"timestamp\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} :valueA {" + t + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "}{" + a + "} :contain3 :attr{" + t + "}{" +e+ "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
 				}
 			
 			/*
@@ -278,6 +348,52 @@ public class Annotation {
 							+ ":ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} .\n");
 					
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
+				}
+				
+			/*
+			 * Write a mapping for activityname from event-attribute
+			 */
+			} else if(key.equals("activityname-attribute")) {
+					
+				for(int i = 0; i < listofsql.size(); i++) {					
+					String[] arr = listofvar.get(i).split(" ");
+					String t = arr[0].replace("?", ""); // activityname
+					String e = arr[1].replace("?", ""); // attribute which is annotated as an event
+					String a = arr[2].replace("?", ""); // class containing the event
+					int c = 0;
+						
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "}{" + a + "} a :Event . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+						
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:ext{" + t + "}{" +e+ "} a :Extension . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} a :Attribute . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} :keyA \"concept:name\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} :typeA \"literal\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "}{" +e+ "} :valueA {" + t + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "}{" + a + "} :contain3 :attr{" + t + "}{" +e+ "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+
+					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
+					secondmapping.write("target\t\t:ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+						
 				}
 			
 			/*
@@ -342,11 +458,13 @@ public class Annotation {
 		 */
 		} else if(key.equals("multiattribute")) {
 			
-			for(int i = 0; i < listofsql.size(); i++) {					
+			for(int i = 0; i < listofsql.size(); i++) {	
+				
 				String[] arr = listofvar.get(i).split(" ");
 				String a = arr[0].replace("?", ""); // attribute value
 				String r = arr[1].replace("?", ""); // attribute name
-				String e = arr[2].replace("?", ""); // event		
+				String c = arr[2].replace("?", ""); // instance class containing attribute
+				String e = arr[3].replace("?", ""); // event					
 				
 				String[] temp = listofsql.get(i).split("as "+"`"+r+"`");
 				String[] temp2 = temp[0].split(" ");
@@ -356,37 +474,54 @@ public class Annotation {
 				String t = query.getType(attribute); // get attribute type from ontology file
 				String s = convertType(t); // convert attribute type for this mapping
 				
-				int c = 0;
-								
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+				int x = 0;
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
 				secondmapping.write("target\t\t:event{" + e + "} a :Event .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:e{" + a + "} a :Extension .\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:ext{" + r + "}{" +c+ "} a :Extension .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:ca{" + r + "} a :ContainerAttribute .\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + r + "}{" +c+ "} a :Attribute .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:ca{" + r + "} :keyA {" + r + "}.\n");
-				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");				
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:"+ s + "{" + a + "} a :" + t + "Attribute .\n");
-				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");				
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:"+ s + "{" + a + "} :keyA {" + a + "} .\n");
-				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");		
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:"+ s + "{" + a + "} :value" + s.toUpperCase() + " {" + a + "} .\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + r + "}{" +c+ "} :keyA :key{" + r + "}{" +c+ "} .\n");
+				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");	
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + r + "}{" +c+ "} :typeA \"container\"^^xsd:string .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:ca{" + r + "} :contain6 :" + s + "{" + a + "} .\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + a + "}{" +r+ "}{" +c+ "} a :Attribute .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:event{" + e + "} :contain3 :" + s + "{" + a + "} .\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + a + "}{" +r+ "}{" +c+ "} :keyA :key{" + a + "}{" +r+ "}{" +c+ "} .\n");
+				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");	
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + a + "}{" +r+ "}{" +c+ "} :valueA {" + a + "} .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-				secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
-				secondmapping.write("target\t\t:e{" + a + "} :declare2 :" + s + "{" + a + "} .\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + a + "}{" +r+ "}{" +c+ "} :typeA {" + s + "} .\n");
+				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:attr{" + r + "}{" +c+ "} :contain6 :attr{" + a + "}{" +r+ "}{" +c+ "} .\n");
+				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:event{" + e + "} :contain3 :attr{" + r + "}{" +c+ "} .\n");
+				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+				
+				secondmapping.write("mappingId\t"+ key + i + x + "\n"); x++;
+				secondmapping.write("target\t\t:ext{" + r + "}{" +c+ "} :declare2 :attr{" + r + "}{" +c+ "} .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
 			}
 		}  
@@ -436,6 +571,16 @@ public class Annotation {
 				processAnnotation(event, "event");
 				
 			/*
+			 * Event annotation from attribute
+			 */
+			} else if(input.equalsIgnoreCase("event-attribute")) {
+				String event = "";
+				while((input = annotation.readLine()) != null && !input.equals("")) {
+					event = event + " " + input;
+				}
+				processAnnotation(event, "event-attribute");
+				
+			/*
 			 * Timestamp annotation
 			 */
 			} else if(input.equalsIgnoreCase("timestamp")) {
@@ -446,6 +591,16 @@ public class Annotation {
 				processAnnotation(timestamp, "timestamp");
 				
 			/*
+			 * Timestamp annotation from event-attribute
+			 */
+			} else if(input.equalsIgnoreCase("timestamp-attribute")) {
+				String timestamp = "";
+				while((input = annotation.readLine()) != null && !input.equals("")) {
+					timestamp = timestamp + " " + input;
+				}
+				processAnnotation(timestamp, "timestamp-attribute");
+				
+			/*
 			 * Activity name annotation
 			 */
 			} else if(input.equalsIgnoreCase("activityname")) {
@@ -454,6 +609,16 @@ public class Annotation {
 					activityname = activityname + " " + input;
 				}
 				processAnnotation(activityname, "activityname");
+				
+			/*
+			 * Activity name annotation
+			 */
+			} else if(input.equalsIgnoreCase("activityname-attribute")) {
+				String activityname = "";
+				while((input = annotation.readLine()) != null && !input.equals("")) {
+					activityname = activityname + " " + input;
+				}
+				processAnnotation(activityname, "activityname-attribute");
 				
 			/*
 			 * Attribute annotation 

@@ -72,10 +72,12 @@ public class Extract {
 			String trace = arr[0];
 			String tracevalue = (arr[1].replaceAll("\"", "")).replace("^^xsd:string","");
 			String event = arr[2];
+			event = (event.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
 			String type = (arr[3].replaceAll("\"", "")).replace("^^xsd:string","");
 			String key = (arr[4].replaceAll("\"", "")).replace("^^xsd:string","");
 			key = (key.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
 			String value = (arr[5].replaceAll("\"", "")).replace("^^xsd:string","");
+			value = (value.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
 			String ext = arr[6];
 			
 			// the same trace
@@ -147,6 +149,7 @@ public class Extract {
 			
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static XAttribute createAttribute(String key, String value, XExtension extension, String type) {
 		XAttribute attribute;
 		
@@ -161,16 +164,28 @@ public class Extract {
 		
 		} else if(type.equals("timestamp")) {
 			
-			Date date = null;
-			String[] arr = value.split("-");
+			Date thedate = null;
+			
+			// date based on length
+			/*String[] arr = value.split("-");
 			if(arr.length == 3) {				
 				date = new Date(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
 			} else if(arr.length == 5) {				
 				date = new Date(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), Integer.parseInt(arr[4]));
 			} else if(arr.length == 6) {				
 				date = new Date(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), Integer.parseInt(arr[5]));
-			}
-			attribute = factory.createAttributeTimestamp(key, date, extension);
+			}*/
+			
+			// date format: year-month-date hrs:min:sec
+			String[] arr = value.split(" ");
+			String[] d1 = arr[0].split("-");
+			String[] d2 = arr[1].split(":");
+			String year = d1[0]; String month = d1[1]; String date = d1[2];
+			String hrs = d2[0]; String min = d2[1]; String sec = d2[2];
+			
+			thedate = new Date(Integer.parseInt(year)-1900, Integer.parseInt(month), Integer.parseInt(date), Integer.parseInt(hrs), Integer.parseInt(min), Integer.parseInt(sec));
+			
+			attribute = factory.createAttributeTimestamp(key, thedate, extension);
 			
 		} else if(type.equals("discrete")) {
 			

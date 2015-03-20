@@ -7,9 +7,11 @@
 <!-- OpenXES is available from http://www.openxes.org/ -->
 <log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7" xmlns="http://www.xes-standard.org/">
 	<trace>
-		<string key="concept:name" value="6"/>
+		<string key="concept:name" value="5"/>
 		<event>
-			<string key="concept:name" value="AGENT TRUMAN"/>
+			<string key="genre5" value="Family"/>
+			<string key="concept:name" value="AFRICAN EGG"/>
+			<string key="time:timestamp" value="93-2-7-9-24"/>
 		</event>
 	</trace>
 </log>

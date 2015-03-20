@@ -23,7 +23,7 @@ public class Main {
 		
 		 // Read annotation from user and retrieve automatic mapping to event ontology
 		 
-		annotation.readAnnotation(new BufferedReader(new FileReader("src/main/resources/example/anno.annotation")));
+		annotation.readAnnotation(new BufferedReader(new FileReader("src/main/resources/example/anno3.annotation")));
 		
 		
 		 // Write the second mapping based on user annotation
@@ -40,7 +40,7 @@ public class Main {
 						"WHERE { ?t a :Trace ; :contain5 ?ta. ?ta :valueA ?vat ."
 								+ "?t :contain2 ?e. ?e :contain3 ?a. ?a :typeA ?te ; :keyA ?ke; :valueA ?ve."
 								+ "?ev :declare2 ?a . }" +
-					    "ORDER BY ?t";	
+					    "ORDER BY ?t ?e";	
 		
 		
 		String result = query.runQuery(sparqlQuery);

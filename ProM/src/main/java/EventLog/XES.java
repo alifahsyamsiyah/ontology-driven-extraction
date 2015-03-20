@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import org.deckfour.xes.extension.XExtension;
@@ -39,12 +40,12 @@ public class XES {
 		mapping = "src/main/resources/example/secondmapping.obda";
 		
 		XLogOnDemandImpl xlog = new XLogOnDemandImpl(new XAttributeMapImpl(),ontology, mapping);
-		XTrace xtrace = xlog.get(5);
+		
+		XTrace xtrace = xlog.get(4);
 		xlog.add(xtrace);
-		XEvent xevent = xtrace.get(1);
+		XEvent xevent = xtrace.get(0);
 		xtrace.add(xevent);
-		//System.out.println(xtrace.getAttributes());
-		//System.out.println(xevent.getAttributes());
+		
 		
 		// create serializer
 		XesXmlSerializer s = new XesXmlSerializer();		
