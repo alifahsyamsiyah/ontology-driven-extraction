@@ -8,19 +8,19 @@ Ontology-Driven Extraction is a prototype of ProM plugin that is built to suppor
 
 # Files in this folder
 1. `ProM` is a Maven project. You may move it into your Eclipse workspace
-2. `sakila.sql.zip` is the databases
+2. `conference.sql` and `sakila.sql.zip` are the databases
 3. `README.md` is this readme file
 4. Some examples for the ontology, mapping, and annotation is given under `/ProM/src/main/resources/example/`:
-  * `ontology.owl` is the domain and event ontology
-  * `ontology.obda` is the first mapping, which is the mapping from database to the domain ontology
-  * `anno.annotation` is the annotation
+  * `ontology3.owl` is the domain and event ontology
+  * `ontology3.obda` is the first mapping, which is the mapping from database to the domain ontology
+  * `anno5.annotation` is the annotation
 
 Note: you may use different ontology, mapping, and annotation files and put them into `/ProM/src/main/resources/example/` folder
 
 # How to install
-1. Import the database `sakila.sql.zip` into your local server.
-2. Open file `ontology.obda` under the folder `/ProM/src/main/resources/example/` and change your local server properties (your local server name, the username, and the password) as shown in these lines:
-  * connectionUrl	jdbc:mysql://`[your local server name]`/sakila
+1. Import the database `conference.sql` into your local server.
+2. Open file `ontology3.obda` under the folder `/ProM/src/main/resources/example/` and change your local server properties (your local server name, the username, and the password) as shown in these lines:
+  * connectionUrl	jdbc:mysql://`[your local server name]`/conference
   * username	`[your username]`
   * password	`[your password]`
 3. Create a Maven project in Eclipse by do this following:
@@ -38,9 +38,9 @@ Note: you may use different ontology, mapping, and annotation files and put them
 2. After ProM window appears (which may take several time during first installation), click on `Action` tab. It is the middle button on the top bar.
 3. Search `Ontology-Driven Extraction Plugin` and click `Start`
 4. Enter your input files. You may use examples given in this folder by typing:
-  * Ontology: `ontology.owl`
-  * First mapping: `ontology.obda`
-  * Annotation: `anno.annotation`
+  * Ontology: `ontology3.owl`
+  * First mapping: `ontology3.obda`
+  * Annotation: `anno5.annotation`
 5. Click `Create Second Mapping`
 6. After the information "Second mapping is successfully created. Click finish to go to the next step." is shown, click `Finish`
 7. Here you can test your SPARQL Query to see whether the annotation and mapping are done correctly. One simple query that you may ask to check all traces and all events is given below:
