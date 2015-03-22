@@ -41,7 +41,7 @@ The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resou
 4. Enter your input files. You may use examples given in this folder by typing:
   * Ontology: `ontology.owl`
   * First mapping: `ontology.obda`
-  * Annotation: `anno.annotation`
+  * Annotation: `anno.annotation`<br />
  You may user another example: `ontology3.owl` (ontology), `ontology3.owl` (first mapping), and `anno5.annotation` (annotation).
 5. Click `Create Second Mapping`
 6. After the information "Second mapping is successfully created. Click finish to go to the next step." is shown, click `Finish`
