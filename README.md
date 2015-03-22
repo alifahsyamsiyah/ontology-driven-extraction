@@ -11,9 +11,9 @@ Ontology-Driven Extraction is a prototype of ProM plugin that is built to suppor
 2. `conference.sql` and `sakila.sql.zip` are the databases
 3. `README.md` is this readme file
 4. Some examples for the ontology, mapping, and annotation is given under `/ProM/src/main/resources/example/`:
-  * `ontology3.owl` is the domain and event ontology
-  * `ontology3.obda` is the first mapping, which is the mapping from database to the domain ontology
-  * `anno5.annotation` is the annotation
+  * `ontology.owl` and `ontology3.owl` are the domain and event ontology
+  * `ontology.obda` and `ontology3.obda` are the first mapping, which is the mapping from database to the domain ontology
+  * `anno.annotation` and `anno5.annotation` are the annotation
 
 Note: you may use different ontology, mapping, and annotation files and put them into `/ProM/src/main/resources/example/` folder
 
@@ -22,7 +22,7 @@ Note: you may use different ontology, mapping, and annotation files and put them
 2. Open file `ontology.obda` under the folder `/ProM/src/main/resources/example/` and change your local server properties (your local server name, the username, and the password) as shown in these lines:
   * connectionUrl	jdbc:mysql://`[your local server name]`/sakila
   * username	`[your username]`
-  * password	`[your password]`
+  * password	`[your password]` <br />
 The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resources/example/`
 3. Create a Maven project in Eclipse by do this following:
   * `File > New > Other` 
