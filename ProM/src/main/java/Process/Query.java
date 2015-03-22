@@ -166,11 +166,11 @@ public class Query {
 					
 					w.write(binding.toString() + ", ");
 					result = result + binding.toString() + ", ";
-					System.out.print(binding.toString() + ", "); // query result
+					//System.out.print(binding.toString() + ", "); // query result
 				}
 				w.write("\n");
 				result = result + "\n";
-				System.out.print("\n");
+				//System.out.print("\n");
 			}
 			w.close();
 			rs.close();
@@ -265,6 +265,7 @@ public class Query {
 		sql = sql.replaceAll("and\\n[\\w\\p{Punct}\\d]+ is not null", ""); // and ... is not null		
 		sql = sql.replaceAll("[\\w\\p{Punct}\\d]+ is not null", ""); // ... is not null
 		sql = sql.replaceAll("where[\\n\\s]*$", ""); // where alone
+		sql = sql.replaceAll("where[\\n\\s]*and", "where "); // where and
 		sql = sql.replaceAll("where[\\n\\s]*union", "union"); // where alone with union afterwards
 		sql = sql.replaceAll("\\n", " "); // to make only in one line
 		sql = sql.replaceAll("\\s+", " "); // multiple space

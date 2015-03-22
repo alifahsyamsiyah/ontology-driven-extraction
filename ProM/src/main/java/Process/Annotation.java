@@ -113,20 +113,6 @@ public class Annotation {
 					secondmapping.write("target\t\t:ext{" + t + "} :declare2 :attr{" + t + "} . \n");
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
 					
-					
-					/*secondmapping.write("mappingId\t"+ key + i + "\n");
-					
-					secondmapping.write("target\t\t:trace{" + t + "} a :Trace ."
-							+ " :ext{" + t + "} a :Extension ."
-							+ " :attr{" + t + "} a :Attribute ."
-							+ " :attr{" + t + "} :keyA \"concept:name\"^^xsd:string ."
-							+ " :attr{" + t + "} :valueA {" + t + "} ."
-							+ " :attr{" + t + "} :typeA \"literal\"^^xsd:string ."
-							+ " :trace{" + t + "} :contain5 :attr{" + t + "} ."
-							+ " :ext{" + t + "} :declare2 :attr{" + t + "} .\n");
-					
-					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
-					
 				}
 			
 			/*
@@ -152,14 +138,6 @@ public class Annotation {
 					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++; 
 					secondmapping.write("target\t\t:trace{" + t + "} :contain2 :event{" + e + "} . \n");
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-					
-					/*secondmapping.write("mappingId\t"+ key + i + "\n"); 
-					
-					secondmapping.write("target\t\t:event{" + e + "} a :Event ."
-							+ ":trace{" + t + "} a :Trace ."
-							+ ":trace{" + t + "} :contain2 :event{" + e + "} .\n");
-					
-					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
 				}
 				
 			/*
@@ -233,17 +211,6 @@ public class Annotation {
 					secondmapping.write("target\t\t:ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} . \n");
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
 					
-					/*secondmapping.write("mappingId\t"+ key + i + "\n"); 
-					secondmapping.write("target\t\t:event{" + e + "} a :Event ."
-							+ ":ext{" + t + "}{" +e+ "} a :Extension ."
-							+ ":attr{" + t + "}{" +e+ "} a :Attribute ."
-							+ ":attr{" + t + "}{" +e+ "} :keyA \"time:timestamp\"^^xsd:string ."
-							+ ":attr{" + t + "}{" +e+ "} :typeA \"timestamp\"^^xsd:string ."
-							+ ":attr{" + t + "}{" +e+ "} :valueA {" + t + "} ."
-							+ ":event{" + e + "} :contain3 :attr{" + t + "}{" +e+ "}."
-							+ ":ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} .\n");
-					
-					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
 				}
 				
 			/*
@@ -334,20 +301,6 @@ public class Annotation {
 					secondmapping.write("mappingId\t"+ key + i + c+ "\n"); c++;
 					secondmapping.write("target\t\t:ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} . \n");
 					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
-					
-					
-					/*secondmapping.write("mappingId\t"+ key + i + "\n"); 
-					
-					secondmapping.write("target\t\t:event{" + e + "} a :Event ."
-							+ ":ext{" + t + "}{" +e+ "} a :Extension ."
-							+ ":attr{" + t + "}{" +e+ "} a :Attribute ."
-							+ ":attr{" + t + "}{" +e+ "} :keyA \"concept:name\"^^xsd:string ."
-							+ ":attr{" + t + "}{" +e+ "} :typeA \"literal\"^^xsd:string ."
-							+ ":attr{" + t + "}{" +e+ "} :valueA {" + t + "} ."
-							+ ":event{" + e + "} :contain3 :attr{" + t + "}{" +e+ "} ."
-							+ ":ext{" + t + "}{" +e+ "} :declare2 :attr{" + t + "}{" +e+ "} .\n");
-					
-					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
 				}
 				
 			/*
@@ -524,6 +477,106 @@ public class Annotation {
 				secondmapping.write("target\t\t:ext{" + r + "}{" +c+ "} :declare2 :attr{" + r + "}{" +c+ "} .\n");
 				secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
 			}
+			
+			/*
+			 * Write a mapping for all
+			 */
+			} else if(key.equals("all")) {
+				
+				for(int i = 0; i < listofsql.size(); i++) {	
+					
+					String[] arr = listofvar.get(i).split(" ");
+					String t = arr[0].replace("?", ""); // trace
+					String e = arr[1].replace("?", ""); // event
+					String n = arr[2].replace("?", ""); // activity name
+					String s = arr[3].replace("?", ""); // timestamp	
+					
+					/*secondmapping.write("mappingId\t"+ key + i + "\n");
+					
+					secondmapping.write("target\t\t:trace{" + t + "} a :Trace . :event{" + e + "} a :Event . :attr{" + n + "} a :Attribute . "
+							+ ":attr{" + s + "} a :Attribute . :attr{" + t + "} :keyA \"concept:name\"^^xsd:string . "
+									+ ":attr{" + n + "}{" + e + "} :keyA \"concept:name\"^^xsd:string . "
+											+ ":attr{" + s + "}{" + e + "} :keyA \"time:timestamp\"^^xsd:string . "
+													+ " :attr{" + t + "} :valueA {" + t + "} . :attr{" + n + "}{" + e + "} :valueA {" + n + "} . "
+															+ ":attr{" + s + "}{" + e + "} :valueA {" + s + "} . :attr{" + t + "} :typeA \"literal\"^^xsd:string . "
+																	+ ":attr{" + n + "}{" + e + "} :typeA \"literal\"^^xsd:string .	:attr{" + s + "}{" + e + "} :typeA \"timestamp\"^^xsd:string . "
+																			+ ":trace{" + t + "} :contain2 :event{" + e + "} . :trace{" + t + "} :contain5 :attr{" + t + "} . "
+																					+ ":event{" + e + "} :contain3 :attr{" + n + "}{" + e + "} . "
+																							+ ":event{" + e + "} :contain3 :attr{" + s + "}{" + e + "} . \n");
+					
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");*/
+					
+					int c = 0;
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:trace{" + t + "} a :Trace .\n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "} a :Event .\n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + n + "} a :Attribute .\n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + s + "} a :Attribute .\n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "} :keyA \"concept:name\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + n + "}{" + e + "} :keyA \"concept:name\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + s + "}{" + e + "} :keyA \"time:timestamp\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "} :valueA {" + t + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + n + "}{" + e + "} :valueA {" + n + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + s + "}{" + e + "} :valueA {" + s + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + t + "} :typeA \"literal\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + n + "}{" + e + "} :typeA \"literal\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:attr{" + s + "}{" + e + "} :typeA \"timestamp\"^^xsd:string . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:trace{" + t + "} :contain2 :event{" + e + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:trace{" + t + "} :contain5 :attr{" + t + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "} :contain3 :attr{" + n + "}{" + e + "} . \n");
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+					secondmapping.write("mappingId\t"+ key + i + c + "\n"); c++;
+					secondmapping.write("target\t\t:event{" + e + "} :contain3 :attr{" + s + "}{" + e + "} . \n");					
+					secondmapping.write("source\t\t" + listofsql.get(i) + "\n\n");
+					
+				}
+				
 		}  
 			
 			
@@ -553,7 +606,17 @@ public class Annotation {
 			/*
 			 * Trace annotation
 			 */
-			if(input.equalsIgnoreCase("trace")) {
+			if(input.equalsIgnoreCase("all")) {
+				String all = "";
+				while((input = annotation.readLine()) != null && !input.equals("")) {
+					all = all + " " + input;
+				}
+				processAnnotation(all, "all");
+			
+			/*
+			 * Trace annotation
+			 */
+			} else if(input.equalsIgnoreCase("trace")) {
 				String trace = "";
 				while((input = annotation.readLine()) != null && !input.equals("")) {
 					trace = trace + " " + input;
@@ -685,11 +748,13 @@ public class Annotation {
 		 */
 		String sql = query.unfoldQuery(sparql);
 		//query.runQuery(sparql); // for testing only, you may erase it
+		//System.out.println("-----unfold query: "+sql);
 		
 		/*
 		 * Simplified the Sql 
 		 */
 		String sqlSimplified = query.simplifySQL(sql);
+		//System.out.println("-----simplified query: "+sqlSimplified);
 		
 		/*
 		 * Put simplified Sql into hash of Sql. The key of hash is annotation tag.

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/prom/!svn/ver/16338/Framework/trunk/src-Framework/org/processmining/framework/util
+END
+StringUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/StringUtils.java
+END
+Cast.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/Cast.java
+END
+AutoHelpCommandLineParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/AutoHelpCommandLineParser.java
+END
+IconLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/IconLoader.java
+END
+CommandLineArgumentList.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/CommandLineArgumentList.java
+END
+Pair.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/Pair.java
+END
+ArrayUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/ArrayUtils.java
+END
+HTMLToString.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/HTMLToString.java
+END
+LevenshteinDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/LevenshteinDistance.java
+END
+OsUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/prom/!svn/ver/16338/Framework/trunk/src-Framework/org/processmining/framework/util/OsUtil.java
+END
+WeakValueHashMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/WeakValueHashMap.java
+END
+Cleanable.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/Cleanable.java
+END
+PathHacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/prom/!svn/ver/8/Framework/trunk/src-Framework/org/processmining/framework/util/PathHacker.java
+END

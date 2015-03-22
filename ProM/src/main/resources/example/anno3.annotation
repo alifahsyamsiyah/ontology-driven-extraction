@@ -3,6 +3,36 @@ PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?t
 WHERE { ?t a :Customer . }
 
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?r a :Rental; :customerRental ?t. ?r :paymentRental ?e . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?e a :Payment . BIND ("make a payment" AS ?n) . }
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?t. }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?f ?c
+WHERE { ?r a :Rental; :customerRental ?c; :basedOn ?i . ?i :filmInventory ?f . }
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?d ?f
+WHERE { ?f a :Film; :releaseDate ?d . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?f
+WHERE { ?f a :Film. BIND ("a film is released" AS ?n) . }
+
 event-attribute
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?e ?a ?t
@@ -16,7 +46,7 @@ WHERE { ?a a :Rental; :dateOfReturn ?t . ?a ?e ?t . }
 activityname-attribute
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?n ?a ?e
-WHERE { ?e a :Rental; :dateOfReturn ?t; :return ?x. ?e ?n ?x . ?e ?a ?t . }
+WHERE { ?e a :Rental; :dateOfReturn ?t. ?e ?a ?t . BIND ("return the film CD" AS ?n) .}
 
 event-attribute
 PREFIX : <http://myproject.org/odbs#>
@@ -31,19 +61,4 @@ WHERE { ?a a :Rental; :dateOfRent ?t . ?a ?e ?t . }
 activityname-attribute
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?n ?a ?e
-WHERE { ?e a :Rental; :dateOfRent ?t; :rent ?x. ?e ?n ?x . ?e ?a ?t . }
-
-event
-PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?e ?t
-WHERE { ?r a :Rental; :customerRental ?t. ?r :paymentRental ?e . }
-
-activityname
-PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?n ?e
-WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?x . ?e ?n ?x . }
-
-timestamp
-PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?t ?e
-WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?t. }
+WHERE { ?e a :Rental; :dateOfRent ?t. ?e ?a ?t .  BIND ("rent the film CD" AS ?n) . }

@@ -87,5 +87,6 @@
 	<classpathentry kind="lib" path="lib/junit-3.8.2.jar"/>
 	<classpathentry kind="lib" path="lib/OpenXES-XStream.jar"/>
 	<classpathentry kind="lib" path="lib/OpenXES.jar"/>
+	<classpathentry kind="lib" path="lib/it.unibz.inf.obda.p4plugin-1.14.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

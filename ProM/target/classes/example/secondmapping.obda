@@ -2,196 +2,272 @@
 :		http://myproject.org/odbs#
 
 [SourceDeclaration]
-sourceUri	database
-connectionUrl	jdbc:mysql://localhost/sakila
+sourceUri	database_conference
+connectionUrl	jdbc:mysql://localhost/conference
 username	root
 password	root
 driverClass	com.mysql.jdbc.Driver
 
 [MappingDeclaration] @collection [[
-mappingId	timestamp-attribute00
-target		:event{e}{a} a :Event . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute01
-target		:ext{t}{e} a :Extension . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute02
-target		:attr{t}{e} a :Attribute . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute03
-target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute04
-target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute05
-target		:attr{t}{e} :valueA {t} . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute06
-target		:event{e}{a} :contain3 :attr{t}{e} . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
-mappingId	timestamp-attribute07
-target		:ext{t}{e} :declare2 :attr{t}{e} . 
-source		 select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofreturn' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#return' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select qview1.`rental_id` as `t`, 'http://myproject.org/odbs#rent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select qview1.`rental_date` as `t`, 'http://myproject.org/odbs#dateofrent' as `e`, qview1.`rental_id` as `a` from rental qview1 where (qview1.`rental_id` < 10) 
-
 mappingId	activityname00
 target		:event{e} a :Event . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname01
 target		:ext{n}{e} a :Extension . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname02
 target		:attr{n}{e} a :Attribute . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname03
 target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname04
 target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname05
 target		:attr{n}{e} :valueA {n} . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname06
 target		:event{e} :contain3 :attr{n}{e} . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	activityname07
 target		:ext{n}{e} :declare2 :attr{n}{e} . 
-source		 select 'http://myproject.org/odbs#dateofpayment' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#pay' as `n`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`payment_date` = qview1.`last_update`) and (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
-mappingId	activityname-attribute00
-target		:event{a}{e} a :Event . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname10
+target		:event{e} a :Event . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute01
-target		:ext{n}{a} a :Extension . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname11
+target		:ext{n}{e} a :Extension . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute02
-target		:attr{n}{a} a :Attribute . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname12
+target		:attr{n}{e} a :Attribute . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute03
-target		:attr{n}{a} :keyA "concept:name"^^xsd:string . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname13
+target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute04
-target		:attr{n}{a} :typeA "literal"^^xsd:string . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname14
+target		:attr{n}{e} :typeA "literal"^^xsd:string . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute05
-target		:attr{n}{a} :valueA {n} . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname15
+target		:attr{n}{e} :valueA {n} . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute06
-target		:event{a}{e} :contain3 :attr{n}{a} . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname16
+target		:event{e} :contain3 :attr{n}{e} . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
-mappingId	activityname-attribute07
-target		:ext{n}{a} :declare2 :attr{n}{a} . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofreturn' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_date` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofreturn' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`return_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#return' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` = qview1.`last_update`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#rent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `n`, 'http://myproject.org/odbs#dateofrent' as `a`, qview1.`rental_id` as `e` from rental qview1 where (qview1.`rental_id` = qview1.`rental_date`) and (qview1.`rental_id` < 10) 
+mappingId	activityname17
+target		:ext{n}{e} :declare2 :attr{n}{e} . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	activityname20
+target		:event{e} a :Event . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname21
+target		:ext{n}{e} a :Extension . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname22
+target		:attr{n}{e} a :Attribute . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname23
+target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname24
+target		:attr{n}{e} :typeA "literal"^^xsd:string . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname25
+target		:attr{n}{e} :valueA {n} . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname26
+target		:event{e} :contain3 :attr{n}{e} . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	activityname27
+target		:ext{n}{e} :declare2 :attr{n}{e} . 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
 
 mappingId	event00
 target		:event{e} a :Event . 
-source		 select distinct qview3.`payment_id` as `e`, qview1.`customer_id` as `t` from customer qview1, rental qview2, payment qview3 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) and (qview2.`rental_id` = qview3.`rental_id`) 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 
 
 mappingId	event01
 target		:trace{t} a :Trace . 
-source		 select distinct qview3.`payment_id` as `e`, qview1.`customer_id` as `t` from customer qview1, rental qview2, payment qview3 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) and (qview2.`rental_id` = qview3.`rental_id`) 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 
 
 mappingId	event02
 target		:trace{t} :contain2 :event{e} . 
-source		 select distinct qview3.`payment_id` as `e`, qview1.`customer_id` as `t` from customer qview1, rental qview2, payment qview3 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) and (qview2.`rental_id` = qview3.`rental_id`) 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 
+
+mappingId	event10
+target		:event{e} a :Event . 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview2.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2, review qview3 where (qview1.`id` = qview2.`idrr`) and (qview1.`id` = qview3.`idrr`) 
+
+mappingId	event11
+target		:trace{t} a :Trace . 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview2.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2, review qview3 where (qview1.`id` = qview2.`idrr`) and (qview1.`id` = qview3.`idrr`) 
+
+mappingId	event12
+target		:trace{t} :contain2 :event{e} . 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview2.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2, review qview3 where (qview1.`id` = qview2.`idrr`) and (qview1.`id` = qview3.`idrr`) 
+
+mappingId	event20
+target		:event{e} a :Event . 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1, acceptance qview2 where (qview1.`paper` = qview2.`paper`) 
+
+mappingId	event21
+target		:trace{t} a :Trace . 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1, acceptance qview2 where (qview1.`paper` = qview2.`paper`) 
+
+mappingId	event22
+target		:trace{t} :contain2 :event{e} . 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1, acceptance qview2 where (qview1.`paper` = qview2.`paper`) 
 
 mappingId	timestamp00
 target		:event{e} a :Event . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp01
 target		:ext{t}{e} a :Extension . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp02
 target		:attr{t}{e} a :Attribute . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp03
 target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp04
 target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp05
 target		:attr{t}{e} :valueA {t} . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp06
 target		:event{e} :contain3 :attr{t}{e} . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
 
 mappingId	timestamp07
 target		:ext{t}{e} :declare2 :attr{t}{e} . 
-source		 select distinct qview1.`payment_date` as `t`, qview1.`payment_id` as `e` from payment qview1, rental qview2 where (qview1.`rental_id` = qview2.`rental_id`) and (qview1.`rental_id` < 10) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from submission qview1 
+
+mappingId	timestamp10
+target		:event{e} a :Event . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp11
+target		:ext{t}{e} a :Extension . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp12
+target		:attr{t}{e} a :Attribute . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp13
+target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp14
+target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp15
+target		:attr{t}{e} :valueA {t} . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp16
+target		:event{e} :contain3 :attr{t}{e} . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp17
+target		:ext{t}{e} :declare2 :attr{t}{e} . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview2.`submissiontime` as `t`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+
+mappingId	timestamp20
+target		:event{e} a :Event . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp21
+target		:ext{t}{e} a :Extension . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp22
+target		:attr{t}{e} a :Attribute . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp23
+target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp24
+target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp25
+target		:attr{t}{e} :valueA {t} . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp26
+target		:event{e} :contain3 :attr{t}{e} . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
+
+mappingId	timestamp27
+target		:ext{t}{e} :declare2 :attr{t}{e} . 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from acceptance qview1 
 
 mappingId	trace00
 target		:trace{t} a :Trace . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace01
 target		:ext{t} a :Extension . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace02
 target		:attr{t} a :Attribute . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace03
 target		:attr{t} :keyA "concept:name"^^xsd:string . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace04
 target		:attr{t} :valueA {t} . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace05
 target		:attr{t} :typeA "literal"^^xsd:string . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace06
 target		:trace{t} :contain5 :attr{t} . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	trace07
 target		:ext{t} :declare2 :attr{t} . 
-source		 select distinct qview1.`customer_id` as `t` from customer qview1 
-
-mappingId	event-attribute00
-target		:event{e}{a} a :Event . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_date` = qview2.`return_date`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_date` = qview2.`last_update`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview2.`rental_id` = qview2.`rental_date`) and (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) 
-
-mappingId	event-attribute01
-target		:trace{t} a :Trace . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_date` = qview2.`return_date`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_date` = qview2.`last_update`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview2.`rental_id` = qview2.`rental_date`) and (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) 
-
-mappingId	event-attribute02
-target		:trace{t} :contain2 :event{e}{a} . 
-source		 select 'http://myproject.org/odbs#dateofreturn' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_date` = qview2.`return_date`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#return' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_date` = qview2.`last_update`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#rent' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview2.`rental_id` = qview2.`rental_date`) and (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) union select 'http://myproject.org/odbs#dateofrent' as `e`, qview2.`rental_id` as `a`, qview1.`customer_id` as `t` from customer qview1, rental qview2 where (qview1.`customer_id` = qview2.`customer_id`) and (qview2.`rental_id` < 10) 
+source		 select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from submission qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) union select 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from acceptance qview1 union select 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 ]]
 

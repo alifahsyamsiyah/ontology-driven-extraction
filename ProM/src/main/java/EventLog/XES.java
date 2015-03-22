@@ -53,15 +53,5 @@ public class XES {
 		OutputStream wr = new FileOutputStream(f);		
 		s.serialize(xlog, wr);
 		
-		/*XExtensionManager extManager = XExtensionManager.instance();
-		XExtension extension = extManager.getByUri(XConceptExtension.EXTENSION_URI);
-		XAttribute attr = factory.createAttributeLiteral("concept:name", "AMADEUS HOLY", extension); // need to be changed
-		XAttributeMap attrMap = new XAttributeMapImpl(); // create a new map attribute
-		attrMap.put("concept:name", attr);	// put attribute to the map attribute
-		XEvent xevent = factory.createEvent(attrMap);*/
-		
-		//System.out.println(xtrace.contains(xevent));
-		
-		
 	}
 }

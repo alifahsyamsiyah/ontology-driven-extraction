@@ -1,0 +1,55 @@
+[PrefixDeclaration]
+:		http://myproject.org/odbs#
+
+[SourceDeclaration]
+sourceUri	database_conference
+connectionUrl	jdbc:mysql://localhost/conference
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	user
+target		:user{id} a :User ; :username {username} ; :userCT {ct} . 
+source		select l.id as id, l.user as username, s.ct as ct
+			from Login as l, LoginStats as s
+			where l.id = s.user
+
+mappingId	upload_submitted
+target		:uplsub{ID} a :UploadSubmitted ; :uploadTime {UploadTime} . :paper{Paper} :has1 :uplsub{ID} . 
+source		select *
+			from Submission
+
+mappingId	upload_accepted
+target		:accpaper{Paper} :correspondsto :paper{Paper} ; :has2 :uplacc{ID} . :uplacc{ID} a :UploadAccepted ; :uploadAcceptedTime {UploadTime} ; :uploadby2 :user{User} . 
+source		select *
+			from acceptance
+
+mappingId	conference
+target		:conf{ID} a :Conference ; :confName {Name} ; :confTime {Time} . :user{Organizer} :organizerof :conf{ID} . 
+source		select *
+			from conference
+
+mappingId	decision
+target		:dec{ID} a :Decision ; :decisionTime {DecisionTime} ; :outcome {Outcome} . 
+source		select *
+			from decision
+
+mappingId	review
+target		:rev{idrev} a :Review ; :submissionTime {subtime} . 
+source		select r.ID as idrev, r.SubmissionTime as subtime
+			from reviewrequest as q, review as r
+			where q.id = r.idrr
+
+mappingId	review-request
+target		:revreq{idrevreq} a :ReviewRequest ; :invitationTime {invtime} ; :has4 :rev{idrev} ; :for :paper{paper} . :user{reviewer} :reviewer :revreq{idrevreq} . 
+source		select q.ID as idrevreq, q.InvitationTime as invtime, q.reviewer as reviewer, q.paper as paper, r.ID as idrev
+			from reviewrequest as q, review as r
+			where q.id = r.idrr
+
+mappingId	paper
+target		:paper{ID} a :Paper ; :title {Title} ; :paperCT {CT} ; :has3 :dec{Status} ; :submittedto :conf{Conf} . :user{User} :creator :paper{ID} . 
+source		select *
+			from paper
+]]
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/annotations
+END
+Visualizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/prom/!svn/ver/2003/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/annotations/Visualizer.java
+END
+UITopiaVariant.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/prom/!svn/ver/17811/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/annotations/UITopiaVariant.java
+END
+UIImportPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/prom/!svn/ver/2003/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/annotations/UIImportPlugin.java
+END
+UIExportPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/prom/!svn/ver/2003/Framework/trunk/src-Contexts/org/processmining/contexts/uitopia/annotations/UIExportPlugin.java
+END

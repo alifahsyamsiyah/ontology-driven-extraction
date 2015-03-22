@@ -269,8 +269,15 @@ BIND ("123" AS ?price)
 
 [QueryItem="tessss"]
 PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?e ?x ?y
-WHERE { ?e a :Rental; :dateOfRent ?t; :idRental ?i. FILTER(?i < "10"^^xsd:integer) .  ?e :paymentRental ?x; :dateOfPayment ?y . }
+SELECT DISTINCT ?e 
+WHERE { ?e a :Rental; :dateOfRent ?t; :idRental ?i. FILTER(?i < "10"^^xsd:integer) . }
 
 [QueryItem="tessssss"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?a ?t
+WHERE { ?a a :Rental; :customerRental ?t; :dateOfReturn ?x. ?a ?e ?x .  ?a :idRental ?i . FILTER (?i < "5"^^xsd:integer) . }
 
+[QueryItem="tesssssss"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?a ?t
+WHERE { ?a a :Rental; :customerRental ?t; :dateOfReturn ?x. ?a ?e ?x . ?a :idRental ?i . FILTER (?i < “10"^^xsd:integer) .  }

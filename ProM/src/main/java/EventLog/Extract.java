@@ -33,21 +33,9 @@ import org.deckfour.xes.out.XesXmlSerializer;
 
 public class Extract {
 	
-	private static XFactoryBufferedImpl factory = new XFactoryBufferedImpl();		
-	
-	public static void main(String[] args) throws Exception {
-	}
+	private static XFactoryBufferedImpl factory = new XFactoryBufferedImpl();	
 	
 	public static XLog extractEventLogFile(String logs) throws Exception{
-		
-		/*logs = "trace1, lili, film1, literal, concept:name, membuat film, e1, \n"
-				+ "trace1, lili, film1, timestamp, time:timestamp, 1015-7-1-10-5, e2, \n"
-				+ "trace1, lili, film2, literal, concept:name, membuat skenario, e1, \n"
-				+ "trace1, lili, film2, timestamp, time:timestamp, 93-07-31, e2, \n"
-				+ "trace2, lilip, film3, literal, concept:name, membuat film, e1, \n"
-				+ "trace2, lilip, film3, timestamp, time:timestamp, 93-07-31, e2, \n"
-				+ "trace2, lilip, film4, literal, concept:name, membuat skenario, e1, \n"
-				+ "trace2, lilip, film4, timestamp, time:timestamp, 93-07-31, e2, \n";*/
 			
 		// create extension manager
 		XExtensionManager extManager = XExtensionManager.instance();
@@ -78,7 +66,6 @@ public class Extract {
 			key = (key.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
 			String value = (arr[5].replaceAll("\"", "")).replace("^^xsd:string","");
 			value = (value.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
-			String ext = arr[6];
 			
 			// the same trace
 			if(prevtrace.equals(trace)) {
@@ -166,16 +153,6 @@ public class Extract {
 			
 			Date thedate = null;
 			
-			// date based on length
-			/*String[] arr = value.split("-");
-			if(arr.length == 3) {				
-				date = new Date(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
-			} else if(arr.length == 5) {				
-				date = new Date(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), Integer.parseInt(arr[4]));
-			} else if(arr.length == 6) {				
-				date = new Date(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), Integer.parseInt(arr[5]));
-			}*/
-			
 			// date format: year-month-date hrs:min:sec
 			String[] arr = value.split(" ");
 			String[] d1 = arr[0].split("-");
@@ -183,7 +160,7 @@ public class Extract {
 			String year = d1[0]; String month = d1[1]; String date = d1[2];
 			String hrs = d2[0]; String min = d2[1]; String sec = d2[2];
 			
-			thedate = new Date(Integer.parseInt(year)-1900, Integer.parseInt(month), Integer.parseInt(date), Integer.parseInt(hrs), Integer.parseInt(min), Integer.parseInt(sec));
+			thedate = new Date(Integer.parseInt(year)-1900, Integer.parseInt(month)-1, Integer.parseInt(date), Integer.parseInt(hrs), Integer.parseInt(min), Integer.parseInt(sec));
 			
 			attribute = factory.createAttributeTimestamp(key, thedate, extension);
 			

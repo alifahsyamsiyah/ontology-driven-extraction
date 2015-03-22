@@ -93,7 +93,7 @@ source		SELECT s.store_id as idStore, i.inventory_id as idInventory
 mappingId	rental
 target		:rental{idRental} a :Rental ; :idRental {idRental} ; :dateOfRent {dateRent} ; :dateOfReturn {dateReturn} ; :rent {idRental} ; :return {dateUpdate} . 
 source		SELECT r.rental_id as idRental, r.rental_date as dateRent, r.return_date as dateReturn, r.last_update as dateUpdate
-			FROM rental as r
+			FROM rental as r 
 			WHERE r.rental_id < 10
 
 mappingId	payment

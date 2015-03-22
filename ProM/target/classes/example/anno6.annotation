@@ -1,0 +1,14 @@
+all
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper; :has1 ?e. ?e a :UploadSubmitted; :uploadTime ?s . BIND ("submit the paper" AS ?n) .}
+
+all
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper. ?e a :Review; :submissionTime ?s . ?q a :ReviewRequest; :has4 ?e; :for ?t . BIND ("get a review" AS ?n) .} 
+
+all
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper. ?e a :ReviewRequest; :invitationTime ?s; :for ?t . BIND ("request a review" AS ?n) .} 
