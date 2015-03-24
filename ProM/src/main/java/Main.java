@@ -17,24 +17,24 @@ import EventLog.Extract;
 
 public class Main {
 	static String firstmappingFile;
-	static String owlFile = "src/main/resources/example/ontology3.owl";
+	static String owlFile = "src/main/resources/example/ontology.owl";
 	static String annotationFile;
 	static BufferedReader ann; 
 	
 	public static void main(String[] args) throws Exception {
 		/***************** another option: console ***************/
 		
-		Annotation annotation = new Annotation(owlFile, "src/main/resources/example/ontology3.obda");		
+		Annotation annotation = new Annotation(owlFile, "src/main/resources/example/ontology.obda");		
 		
 		
 		 // Read annotation from user and retrieve automatic mapping to event ontology
 		 
-		annotation.readAnnotation(new BufferedReader(new FileReader("src/main/resources/example/anno5.annotation")));
+		annotation.readAnnotation(new BufferedReader(new FileReader("src/main/resources/example/anno.annotation")));
 		
 		
 		 // Write the second mapping based on user annotation
 		 
-		annotation.writeAnnotation("src/main/resources/example/ontology3.obda","src/main/resources/example/secondmapping.obda");
+		annotation.writeAnnotation("src/main/resources/example/ontology.obda","src/main/resources/example/secondmapping.obda");
 		
 		
 		 //  Query and Answer

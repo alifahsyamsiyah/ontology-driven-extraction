@@ -97,4 +97,31 @@ WHERE { ?e a :Conference; :confTime ?t . }
 
 
 [QueryItem="event_all_us"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper; :has1 ?e. ?e a :UploadSubmitted; :uploadTime ?s . BIND ("submit the paper" AS ?n) .}
 
+[QueryItem="event_all_review"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper. ?e a :Review; :submissionTime ?s . ?q a :ReviewRequest; :has4 ?e; :for ?t . BIND ("get a review" AS ?n) .}
+
+[QueryItem="event_all_revreq"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper. ?e a :ReviewRequest; :invitationTime ?s; :for ?t . BIND ("request a review" AS ?n) .}
+
+[QueryItem="event_all_conf"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?n ?s
+WHERE {?t a :Paper. ?e a :Conference; :confTime ?s. ?t :submittedto ?e. BIND ("present the paper" AS ?n) .}
+
+[QueryItem="time_ua"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?e a :UploadAccepted; :uploadAcceptedTime ?t .}
+
+[QueryItem="name_ua"]
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?e a :UploadAccepted. BIND ("submit final paper" AS ?n) . }
