@@ -43,35 +43,35 @@ source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit the paper' 
 
 mappingId	activityname10
 target		:event{e} a :Event . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname11
 target		:ext{n}{e} a :Extension . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname12
 target		:attr{n}{e} a :Attribute . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname13
 target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname14
 target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname15
 target		:attr{n}{e} :valueA {n} . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname16
 target		:event{e} :contain3 :attr{n}{e} . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname17
 target		:ext{n}{e} :declare2 :attr{n}{e} . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get a review' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 3 as `nquesttype`, null as `nlang`, 'get reviews' as `n`, 1 as `equesttype`, null as `elang`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
 
 mappingId	activityname20
 target		:event{e} a :Event . 
@@ -107,35 +107,35 @@ source		 select distinct 3 as `nquesttype`, null as `nlang`, 'submit final paper
 
 mappingId	activityname30
 target		:event{e} a :Event . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname31
 target		:ext{n}{e} a :Extension . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname32
 target		:attr{n}{e} a :Attribute . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname33
 target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname34
 target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname35
 target		:attr{n}{e} :valueA {n} . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname36
 target		:event{e} :contain3 :attr{n}{e} . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	activityname37
 target		:ext{n}{e} :declare2 :attr{n}{e} . 
-source		 select distinct 3 as `nquesttype`, null as `nlang`, 'request a review' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`status`) as `e` from paper qview1 union select 3 as `nquesttype`, null as `nlang`, 'get a decision' as `n`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	event00
 target		:event{e} a :Event . 
@@ -175,15 +175,15 @@ source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`,
 
 mappingId	event30
 target		:event{e} a :Event . 
-source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`status`) as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	event31
 target		:trace{t} a :Trace . 
-source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`status`) as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	event32
 target		:trace{t} :contain2 :event{e} . 
-source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`id` as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`paper` as `t` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 1 as `equesttype`, null as `elang`, qview1.`status`) as `e`, 1 as `tquesttype`, null as `tlang`, qview1.`id` as `t` from paper qview1 
 
 mappingId	timestamp00
 target		:event{e} a :Event . 
@@ -283,35 +283,35 @@ source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`uploadtime
 
 mappingId	timestamp30
 target		:event{e} a :Event . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp31
 target		:ext{t}{e} a :Extension . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp32
 target		:attr{t}{e} a :Attribute . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp33
 target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp34
 target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp35
 target		:attr{t}{e} :valueA {t} . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp36
 target		:event{e} :contain3 :attr{t}{e} . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	timestamp37
 target		:ext{t}{e} :declare2 :attr{t}{e} . 
-source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`invitationtime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id` as `e` from reviewrequest qview1, review qview2 where (qview1.`id` = qview2.`idrr`) 
+source		 select distinct 21 as `tquesttype`, null as `tlang`, qview1.`decisiontime` as `t`, 1 as `equesttype`, null as `elang`, qview1.`id`) as `e` from decision qview1 
 
 mappingId	trace00
 target		:trace{t} a :Trace . 

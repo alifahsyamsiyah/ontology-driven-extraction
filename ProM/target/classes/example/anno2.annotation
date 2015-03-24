@@ -1,0 +1,39 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t
+WHERE { ?t a :Customer . }
+
+event-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?a ?t
+WHERE { ?a a :Rental; :customerRental ?t; :dateOfReturn ?x. ?a ?e ?x .  ?a :idRental ?i . FILTER (?i < "10"^^xsd:integer) . }
+
+timestamp-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?a
+WHERE { ?a a :Rental; :dateOfReturn ?t . ?a ?e ?t . ?a :idRental ?i . FILTER (?i < "10"^^xsd:integer) . }
+
+event-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?a ?t
+WHERE { ?a a :Rental; :customerRental ?t; :dateOfRent ?x. ?a ?e ?x . ?a :idRental ?i . FILTER (?i < "10"^^xsd:integer) . }
+
+timestamp-attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e ?a
+WHERE { ?a a :Rental; :dateOfRent ?t . ?a ?e ?t . ?a :idRental ?i . FILTER (?i < "10"^^xsd:integer) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?r a :Rental; :customerRental ?t. ?r :paymentRental ?e . ?r :idRental ?i . FILTER (?i < "10"^^xsd:integer) . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?x . ?e ?n ?x . ?r :idRental ?i . FILTER (?i < "10"^^xsd:integer) .  }
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?r a :Rental; :paymentRental ?e . ?e :dateOfPayment ?t. ?r :idRental ?i . FILTER (?i < "10"^^xsd:integer) .  }
