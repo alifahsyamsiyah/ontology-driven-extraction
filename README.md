@@ -27,7 +27,7 @@ The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resou
 3. Create a Maven project in Eclipse by do this following:
   * `File > Import > Maven > Existing Maven Projects > Next` 
   * In `Root Directory` click `Browse`
-  * Select the folder where you place `ProM`, then click `Finish`
+  * Select the folder where you place `ProM`, click `Open`, then click `Finish`
 
 # How to run
 1. Click on `Run` button on Eclipse (the green circle with white play button inside) and choose `ProM with UITopia` 
