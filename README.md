@@ -3,7 +3,7 @@ Ontology-Driven Extraction is a prototype of ProM plugin that is built to suppor
 
 # Prerequisites
 1. Mysql
-2. Java 1.7 or later
+2. Java 1.7 or later, for 64-bit
 3. Java IDE with Maven installation. In this documentation we use Eclipse as it is an open source Java IDE.
 
 # Files in this folder
@@ -25,14 +25,9 @@ Note: you may use different ontology, mapping, and annotation files and put them
   * password	`[your password]` <br />
 The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resources/example/`
 3. Create a Maven project in Eclipse by do this following:
-  * `File > New > Other` 
-  * Under `Maven`, choose `Maven Project`, then `Next`
-  * Check "Create a simple project (skip archetype selection)"
-  * Select the workspace into your the folder where you place `ProM`, then click `Next`
-  * Fill in `Group Id` by `ProM`
-  * Fill in `Artifact Id` by  `ProM`
-  * Click `Finish`
-4. Refresh your project
+  * `File > Import > Maven > Existing Maven Projects > Next` 
+  * In `Root Directory` click `Browse`
+  * Select the folder where you place `ProM`, then click `Finish`
 
 # How to run
 1. Click on `Run` button on Eclipse (the green circle with white play button inside) and choose `ProM with UITopia` 
