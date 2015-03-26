@@ -251,7 +251,9 @@ public class Query {
 	 * 			A Sql to be simplified
 	 * @return
 	 */
-	public String simplifySQL(String sql) {		
+	public String simplifySQL(String sql) {	
+		System.out.println("----sql: "+sql);
+		
 		sql = sql.toLowerCase();
 		sql = sql.replaceAll("select\\s\\p{Punct}\\sfrom\\s*\\p{Punct}", ""); // select * from(
 		sql = sql.replaceAll("\\p{Punct}\\s*sub_qview", ""); // ) sub_qview
@@ -262,6 +264,7 @@ public class Query {
 		sql = sql.replaceAll("cast\\p{Punct}",""); // cast(
 		sql = sql.replaceAll("as char\\p{Punct}8000\\p{Punct} character set utf8\\p{Punct}\\p{Punct}", ""); // as char(8000) character set utf8))
 		sql = sql.replaceAll("as char\\p{Punct}8000\\p{Punct} character set utf8\\p{Punct}", ""); // as char(8000) character set utf8)
+		//sql = sql.replaceAll("\\p{Punct} as ", " as "); // ) as
 		sql = sql.replaceAll("and\\n[\\w\\p{Punct}\\d]+ is not null", ""); // and ... is not null		
 		sql = sql.replaceAll("[\\w\\p{Punct}\\d]+ is not null", ""); // ... is not null
 		sql = sql.replaceAll("where[\\n\\s]*$", ""); // where alone
@@ -269,6 +272,8 @@ public class Query {
 		sql = sql.replaceAll("where[\\n\\s]*union", "union"); // where alone with union afterwards
 		sql = sql.replaceAll("\\n", " "); // to make only in one line
 		sql = sql.replaceAll("\\s+", " "); // multiple space
+		
+		System.out.println("----simplified sql: "+sql);
 		
 		return sql;
 		
