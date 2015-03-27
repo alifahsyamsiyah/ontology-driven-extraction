@@ -16,7 +16,7 @@ WHERE { ?e a :Film; :releaseDate ?t .}
 activityname
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?a ?e
-WHERE { ?e a :Film; :title ?a .}
+WHERE { ?e a :Film; BIND ("release a film" AS ?a) .}
 
 attribute
 PREFIX : <http://myproject.org/odbs#>

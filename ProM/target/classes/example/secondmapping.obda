@@ -25,69 +25,9 @@ mappingId	activityname03
 target		:attr{n}{e} :valueA {n} . 
 source		 select distinct 'submit the paper' as `n`, qview1.`id` as `e` from submission qview1 
 
-mappingId	activityname10
-target		:event{e} :EcontainsA :attr{n}{e} . 
-source		 select distinct 'get a review' as `n`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	activityname11
-target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select distinct 'get a review' as `n`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	activityname12
-target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select distinct 'get a review' as `n`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	activityname13
-target		:attr{n}{e} :valueA {n} . 
-source		 select distinct 'get a review' as `n`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	activityname20
-target		:event{e} :EcontainsA :attr{n}{e} . 
-source		 select distinct 'submit final paper' as `n`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	activityname21
-target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select distinct 'submit final paper' as `n`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	activityname22
-target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select distinct 'submit final paper' as `n`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	activityname23
-target		:attr{n}{e} :valueA {n} . 
-source		 select distinct 'submit final paper' as `n`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	activityname30
-target		:event{e} :EcontainsA :attr{n}{e} . 
-source		 select 'get a decision' as `n`, qview1.`status` as `e` from paper qview1 union select 'get a decision' as `n`, qview1.`id` as `e` from decision qview1 
-
-mappingId	activityname31
-target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select 'get a decision' as `n`, qview1.`status` as `e` from paper qview1 union select 'get a decision' as `n`, qview1.`id` as `e` from decision qview1 
-
-mappingId	activityname32
-target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select 'get a decision' as `n`, qview1.`status` as `e` from paper qview1 union select 'get a decision' as `n`, qview1.`id` as `e` from decision qview1 
-
-mappingId	activityname33
-target		:attr{n}{e} :valueA {n} . 
-source		 select 'get a decision' as `n`, qview1.`status` as `e` from paper qview1 union select 'get a decision' as `n`, qview1.`id` as `e` from decision qview1 
-
 mappingId	event00
 target		:trace{t} :TcontainsE :event{e} . 
 source		 select distinct qview1.`id` as `e`, qview1.`paper` as `t` from submission qview1 
-
-mappingId	event10
-target		:trace{t} :TcontainsE :event{e} . 
-source		 select distinct qview2.`id` as `e`, qview1.`paper` as `t` from reviewrequest qview1, review qview2, review qview3 where qview1.`id` = qview2.`idrr` and qview1.`id` = qview3.`idrr` 
-
-mappingId	event20
-target		:trace{t} :TcontainsE :event{e} . 
-source		 select distinct qview1.`id` as `e`, qview1.`paper` as `t` from acceptance qview1, acceptance qview2 where qview1.`paper` = qview2.`paper` 
-
-mappingId	event30
-target		:trace{t} :TcontainsE :event{e} . 
-source		 select distinct qview1.`status` as `e`, qview1.`id` as `t` from paper qview1 
 
 mappingId	timestamp00
 target		:event{e} :EcontainsA :attr{t}{e} . 
@@ -105,73 +45,25 @@ mappingId	timestamp03
 target		:attr{t}{e} :valueA {t} . 
 source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from submission qview1 
 
-mappingId	timestamp10
-target		:event{e} :EcontainsA :attr{t}{e} . 
-source		 select distinct qview2.`submissiontime` as `t`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	timestamp11
-target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select distinct qview2.`submissiontime` as `t`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	timestamp12
-target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select distinct qview2.`submissiontime` as `t`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	timestamp13
-target		:attr{t}{e} :valueA {t} . 
-source		 select distinct qview2.`submissiontime` as `t`, qview2.`id` as `e` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` 
-
-mappingId	timestamp20
-target		:event{e} :EcontainsA :attr{t}{e} . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	timestamp21
-target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	timestamp22
-target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	timestamp23
-target		:attr{t}{e} :valueA {t} . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from acceptance qview1 
-
-mappingId	timestamp30
-target		:event{e} :EcontainsA :attr{t}{e} . 
-source		 select distinct qview1.`decisiontime` as `t`, qview1.`id` as `e` from decision qview1 
-
-mappingId	timestamp31
-target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select distinct qview1.`decisiontime` as `t`, qview1.`id` as `e` from decision qview1 
-
-mappingId	timestamp32
-target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select distinct qview1.`decisiontime` as `t`, qview1.`id` as `e` from decision qview1 
-
-mappingId	timestamp33
-target		:attr{t}{e} :valueA {t} . 
-source		 select distinct qview1.`decisiontime` as `t`, qview1.`id` as `e` from decision qview1 
-
 mappingId	trace00
 target		:log{l} :LcontainsT :trace{t} . 
-source		 select qview1.`paper` as `t`, 'log1' as `l` from submission qview1 union select qview1.`paper` as `t`, 'log1' as `l` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` union select qview1.`paper` as `t`, 'log1' as `l` from acceptance qview1 union select qview1.`id` as `t`, 'log1' as `l` from paper qview1 
+source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
 
 mappingId	trace01
 target		:trace{t} :TcontainsA :attr{t} . 
-source		 select qview1.`paper` as `t`, 'log1' as `l` from submission qview1 union select qview1.`paper` as `t`, 'log1' as `l` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` union select qview1.`paper` as `t`, 'log1' as `l` from acceptance qview1 union select qview1.`id` as `t`, 'log1' as `l` from paper qview1 
+source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
 
 mappingId	trace02
 target		:attr{t} :keyA "concept:name"^^xsd:string . 
-source		 select qview1.`paper` as `t`, 'log1' as `l` from submission qview1 union select qview1.`paper` as `t`, 'log1' as `l` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` union select qview1.`paper` as `t`, 'log1' as `l` from acceptance qview1 union select qview1.`id` as `t`, 'log1' as `l` from paper qview1 
+source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
 
 mappingId	trace03
 target		:attr{t} :valueA {t} . 
-source		 select qview1.`paper` as `t`, 'log1' as `l` from submission qview1 union select qview1.`paper` as `t`, 'log1' as `l` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` union select qview1.`paper` as `t`, 'log1' as `l` from acceptance qview1 union select qview1.`id` as `t`, 'log1' as `l` from paper qview1 
+source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
 
 mappingId	trace04
 target		:attr{t} :typeA "literal"^^xsd:string . 
-source		 select qview1.`paper` as `t`, 'log1' as `l` from submission qview1 union select qview1.`paper` as `t`, 'log1' as `l` from reviewrequest qview1, review qview2 where qview1.`id` = qview2.`idrr` union select qview1.`paper` as `t`, 'log1' as `l` from acceptance qview1 union select qview1.`id` as `t`, 'log1' as `l` from paper qview1 
+source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
 
 ]]
 

@@ -1,0 +1,4 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?l
+WHERE {?t a :Paper ; :submittedto ?c . ?c :confName ?n . FILTER regex(?n, "BPM 2015", "i") . BIND ("log1" AS ?l) .}

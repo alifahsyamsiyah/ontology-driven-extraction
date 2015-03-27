@@ -12,32 +12,12 @@
 			<string key="concept:name" value="submit the paper"/>
 			<date key="time:timestamp" value="2015-02-11T00:00:00+01:00"/>
 		</event>
-		<event>
-			<string key="concept:name" value="get a review"/>
-			<date key="time:timestamp" value="2015-02-13T00:00:00+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="get a decision"/>
-			<date key="time:timestamp" value="2015-02-15T00:00:00+01:00"/>
-		</event>
 	</trace>
 	<trace>
 		<string key="concept:name" value="151"/>
 		<event>
 			<string key="concept:name" value="submit the paper"/>
 			<date key="time:timestamp" value="2014-11-09T00:00:00+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="get a review"/>
-			<date key="time:timestamp" value="2014-11-16T00:00:00+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="get a decision"/>
-			<date key="time:timestamp" value="2015-03-21T17:52:21+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="submit final paper"/>
-			<date key="time:timestamp" value="2015-03-22T16:30:20+01:00"/>
 		</event>
 	</trace>
 	<trace>
@@ -46,32 +26,12 @@
 			<string key="concept:name" value="submit the paper"/>
 			<date key="time:timestamp" value="2015-03-16T00:00:00+01:00"/>
 		</event>
-		<event>
-			<string key="concept:name" value="get a review"/>
-			<date key="time:timestamp" value="2015-03-22T16:29:53+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="get a decision"/>
-			<date key="time:timestamp" value="2015-03-25T00:00:00+01:00"/>
-		</event>
 	</trace>
 	<trace>
 		<string key="concept:name" value="945"/>
 		<event>
 			<string key="concept:name" value="submit the paper"/>
 			<date key="time:timestamp" value="2015-03-14T00:00:00+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="get a review"/>
-			<date key="time:timestamp" value="2015-03-18T00:00:00+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="get a decision"/>
-			<date key="time:timestamp" value="2015-03-20T00:00:00+01:00"/>
-		</event>
-		<event>
-			<string key="concept:name" value="submit final paper"/>
-			<date key="time:timestamp" value="2015-03-22T16:30:27+01:00"/>
 		</event>
 	</trace>
 </log>
