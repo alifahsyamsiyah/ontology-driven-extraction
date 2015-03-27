@@ -40,9 +40,9 @@ The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resou
  You may user another example: `ontology3.owl` (ontology), `ontology3.owl` (first mapping), and `anno5.annotation` (annotation).
 5. Click `Create Second Mapping`
 6. After the information "Second mapping is successfully created. Click finish to go to the next step." is shown, click `Finish`
-7. Here you can test your SPARQL Query to see whether the annotation and mapping are done correctly. One simple query that you may ask to check all traces and all events is given below:
-PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?x ?y
+7. Here you can test your SPARQL Query to see whether the annotation and mapping are done correctly. One simple query that you may ask to check all traces and all events is given below: <br />
+PREFIX : \\<http://myproject.org/odbs#\\> <br />
+SELECT DISTINCT ?x ?y<br />
 WHERE { ?x a :Trace; :contain2 ?y.}
 8. Click `Process` to see the answers
 9. If you click `Finish` means that you materialize all annotation in a single XES event log that you may use to process further.
