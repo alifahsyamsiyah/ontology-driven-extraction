@@ -41,7 +41,7 @@ The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resou
 5. Click `Create Second Mapping`
 6. After the information "Second mapping is successfully created. Click finish to go to the next step." is shown, click `Finish`
 7. Here you can test your SPARQL Query to see whether the annotation and mapping are done correctly. One simple query that you may ask to check all traces and all events is given below: <br />
-PREFIX : \<http://myproject.org/odbs#\> <br />
+PREFIX : \<http://myproject.org/odbs#> <br />
 SELECT DISTINCT ?x ?y<br />
 WHERE { ?x a :Trace; :contain2 ?y.}
 8. Click `Process` to see the answers
