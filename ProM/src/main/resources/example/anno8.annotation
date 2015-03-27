@@ -1,7 +1,7 @@
 trace
 PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?t
-WHERE {?t a :Paper .}
+SELECT DISTINCT ?t ?l
+WHERE {?t a :Paper. BIND ("log1" AS ?l) .}
 
 event
 PREFIX : <http://myproject.org/odbs#>
@@ -17,3 +17,19 @@ timestamp
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?t ?e
 WHERE {?e a :Decision; :decisionTime ?t .}
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE {?t a :Paper; :has1 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE {?e a :UploadSubmitted. BIND ("submit the paper" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE {?e a :UploadSubmitted; :uploadTime ?t.}
+

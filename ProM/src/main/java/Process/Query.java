@@ -144,7 +144,7 @@ public class Query {
 	 * @throws Exception
 	 */
 	public String runQuery(String sparqlQuery) throws Exception {
-		
+		System.out.println("enter runQuery");
 		String result = "";
 		
 		/*
@@ -252,28 +252,29 @@ public class Query {
 	 * @return
 	 */
 	public String simplifySQL(String sql) {	
-		System.out.println("----sql: "+sql);
+		System.out.println("enter simplifySQL");
+		//System.out.println("----sql: "+sql);
 		
 		sql = sql.toLowerCase();
 		sql = sql.replaceAll("select\\s\\p{Punct}\\sfrom\\s*\\p{Punct}", ""); // select * from(
 		sql = sql.replaceAll("\\p{Punct}\\s*sub_qview", ""); // ) sub_qview
 		sql = sql.replaceAll("order by sub_qview[\\w\\p{Punct}]*", ""); // order by sub_qview ...
-		sql = sql.replaceAll("\\d as \"\\w+questtype\",", ""); // 1 as "xquesttype",
-		sql = sql.replaceAll("null as \"\\w+lang\",", ""); // null as "xlang",
-		sql = sql.replaceAll("concat\\p{Punct}'http[\\p{Punct}\\w\\d]+",""); // concat('http...',
-		sql = sql.replaceAll("cast\\p{Punct}",""); // cast(
-		sql = sql.replaceAll("as char\\p{Punct}8000\\p{Punct} character set utf8\\p{Punct}\\p{Punct}", ""); // as char(8000) character set utf8))
-		sql = sql.replaceAll("as char\\p{Punct}8000\\p{Punct} character set utf8\\p{Punct}", ""); // as char(8000) character set utf8)
-		//sql = sql.replaceAll("\\p{Punct} as ", " as "); // ) as
+		sql = sql.replaceAll("[\\d]+ as \\p{Punct}\\w+questtype\\p{Punct},", ""); // 1 as "xquesttype",
+		sql = sql.replaceAll("null as \\p{Punct}\\w+lang\\p{Punct},", ""); // null as "xlang",
+		sql = sql.replaceAll("concat\\('http[\\p{Punct}\\w\\d]+\\s",""); // concat('http...',
+		sql = sql.replaceAll("cast",""); // cast
+		sql = sql.replaceAll("as char\\(8000\\) character set utf8", ""); // as char(8000) character set utf8
 		sql = sql.replaceAll("and\\n[\\w\\p{Punct}\\d]+ is not null", ""); // and ... is not null		
 		sql = sql.replaceAll("[\\w\\p{Punct}\\d]+ is not null", ""); // ... is not null
 		sql = sql.replaceAll("where[\\n\\s]*$", ""); // where alone
 		sql = sql.replaceAll("where[\\n\\s]*and", "where "); // where and
 		sql = sql.replaceAll("where[\\n\\s]*union", "union"); // where alone with union afterwards
+		sql = sql.replaceAll("\\(", " "); //(
+		sql = sql.replaceAll("\\)", " "); //)
 		sql = sql.replaceAll("\\n", " "); // to make only in one line
 		sql = sql.replaceAll("\\s+", " "); // multiple space
 		
-		System.out.println("----simplified sql: "+sql);
+		//System.out.println("----simplified sql: "+sql);
 		
 		return sql;
 		

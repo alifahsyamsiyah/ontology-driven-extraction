@@ -43,8 +43,8 @@ public class Main {
 		String sparqlQuery = 
 				"PREFIX : <http://myproject.org/odbs#> \n" +
 						"SELECT DISTINCT ?t ?vat ?e ?te ?ke ?ve \n"+
-						"WHERE { ?t a :Trace ; :contain5 ?ta. ?ta :valueA ?vat ."
-								+ "?t :contain2 ?e. ?e :contain3 ?a. ?a :typeA ?te ; :keyA ?ke; :valueA ?ve. }" +
+						"WHERE { ?t a :Trace ; :TcontainsA ?ta. ?ta :valueA ?vat ."
+								+ "?t :TcontainsE ?e. ?e :EcontainsA ?a. ?a :typeA ?te ; :keyA ?ke; :valueA ?ve. }" +
 					    "ORDER BY ?t ?e";	
 		
 		

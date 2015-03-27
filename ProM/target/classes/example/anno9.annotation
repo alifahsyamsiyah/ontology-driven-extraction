@@ -51,14 +51,15 @@ WHERE { ?e a :UploadAccepted. BIND ("submit final paper" AS ?n) . }
 event
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?e ?t
-WHERE { ?e a :ReviewRequest; :for ?t . }
+WHERE {?e a :Decision. ?t a :Paper; :has3 ?e .}
 
 activityname
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?n ?e
-WHERE { ?e a :ReviewRequest. BIND ("request a review" AS ?n) . }
+WHERE {?e a :Decision. BIND ("get a decision" AS ?n) .}
 
 timestamp
 PREFIX : <http://myproject.org/odbs#>
 SELECT DISTINCT ?t ?e
-WHERE { ?e a :ReviewRequest; :invitationTime ?t . } 
+WHERE {?e a :Decision; :decisionTime ?t .}
+

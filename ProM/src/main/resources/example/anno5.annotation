@@ -1,7 +1,7 @@
 trace
 PREFIX : <http://myproject.org/odbs#>
-SELECT DISTINCT ?t
-WHERE {?t a :Paper .}
+SELECT DISTINCT ?t ?l
+WHERE {?t a :Paper. BIND ("log1" AS ?l) .}
 
 event
 PREFIX : <http://myproject.org/odbs#>

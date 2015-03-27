@@ -36,6 +36,7 @@ public class Extract {
 	private static XFactoryBufferedImpl factory = new XFactoryBufferedImpl();	
 	
 	public static XLog extractEventLogFile(String logs) throws Exception{
+		System.out.println("enter extractEventLogFile");
 			
 		// create extension manager
 		XExtensionManager extManager = XExtensionManager.instance();
@@ -47,7 +48,7 @@ public class Extract {
 		String prevtrace = ""; String prevevent = "";
 		String[] elem = logs.split("\n");
 		
-		XExtension extension;	
+		
 		XAttribute attr;
 		XAttributeMapImpl attrMapTrace = null;
 		XAttributeMapImpl attrMap = null;
@@ -72,9 +73,8 @@ public class Extract {
 				
 				// the same event
 				if(prevevent.equals(event)) {
-					
-					extension = extManager.getByUri(XConceptExtension.EXTENSION_URI); // get the extension			
-					attr = createAttribute(key, value, extension, type); // create attribute
+							
+					attr = createAttribute(key, value, null, type); // create attribute
 					attrMap.put(key, attr); // put attribute to the map attribute
 					
 				// not the same event
@@ -83,9 +83,8 @@ public class Extract {
 					// the previous event is already completed, and it needs to be printed
 					XEvent xevent = factory.createEvent(attrMap); // create xevent
 					xtrace.insertOrdered(xevent); // insert event in correct order in a trace
-					
-					extension = extManager.getByUri(XConceptExtension.EXTENSION_URI); // get the extension			
-					attr = createAttribute(key, value, extension, type); // create attribute	
+							
+					attr = createAttribute(key, value, null, type); // create attribute	
 					attrMap = new XAttributeMapImpl(); // create attr map for event
 					attrMap.put(key, attr); // put attribute to the map attribute
 					
@@ -102,15 +101,13 @@ public class Extract {
 					xtrace.insertOrdered(xevent); // insert event in correct order in a trace
 				}
 				
-				extension = extManager.getByUri(XConceptExtension.EXTENSION_URI); // get the extension		
-				attr = factory.createAttributeLiteral("concept:name", tracevalue, extension); // create attribute for trace
+				attr = factory.createAttributeLiteral("concept:name", tracevalue, null); // create attribute for trace
 				attrMapTrace = new XAttributeMapImpl(); // create a new map attribute
 				attrMapTrace.put("concept:name", attr);	// put attribute to the map attribute
 				xtrace = factory.createTrace(attrMapTrace); // create xtrace
 				log.add(xtrace); // add to log
 				
-				extension = extManager.getByUri(XConceptExtension.EXTENSION_URI); // get the extension			
-				attr = createAttribute(key, value, extension, type); // create attribute		
+				attr = createAttribute(key, value, null, type); // create attribute		
 				attrMap = new XAttributeMapImpl(); // create a new map attribute
 				attrMap.put(key, attr); // put attribute to the map attribute
 				
