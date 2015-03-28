@@ -37,7 +37,7 @@ The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resou
   * Ontology: `ontology.owl`
   * First mapping: `ontology.obda`
   * Annotation: `anno.annotation`<br />
- You may user another example: `ontology3.owl` (ontology), `ontology3.owl` (first mapping), and `anno2.annotation` (annotation). Note that for using this example, you need to extend the max allowed packet in mysql by using this command: <br />
+ You may user another example: `ontology3.owl` (ontology), `ontology3.obda` (first mapping), and `anno2.annotation` (annotation). Note that for using this example, you need to extend the max allowed packet in mysql by using this command: <br />
 `SET GLOBAL max_allowed_packet = 1073741824;`
 5. Click `Create Second Mapping`
 6. After the information "Second mapping is successfully created. Click finish to go to the next step." is shown, click `Finish`
