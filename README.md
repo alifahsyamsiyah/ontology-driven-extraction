@@ -43,16 +43,15 @@ WHERE { ?x a :Trace; :TcontainsE ?y.}
 9. If you click `Finish` means that you materialize the event data into an XES event log file.  You may use this file as an input of process mining algorithms (e.g. Mine for a Petri Net using Alpha-algorithm) to get more interesting result.
 
 # Create the domain ontology and mappings automatically
-In this project, we also provide Ontology-Mapping Bootstrap plug-in to create the domain ontology and the first mapping automatically. You can try the following example.
 1. Under the `Action` tab, search for `Ontology-Mapping Bootstrap Plugin`.
 2. Click `Start`
-3. Enter your bootstrap configuration. You may use the following configurations: <br />
-Ontology file: `src/main/resources/example/ontology-boot-sakilas.owl`
-Mapping file: `src/main/resources/example/ontology-boot-sakilas.obda`
-Base URI: `http://www.example.org/`
-Jdbc URL: `jdbc:mysql://[your local server name]/sakila`
-Username: `[your username]`
-Password: `[your password]`
+3. Enter your bootstrap configuration. You may use the following example: <br />
+Ontology file: `src/main/resources/example/ontology-boot-sakilas.owl` <br />
+Mapping file: `src/main/resources/example/ontology-boot-sakilas.obda` <br />
+Base URI: `http://www.example.org/` <br />
+Jdbc URL: `jdbc:mysql://[your local server name]/sakila` <br />
+Username: `[your username]` <br />
+Password: `[your password]` <br />
 Jdbc Driver Class: `com.mysql.jdbc.Driver` <br />
 4. Click `Finish`, and now the system will create the domain ontology and mapping files.
 5. Import `anno_sakila.annotation` as the annotation files
