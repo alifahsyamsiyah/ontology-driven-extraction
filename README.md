@@ -8,22 +8,21 @@ Ontology-Driven Extraction is a prototype of ProM plugin that is built to suppor
 
 # Files in this folder
 1. `ProM` is a Maven project. You may move it into your Eclipse workspace
-2. `conference.sql` and `sakila.sql.zip` are the databases
+2. `sakila.sql.zip` are the databases
 3. `README.md` is this readme file
 4. Some examples for the ontology, mapping, and annotation is given under `/ProM/src/main/resources/example/`:
-  * `ontology.owl` and `ontology3.owl` are the domain and event ontology
-  * `ontology.obda` and `ontology3.obda` are the first mapping, which is the mapping from database to the domain ontology
-  * `anno.annotation` and `anno2.annotation` are the annotation
+  * `ontology-man-sakilas.owl` are the domain and event ontology
+  * `ontology-man-sakilas.obda` are the first mapping, which is the mapping from the database to the domain ontology
+  * `anno_sakila_man3.annotation` and `anno_sakila.annotation` are the annotations
 
 Note: you may use different ontology, mapping, and annotation files and put them into `/ProM/src/main/resources/example/` folder
 
 # How to install
-1. Import the database `conference.sql` and `sakila.sql.zip` into your local server.
-2. Open file `ontology.obda` under the folder `/ProM/src/main/resources/example/` and change your local server properties (your local server name, the username, and the password) as shown in these lines:
+1. Import the database `sakila.sql.zip` into your local server.
+2. Open file `ontology-man-sakilas.obda` under the folder `/ProM/src/main/resources/example/` and change your local server properties (your local server name, the username, and the password) as shown in these lines:
   * connectionUrl	jdbc:mysql://`[your local server name]`/sakila
   * username	`[your username]`
   * password	`[your password]` <br />
-The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resources/example/`
 3. Create a Maven project in Eclipse by do this following:
   * `File > Import > Maven > Existing Maven Projects > Next` 
   * In `Root Directory` click `Browse`
@@ -31,20 +30,34 @@ The same instruction for `ontology3.obda` under the folder `/ProM/src/main/resou
 
 # How to run
 1. Click on `Run` button on Eclipse (the green circle with white play button inside) and choose `ProM with UITopia` 
-2. After ProM window appears (which may take several time during first installation), click on `Action` tab. It is the middle button on the top bar.
-3. Search `Ontology-Driven Extraction Plugin` and click `Start`
-4. Enter your input files. You may use examples given in this folder by typing:
-  * Ontology: `ontology.owl`
-  * First mapping: `ontology.obda`
-  * Annotation: `anno.annotation`<br />
- You may user another example: `ontology3.owl` (ontology), `ontology3.obda` (first mapping), and `anno2.annotation` (annotation). Note that for using this example, you need to extend the max allowed packet in mysql by using this command: <br />
-`SET GLOBAL max_allowed_packet = 1073741824;`
-5. Click `Create Second Mapping`
-6. After the information "Second mapping is successfully created. Click finish to go to the next step." is shown, click `Finish`
-7. Here you can test your SPARQL Query to see whether the annotation and mapping are done correctly. One simple query that you may ask to check all traces and all events is given below: <br />
+2. After ProM window appears (which may take several time during first installation), import `ontology-man-sakilas.obda`, `ontology-man-sakilas.owl`, and `anno_sakila_man3.annotation` into ProM.
+3. Click on `Action` tab. It is the middle button on the top bar of ProM.
+4. Search `Ontology-Driven Extraction Plugin` 
+5. Choose `ontology-man-sakilas.owl` as the Domain Ontology, `ontology-man-sakilas.obda` as the First Mapping, and `anno_sakila_man3.annotation` as the Annotation.
+6. Click `Start`
+7. Now the system will create the automatic mapping from the database to the event ontology. After it finishes, a window to input SPARQL queries appears. Here you can test any SPARQL query to see whether the annotation and mapping are done correctly. One simple query that you may ask to check all traces and all events is given below: <br />
 PREFIX : \<http://myproject.org/odbs#> <br />
 SELECT DISTINCT ?x ?y<br />
 WHERE { ?x a :Trace; :TcontainsE ?y.}
 8. Click `Process` to see the answers
-9. If you click `Finish` means that you materialize all annotation in a single XES event log that you may use to process further.
+9. If you click `Finish` means that you materialize the event data into an XES event log file.  You may use this file as an input of process mining algorithms (e.g. Mine for a Petri Net using Alpha-algorithm) to get more interesting result.
+
+# Create the domain ontology and mappings automatically
+In this project, we also provide Ontology-Mapping Bootstrap plug-in to create the domain ontology and the first mapping automatically. You can try the following example.
+1. Under the `Action` tab, search for `Ontology-Mapping Bootstrap Plugin`.
+2. Click `Start`
+3. Enter your bootstrap configuration. You may use the following configurations: <br />
+Ontology file: `src/main/resources/example/ontology-boot-sakilas.owl`
+Mapping file: `src/main/resources/example/ontology-boot-sakilas.obda`
+Base URI: `http://www.example.org/`
+Jdbc URL: `jdbc:mysql://[your local server name]/sakila`
+Username: `[your username]`
+Password: `[your password]`
+Jdbc Driver Class: `com.mysql.jdbc.Driver` <br />
+4. Click `Finish`, and now the system will create the domain ontology and mapping files.
+5. Import `anno_sakila.annotation` as the annotation files
+6. Now you can run the `Ontology-Driven Extraction Plugin` following the "How to run" section above using these three files.
+
+
+
 
