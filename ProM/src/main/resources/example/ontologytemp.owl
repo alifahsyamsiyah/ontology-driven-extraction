@@ -1,0 +1,809 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/"
+     xml:base="http://www.example.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/address#ref-city_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/address#ref-city_id"/>
+    
+
+
+    <!-- http://www.example.org/city#ref-country_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/city#ref-country_id"/>
+    
+
+
+    <!-- http://www.example.org/customer#ref-address_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/customer#ref-address_id"/>
+    
+
+
+    <!-- http://www.example.org/customer#ref-store_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/customer#ref-store_id"/>
+    
+
+
+    <!-- http://www.example.org/film#ref-language_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/film#ref-language_id"/>
+    
+
+
+    <!-- http://www.example.org/film#ref-original_language_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/film#ref-original_language_id"/>
+    
+
+
+    <!-- http://www.example.org/film_actor#ref-actor_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/film_actor#ref-actor_id"/>
+    
+
+
+    <!-- http://www.example.org/film_actor#ref-film_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/film_actor#ref-film_id"/>
+    
+
+
+    <!-- http://www.example.org/film_category#ref-category_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/film_category#ref-category_id"/>
+    
+
+
+    <!-- http://www.example.org/film_category#ref-film_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/film_category#ref-film_id"/>
+    
+
+
+    <!-- http://www.example.org/inventory#ref-film_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/inventory#ref-film_id"/>
+    
+
+
+    <!-- http://www.example.org/inventory#ref-store_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/inventory#ref-store_id"/>
+    
+
+
+    <!-- http://www.example.org/payment#ref-customer_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/payment#ref-customer_id"/>
+    
+
+
+    <!-- http://www.example.org/payment#ref-rental_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/payment#ref-rental_id"/>
+    
+
+
+    <!-- http://www.example.org/payment#ref-staff_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/payment#ref-staff_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#ref-customer_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/rental#ref-customer_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#ref-inventory_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/rental#ref-inventory_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#ref-staff_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/rental#ref-staff_id"/>
+    
+
+
+    <!-- http://www.example.org/staff#ref-address_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/staff#ref-address_id"/>
+    
+
+
+    <!-- http://www.example.org/staff#ref-store_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/staff#ref-store_id"/>
+    
+
+
+    <!-- http://www.example.org/store#ref-address_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/store#ref-address_id"/>
+    
+
+
+    <!-- http://www.example.org/store#ref-manager_staff_id -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/store#ref-manager_staff_id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/actor#actor_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/actor#actor_id"/>
+    
+
+
+    <!-- http://www.example.org/actor#first_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/actor#first_name"/>
+    
+
+
+    <!-- http://www.example.org/actor#last_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/actor#last_name"/>
+    
+
+
+    <!-- http://www.example.org/actor#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/actor#last_update"/>
+    
+
+
+    <!-- http://www.example.org/address#address -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#address"/>
+    
+
+
+    <!-- http://www.example.org/address#address2 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#address2"/>
+    
+
+
+    <!-- http://www.example.org/address#address_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#address_id"/>
+    
+
+
+    <!-- http://www.example.org/address#city_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#city_id"/>
+    
+
+
+    <!-- http://www.example.org/address#district -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#district"/>
+    
+
+
+    <!-- http://www.example.org/address#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#last_update"/>
+    
+
+
+    <!-- http://www.example.org/address#phone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#phone"/>
+    
+
+
+    <!-- http://www.example.org/address#postal_code -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/address#postal_code"/>
+    
+
+
+    <!-- http://www.example.org/category#category_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/category#category_id"/>
+    
+
+
+    <!-- http://www.example.org/category#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/category#last_update"/>
+    
+
+
+    <!-- http://www.example.org/category#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/category#name"/>
+    
+
+
+    <!-- http://www.example.org/city#city -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/city#city"/>
+    
+
+
+    <!-- http://www.example.org/city#city_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/city#city_id"/>
+    
+
+
+    <!-- http://www.example.org/city#country_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/city#country_id"/>
+    
+
+
+    <!-- http://www.example.org/city#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/city#last_update"/>
+    
+
+
+    <!-- http://www.example.org/country#country -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/country#country"/>
+    
+
+
+    <!-- http://www.example.org/country#country_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/country#country_id"/>
+    
+
+
+    <!-- http://www.example.org/country#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/country#last_update"/>
+    
+
+
+    <!-- http://www.example.org/customer#active -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#active"/>
+    
+
+
+    <!-- http://www.example.org/customer#address_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#address_id"/>
+    
+
+
+    <!-- http://www.example.org/customer#create_date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#create_date"/>
+    
+
+
+    <!-- http://www.example.org/customer#customer_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#customer_id"/>
+    
+
+
+    <!-- http://www.example.org/customer#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#email"/>
+    
+
+
+    <!-- http://www.example.org/customer#first_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#first_name"/>
+    
+
+
+    <!-- http://www.example.org/customer#last_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#last_name"/>
+    
+
+
+    <!-- http://www.example.org/customer#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#last_update"/>
+    
+
+
+    <!-- http://www.example.org/customer#store_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/customer#store_id"/>
+    
+
+
+    <!-- http://www.example.org/film#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#description"/>
+    
+
+
+    <!-- http://www.example.org/film#film_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#film_id"/>
+    
+
+
+    <!-- http://www.example.org/film#language_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#language_id"/>
+    
+
+
+    <!-- http://www.example.org/film#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#last_update"/>
+    
+
+
+    <!-- http://www.example.org/film#length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#length"/>
+    
+
+
+    <!-- http://www.example.org/film#original_language_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#original_language_id"/>
+    
+
+
+    <!-- http://www.example.org/film#rating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#rating"/>
+    
+
+
+    <!-- http://www.example.org/film#release_year -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#release_year"/>
+    
+
+
+    <!-- http://www.example.org/film#rental_duration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#rental_duration"/>
+    
+
+
+    <!-- http://www.example.org/film#rental_rate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#rental_rate"/>
+    
+
+
+    <!-- http://www.example.org/film#replacement_cost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#replacement_cost"/>
+    
+
+
+    <!-- http://www.example.org/film#special_features -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#special_features"/>
+    
+
+
+    <!-- http://www.example.org/film#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film#title"/>
+    
+
+
+    <!-- http://www.example.org/film_actor#actor_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_actor#actor_id"/>
+    
+
+
+    <!-- http://www.example.org/film_actor#film_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_actor#film_id"/>
+    
+
+
+    <!-- http://www.example.org/film_actor#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_actor#last_update"/>
+    
+
+
+    <!-- http://www.example.org/film_category#category_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_category#category_id"/>
+    
+
+
+    <!-- http://www.example.org/film_category#film_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_category#film_id"/>
+    
+
+
+    <!-- http://www.example.org/film_category#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_category#last_update"/>
+    
+
+
+    <!-- http://www.example.org/film_text#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_text#description"/>
+    
+
+
+    <!-- http://www.example.org/film_text#film_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_text#film_id"/>
+    
+
+
+    <!-- http://www.example.org/film_text#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/film_text#title"/>
+    
+
+
+    <!-- http://www.example.org/inventory#film_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/inventory#film_id"/>
+    
+
+
+    <!-- http://www.example.org/inventory#inventory_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/inventory#inventory_id"/>
+    
+
+
+    <!-- http://www.example.org/inventory#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/inventory#last_update"/>
+    
+
+
+    <!-- http://www.example.org/inventory#store_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/inventory#store_id"/>
+    
+
+
+    <!-- http://www.example.org/language#language_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/language#language_id"/>
+    
+
+
+    <!-- http://www.example.org/language#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/language#last_update"/>
+    
+
+
+    <!-- http://www.example.org/language#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/language#name"/>
+    
+
+
+    <!-- http://www.example.org/payment#amount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#amount"/>
+    
+
+
+    <!-- http://www.example.org/payment#customer_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#customer_id"/>
+    
+
+
+    <!-- http://www.example.org/payment#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#last_update"/>
+    
+
+
+    <!-- http://www.example.org/payment#payment_date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#payment_date"/>
+    
+
+
+    <!-- http://www.example.org/payment#payment_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#payment_id"/>
+    
+
+
+    <!-- http://www.example.org/payment#rental_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#rental_id"/>
+    
+
+
+    <!-- http://www.example.org/payment#staff_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/payment#staff_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#customer_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#customer_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#inventory_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#inventory_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#last_update"/>
+    
+
+
+    <!-- http://www.example.org/rental#rental_date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#rental_date"/>
+    
+
+
+    <!-- http://www.example.org/rental#rental_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#rental_id"/>
+    
+
+
+    <!-- http://www.example.org/rental#return_date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#return_date"/>
+    
+
+
+    <!-- http://www.example.org/rental#staff_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rental#staff_id"/>
+    
+
+
+    <!-- http://www.example.org/staff#active -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#active"/>
+    
+
+
+    <!-- http://www.example.org/staff#address_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#address_id"/>
+    
+
+
+    <!-- http://www.example.org/staff#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#email"/>
+    
+
+
+    <!-- http://www.example.org/staff#first_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#first_name"/>
+    
+
+
+    <!-- http://www.example.org/staff#last_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#last_name"/>
+    
+
+
+    <!-- http://www.example.org/staff#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#last_update"/>
+    
+
+
+    <!-- http://www.example.org/staff#password -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#password"/>
+    
+
+
+    <!-- http://www.example.org/staff#picture -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#picture"/>
+    
+
+
+    <!-- http://www.example.org/staff#staff_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#staff_id"/>
+    
+
+
+    <!-- http://www.example.org/staff#store_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#store_id"/>
+    
+
+
+    <!-- http://www.example.org/staff#username -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staff#username"/>
+    
+
+
+    <!-- http://www.example.org/store#address_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/store#address_id"/>
+    
+
+
+    <!-- http://www.example.org/store#last_update -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/store#last_update"/>
+    
+
+
+    <!-- http://www.example.org/store#manager_staff_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/store#manager_staff_id"/>
+    
+
+
+    <!-- http://www.example.org/store#store_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/store#store_id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/actor -->
+
+    <owl:Class rdf:about="http://www.example.org/actor"/>
+    
+
+
+    <!-- http://www.example.org/address -->
+
+    <owl:Class rdf:about="http://www.example.org/address"/>
+    
+
+
+    <!-- http://www.example.org/category -->
+
+    <owl:Class rdf:about="http://www.example.org/category"/>
+    
+
+
+    <!-- http://www.example.org/city -->
+
+    <owl:Class rdf:about="http://www.example.org/city"/>
+    
+
+
+    <!-- http://www.example.org/country -->
+
+    <owl:Class rdf:about="http://www.example.org/country"/>
+    
+
+
+    <!-- http://www.example.org/customer -->
+
+    <owl:Class rdf:about="http://www.example.org/customer"/>
+    
+
+
+    <!-- http://www.example.org/film -->
+
+    <owl:Class rdf:about="http://www.example.org/film"/>
+    
+
+
+    <!-- http://www.example.org/film_actor -->
+
+    <owl:Class rdf:about="http://www.example.org/film_actor"/>
+    
+
+
+    <!-- http://www.example.org/film_category -->
+
+    <owl:Class rdf:about="http://www.example.org/film_category"/>
+    
+
+
+    <!-- http://www.example.org/film_text -->
+
+    <owl:Class rdf:about="http://www.example.org/film_text"/>
+    
+
+
+    <!-- http://www.example.org/inventory -->
+
+    <owl:Class rdf:about="http://www.example.org/inventory"/>
+    
+
+
+    <!-- http://www.example.org/language -->
+
+    <owl:Class rdf:about="http://www.example.org/language"/>
+    
+
+
+    <!-- http://www.example.org/payment -->
+
+    <owl:Class rdf:about="http://www.example.org/payment"/>
+    
+
+
+    <!-- http://www.example.org/rental -->
+
+    <owl:Class rdf:about="http://www.example.org/rental"/>
+    
+
+
+    <!-- http://www.example.org/staff -->
+
+    <owl:Class rdf:about="http://www.example.org/staff"/>
+    
+
+
+    <!-- http://www.example.org/store -->
+
+    <owl:Class rdf:about="http://www.example.org/store"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.10-SNAPSHOT) http://owlapi.sourceforge.net -->
+

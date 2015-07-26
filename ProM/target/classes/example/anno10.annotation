@@ -1,0 +1,145 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?l
+WHERE {?t a :Paper . BIND ("log1" AS ?l) .}
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?e ?t
+WHERE {?t a :Paper; :has1 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?n ?e
+WHERE {?e a :UploadSubmitted. BIND ("submit paper" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?e
+WHERE {?e a :UploadSubmitted; :uploadTime ?t.}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select ?l ?e
+where {?e a :UploadSubmitted. bind ("complete" as ?l) . }
+
+resource
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?r ?e
+WHERE {?e :uploadby1 ?c . ?c :username ?r .}
+
+attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?v ?r ?c ?e
+where {?c :has1 ?e; :title ?v . ?c ?r ?v . }
+
+attribute
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?v ?r ?c ?e
+where {?p :has1 ?e; :submittedto ?c . ?c :confName ?v . ?c ?r ?v . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?e ?t
+WHERE { ?e a :UploadAccepted. ?a a :AcceptedPaper; :has2 ?e; :correspondsto ?t .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?e
+WHERE { ?e a :UploadAccepted; :uploadAcceptedTime ?t .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?n ?e
+WHERE { ?e a :UploadAccepted. BIND ("receive final version" AS ?n) . }
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select ?l ?e
+where {?e a :UploadAccepted. bind ("complete" as ?l) . }
+
+resource
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?r ?e
+WHERE {?e :uploadby2 ?c . ?c :username ?r .}
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?e ?t
+WHERE { ?e a :Review. ?r a :ReviewRequest; :has4 ?e; :for ?t .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?e
+WHERE { ?e a :Review; :submissionTime ?t .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?n ?e
+WHERE { ?e a :Review. BIND ("get review" AS ?n) .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select ?l ?e
+where {?e a :Review. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?e ?t
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?n ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. BIND ("acceptance" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean; :decisionTime ?t .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select ?l ?e
+where {?e a :Decision; :outcome "false"^^xsd:boolean. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?e ?t
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?n ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. BIND ("rejection" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean; :decisionTime ?t .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select ?l ?e
+where {?e a :Decision; :outcome "true"^^xsd:boolean. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+select ?e ?t
+where {?e a :ReviewRequest; :for ?t . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?n ?e
+WHERE {?e a :ReviewRequest. BIND ("invite reviewer" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT ?t ?e
+WHERE {?e a :ReviewRequest; :invitationTime ?t .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select ?l ?e
+where {?e a :ReviewRequest. bind ("complete" as ?l) . }
+

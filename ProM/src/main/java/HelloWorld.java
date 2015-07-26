@@ -10,37 +10,22 @@ import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
+import org.processmining.framework.plugin.annotations.PluginVariant;
 
 import EventLog.Extract;
 
+
 public class HelloWorld {
 	
-	@Plugin(
-            name = "My Extract Event Log", 
-            parameterLabels = {}, 
-            returnLabels = { "Event Log" }, 
-            returnTypes = { XLog.class}, 
-            userAccessible = true, 
-            help = "help text"
-    )
-    @UITopiaVariant(
-            affiliation = "My company", 
-            author = "My name", 
-            email = "My e-mail address"
-    )
-    public static XLog extractLog(PluginContext context) throws Exception {
-			Extract e = new Extract();
-            return e.extractEventLogFile("");
-    }
 	
-        @Plugin(
-                name = "My Hello World Plugin", 
-                parameterLabels = {}, 
-                returnLabels = { "Hello world integer" }, 
-                returnTypes = { Integer.class}, 
-                userAccessible = true, 
-                help = "Produces the string: 'Hello world'"
-        )
+	 @Plugin(
+             name = "My Hello World Plugin", 
+             parameterLabels = {}, 
+             returnLabels = { "Hello world string" }, 
+             returnTypes = { Integer.class }, 
+             userAccessible = true, 
+             help = "Produces the string: 'Hello world'"
+     )
         @UITopiaVariant(
                 affiliation = "My company", 
                 author = "My name", 
@@ -53,12 +38,14 @@ public class HelloWorld {
         
         @Plugin(
                 name = "My Hello World Plugin0", 
-                parameterLabels = {}, 
+                parameterLabels = {"first", "second", "third"}, 
                 returnLabels = { "Hello world string","Hello world string2" }, 
                 returnTypes = { String.class, String.class }, 
                 userAccessible = true, 
+                
                 help = "Produces the string: 'Hello world'"
         )
+        @PluginVariant(variantLabel = "Your plug-in name, parameters", requiredParameterLabels = { 0, 1, 2 })
         @UITopiaVariant(
                 affiliation = "My company", 
                 author = "My name", 
@@ -111,6 +98,23 @@ public class HelloWorld {
                         s += "," + second;
                 }
                 return s;
+        }
+        
+        @Plugin(
+                name = "My 5th Hello World Plug-in", 
+                parameterLabels = {}, 
+                returnLabels = {"Hello string", "Number", "Worlds string" }, 
+                returnTypes = {Integer.class, String.class, String.class }, 
+                userAccessible = true, 
+                help = "Produces three objects: 'Hello', number, 'world'"
+        )
+        @UITopiaVariant(
+                affiliation = "My company", 
+                author = "My name", 
+                email = "My e-mail address"
+        )
+        public static Object[] helloWorlds(PluginContext context) {
+                return new Object[] { new Integer(6), "Hello",  "Worlds" };
         }
         
 }

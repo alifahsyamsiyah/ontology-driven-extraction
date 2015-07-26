@@ -1,0 +1,371 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/user/ontologies/"
+     xml:base="http://www.semanticweb.org/user/ontologies/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/acceptance#ref-User_paper -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/acceptance#ref-User_paper"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/conference#ref-Organizer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/conference#ref-Organizer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision#ref-paper_Chair -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/decision#ref-paper_Chair"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/loginstats#ref-User -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/loginstats#ref-User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#ref-User_Conf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#ref-User_Conf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/review#ref-IDrr -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/review#ref-IDrr"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/reviewrequest#ref-reviewer_paper -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/reviewrequest#ref-reviewer_paper"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/submission#ref-User_paper -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/submission#ref-User_paper"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/acceptance#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/acceptance#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/acceptance#UploadTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/acceptance#UploadTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/acceptance#User -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/acceptance#User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/acceptance#paper -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/acceptance#paper"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/conference#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/conference#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/conference#Name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/conference#Name"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/conference#Organizer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/conference#Organizer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/conference#Time -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/conference#Time"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision#Chair -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/decision#Chair"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/decision#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision#Outcome -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/decision#Outcome"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision#decisionTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/decision#decisionTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision#paper -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/decision#paper"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/login#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/login#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/login#User -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/login#User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/loginstats#CT -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/loginstats#CT"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/loginstats#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/loginstats#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/loginstats#LastAccess -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/loginstats#LastAccess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/loginstats#User -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/loginstats#User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#CT -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#CT"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#Conf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#Conf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#Status -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#Status"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#Title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#Title"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#Type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#Type"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper#User -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/paper#User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/review#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/review#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/review#IDrr -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/review#IDrr"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/review#submissionTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/review#submissionTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/reviewrequest#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/reviewrequest#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/reviewrequest#InvitationTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/reviewrequest#InvitationTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/reviewrequest#paper -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/reviewrequest#paper"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/reviewrequest#reviewer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/reviewrequest#reviewer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/submission#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/submission#ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/submission#UploadTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/submission#UploadTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/submission#User -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/submission#User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/submission#paper -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/submission#paper"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/acceptance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/acceptance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/conference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/conference"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/decision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/decision"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/login -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/login"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/loginstats -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/loginstats"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/paper -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/paper"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/review -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/review"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/reviewrequest -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/reviewrequest"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/submission -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/submission"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.10-SNAPSHOT) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,21 @@
+PREFIX : <http://myproject.org/odbs#>
+
+trace
+SELECT ?t ?l
+WHERE {?t a :Paper . BIND ("log1" AS ?l) .}
+
+event
+SELECT ?e ?t
+WHERE {?t a :Paper; :has1 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :UploadSubmitted. BIND ("submit paper" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :UploadSubmitted; :uploadTime ?t.}
+
+attribute
+select ?v ?r ?c ?e
+where {?c :username ?v . ?c ?r ?v . ?c :author ?p . ?p :has1 ?e . }

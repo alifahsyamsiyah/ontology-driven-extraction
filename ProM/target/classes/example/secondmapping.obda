@@ -1,69 +1,210 @@
 [PrefixDeclaration]
 :		http://myproject.org/odbs#
+:		http://myproject.org/odbs#
 
 [SourceDeclaration]
 sourceUri	database_conference
-connectionUrl	jdbc:mysql://localhost/conference
+connectionUrl	jdbc:mysql://localhost/conference600
 username	root
 password	root
 driverClass	com.mysql.jdbc.Driver
 
 [MappingDeclaration] @collection [[
-mappingId	activityname00
-target		:event{e} :EcontainsA :attr{n}{e} . 
-source		 select distinct 'submit the paper' as `n`, qview1.`id` as `e` from submission qview1 
+mappingId	trace0
+target		:log/log1 :LcontainsT :trace/paper/{t0} . 
+source		select paper.`id` as `t0` from paper 
 
-mappingId	activityname01
-target		:attr{n}{e} :keyA "concept:name"^^xsd:string . 
-source		 select distinct 'submit the paper' as `n`, qview1.`id` as `e` from submission qview1 
+mappingId	trace1
+target		:trace/paper/{t0} :TcontainsA :attr/paper/{t0} . 
+source		select paper.`id` as `t0` from paper 
 
-mappingId	activityname02
-target		:attr{n}{e} :typeA "literal"^^xsd:string . 
-source		 select distinct 'submit the paper' as `n`, qview1.`id` as `e` from submission qview1 
+mappingId	trace2
+target		:attr/paper/{t0} :keyA "concept:name"^^xsd:string ; :valueA :{t0} ; :typeA "literal"^^xsd:string . 
+source		select paper.`id` as `t0` from paper 
 
-mappingId	activityname03
-target		:attr{n}{e} :valueA {n} . 
-source		 select distinct 'submit the paper' as `n`, qview1.`id` as `e` from submission qview1 
+mappingId	event3
+target		:trace/paper/{t0} :TcontainsE :event/uplsub/{e0} . 
+source		select submission.`paper` as `t0` , submission.`id` as `e0` from submission 
 
-mappingId	event00
-target		:trace{t} :TcontainsE :event{e} . 
-source		 select distinct qview1.`id` as `e`, qview1.`paper` as `t` from submission qview1 
+mappingId	activityname4
+target		:event/uplsub/{e0} :EcontainsA :attr/submitpaper/uplsub/{e0} . :attr/submitpaper/uplsub/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "submit paper"^^xsd:string . 
+source		select submission.`id` as `e0` from submission 
 
-mappingId	timestamp00
-target		:event{e} :EcontainsA :attr{t}{e} . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from submission qview1 
+mappingId	timestamp5
+target		:event/uplsub/{e0} :EcontainsA :attr/{t0}/uplsub/{e0} . :attr/{t0}/uplsub/{e0} :keyA "time:timestamp"^^xsd:string ; :typeA "timestamp"^^xsd:string ; :valueA :{t0} . 
+source		select submission.`id` as `e0` , submission.`uploadtime` as `t0` from submission 
 
-mappingId	timestamp01
-target		:attr{t}{e} :keyA "time:timestamp"^^xsd:string . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from submission qview1 
+mappingId	lifecycle6
+target		:event/uplsub/{e0} :EcontainsA :attr/complete/uplsub/{e0} . :attr/complete/uplsub/{e0} :keyA "lifecycle:transition"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "complete"^^xsd:string . 
+source		select submission.`id` as `e0` from submission 
 
-mappingId	timestamp02
-target		:attr{t}{e} :typeA "timestamp"^^xsd:string . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from submission qview1 
+mappingId	resource7
+target		:event/uplsub/{e0} :EcontainsA :attr/{r0}/uplsub/{e0} . :attr/{r0}/uplsub/{e0} :keyA "org:resource"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA :{r0} . 
+source		select submission.`id` as `e0` , login.`user` as `r0` from submission, login where (submission.`user` = login.`id`) 
 
-mappingId	timestamp03
-target		:attr{t}{e} :valueA {t} . 
-source		 select distinct qview1.`uploadtime` as `t`, qview1.`id` as `e` from submission qview1 
+mappingId	attribute8
+target		:event/uplsub/{e0} :EcontainsA :attr/title/paper/{c0} .
+source		select submission.`id` as `e0` , submission.`paper` as `c0` , paper.`title` as `v0` from submission, paper where (submission.`paper` = paper.`id`) 
 
-mappingId	trace00
-target		:log{l} :LcontainsT :trace{t} . 
-source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
+mappingId	attribute9
+target		:attr/title/paper/{c0} :keyA "title"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select submission.`id` as `e0` , submission.`paper` as `c0` , paper.`title` as `v0` from submission, paper where (submission.`paper` = paper.`id`) 
 
-mappingId	trace01
-target		:trace{t} :TcontainsA :attr{t} . 
-source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
+mappingId	attribute10
+target		:event/uplsub/{e0} :EcontainsA :attr/confname/conf/{c0} .
+source		select submission.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from submission, paper, conference where (submission.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
 
-mappingId	trace02
-target		:attr{t} :keyA "concept:name"^^xsd:string . 
-source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
+mappingId	attribute11
+target		:attr/confname/conf/{c0} :keyA "confname"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select submission.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from submission, paper, conference where (submission.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
 
-mappingId	trace03
-target		:attr{t} :valueA {t} . 
-source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
+mappingId	event12
+target		:trace/paper/{t0} :TcontainsE :event/uplacc/{e0} . 
+source		select acceptance.`paper` as `t0` , acceptance.`id` as `e0` from acceptance, acceptance where (acceptance.`paper` = acceptance.`paper`)
 
-mappingId	trace04
-target		:attr{t} :typeA "literal"^^xsd:string . 
-source		 select distinct qview1.`id` as `t`, 'log1' as `l` from paper qview1, conference qview2 where qview1.`conf` = qview2.`id` and qview2.`name` regexp 'bpm 2015' 
+mappingId	timestamp13
+target		:event/uplacc/{e0} :EcontainsA :attr/{t0}/uplacc/{e0} . :attr/{t0}/uplacc/{e0} :keyA "time:timestamp"^^xsd:string ; :typeA "timestamp"^^xsd:string ; :valueA :{t0} . 
+source		select acceptance.`id` as `e0` , acceptance.`uploadtime` as `t0` from acceptance 
+
+mappingId	activityname14
+target		:event/uplacc/{e0} :EcontainsA :attr/receivefinalversion/uplacc/{e0} . :attr/receivefinalversion/uplacc/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "receive final version"^^xsd:string . 
+source		select acceptance.`id` as `e0` from acceptance 
+
+mappingId	lifecycle15
+target		:event/uplacc/{e0} :EcontainsA :attr/complete/uplacc/{e0} . :attr/complete/uplacc/{e0} :keyA "lifecycle:transition"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "complete"^^xsd:string . 
+source		select acceptance.`id` as `e0` from acceptance 
+
+mappingId	resource16
+target		:event/uplacc/{e0} :EcontainsA :attr/{r0}/uplacc/{e0} . :attr/{r0}/uplacc/{e0} :keyA "org:resource"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA :{r0} . 
+source		select acceptance.`id` as `e0` , login.`user` as `r0` from acceptance, login where (acceptance.`user` = login.`id`) 
+
+mappingId	attribute17
+target		:event/uplacc/{e0} :EcontainsA :attr/title/paper/{c0} .
+source		select acceptance.`id` as `e0` , acceptance.`paper` as `c0` , paper.`title` as `v0` from acceptance, acceptance, paper where (acceptance.`paper` = acceptance.`paper`) and (acceptance.`paper` = paper.`id`) 
+
+mappingId	attribute18
+target		:attr/title/paper/{c0} :keyA "title"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select acceptance.`id` as `e0` , acceptance.`paper` as `c0` , paper.`title` as `v0` from acceptance, acceptance, paper where (acceptance.`paper` = acceptance.`paper`) and (acceptance.`paper` = paper.`id`) 
+
+mappingId	attribute19
+target		:event/uplacc/{e0} :EcontainsA :attr/confname/conf/{c0} .
+source		select acceptance.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from acceptance, acceptance, paper, conference where (acceptance.`paper` = acceptance.`paper`) and (acceptance.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
+
+mappingId	attribute20
+target		:attr/confname/conf/{c0} :keyA "confname"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select acceptance.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from acceptance, acceptance, paper, conference where (acceptance.`paper` = acceptance.`paper`) and (acceptance.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
+
+mappingId	event21
+target		:trace/paper/{t0} :TcontainsE :event/rev/{e0} . 
+source		select reviewrequest.`paper` as `t0` , review.`id` as `e0` from review, reviewrequest where (review.`idrr` = reviewrequest.`id`) 
+
+mappingId	timestamp22
+target		:event/rev/{e0} :EcontainsA :attr/{t0}/rev/{e0} . :attr/{t0}/rev/{e0} :keyA "time:timestamp"^^xsd:string ; :typeA "timestamp"^^xsd:string ; :valueA :{t0} . 
+source		select review.`id` as `e0` , review.`submissiontime` as `t0` from review 
+
+mappingId	activityname23
+target		:event/rev/{e0} :EcontainsA :attr/getreview/rev/{e0} . :attr/getreview/rev/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "get review"^^xsd:string . 
+source		select review.`id` as `e0` from review 
+
+mappingId	lifecycle24
+target		:event/rev/{e0} :EcontainsA :attr/complete/rev/{e0} . :attr/complete/rev/{e0} :keyA "lifecycle:transition"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "complete"^^xsd:string . 
+source		select review.`id` as `e0` from review 
+
+mappingId	resource25
+target		:event/rev/{e0} :EcontainsA :attr/user/{r0}/rev/{e0} . :attr/user/{r0}/rev/{e0} :keyA "org:resource"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA :{r0} . 
+source		select review.`id` as `e0` , reviewrequest.`reviewer` as `r0` from review, reviewrequest where (review.`idrr` = reviewrequest.`id`) 
+
+mappingId	event26
+target		:trace/paper/{t0} :TcontainsE :event/dec/{e0} . 
+source		select decision.`paper` as `t0` , decision.`id` as `e0` from decision where (decision.`outcome` = true) 
+
+mappingId	activityname27
+target		:event/dec/{e0} :EcontainsA :attr/acceptance/dec/{e0} . :attr/acceptance/dec/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "acceptance"^^xsd:string . 
+source		select decision.`id` as `e0` from decision where (decision.`outcome` = true) 
+
+mappingId	timestamp28
+target		:event/dec/{e0} :EcontainsA :attr/{t0}/dec/{e0} . :attr/{t0}/dec/{e0} :keyA "time:timestamp"^^xsd:string ; :typeA "timestamp"^^xsd:string ; :valueA :{t0} . 
+source		select decision.`id` as `e0` , decision.`decisiontime` as `t0` from decision where (decision.`outcome` = true) 
+
+mappingId	lifecycle29
+target		:event/dec/{e0} :EcontainsA :attr/complete/dec/{e0} . :attr/complete/dec/{e0} :keyA "lifecycle:transition"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "complete"^^xsd:string . 
+source		select decision.`id` as `e0` from decision where (decision.`outcome` = true) 
+
+mappingId	resource30
+target		:event/dec/{e0} :EcontainsA :attr/user/{r0}/dec/{e0} . :attr/user/{r0}/dec/{e0} :keyA "org:resource"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA :{r0} . 
+source		select decision.`id` as `e0` , decision.`chair` as `r0` from decision where (decision.`outcome` = true) 
+
+mappingId	attribute31
+target		:event/dec/{e0} :EcontainsA :attr/title/paper/{c0} .
+source		select decision.`id` as `e0` , decision.`paper` as `c0` , paper.`title` as `v0` from decision, paper where (decision.`paper` = paper.`id`) 
+
+mappingId	attribute32
+target		:attr/title/paper/{c0} :keyA "title"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select decision.`id` as `e0` , decision.`paper` as `c0` , paper.`title` as `v0` from decision, paper where (decision.`paper` = paper.`id`) 
+
+mappingId	attribute33
+target		:event/dec/{e0} :EcontainsA :attr/confname/conf/{c0} .
+source		select decision.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from decision, paper, conference where (decision.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
+
+mappingId	attribute34
+target		:attr/confname/conf/{c0} :keyA "confname"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select decision.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from decision, paper, conference where (decision.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
+
+mappingId	event35
+target		:trace/paper/{t0} :TcontainsE :event/dec/{e0} . 
+source		select decision.`paper` as `t0` , decision.`id` as `e0` from decision where (decision.`outcome` = false) 
+
+mappingId	activityname36
+target		:event/dec/{e0} :EcontainsA :attr/rejection/dec/{e0} . :attr/rejection/dec/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "rejection"^^xsd:string . 
+source		select decision.`id` as `e0` from decision where (decision.`outcome` = false) 
+
+mappingId	timestamp37
+target		:event/dec/{e0} :EcontainsA :attr/{t0}/dec/{e0} . :attr/{t0}/dec/{e0} :keyA "time:timestamp"^^xsd:string ; :typeA "timestamp"^^xsd:string ; :valueA :{t0} . 
+source		select decision.`id` as `e0` , decision.`decisiontime` as `t0` from decision where (decision.`outcome` = false) 
+
+mappingId	lifecycle38
+target		:event/dec/{e0} :EcontainsA :attr/complete/dec/{e0} . :attr/complete/dec/{e0} :keyA "lifecycle:transition"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "complete"^^xsd:string . 
+source		select decision.`id` as `e0` from decision where (decision.`outcome` = false) 
+
+mappingId	resource39
+target		:event/dec/{e0} :EcontainsA :attr/user/{r0}/dec/{e0} . :attr/user/{r0}/dec/{e0} :keyA "org:resource"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA :{r0} . 
+source		select decision.`id` as `e0` , decision.`chair` as `r0` from decision where (decision.`outcome` = false) 
+
+mappingId	event40
+target		:trace/paper/{t0} :TcontainsE :event/revreq/{e0} . 
+source		select reviewrequest.`paper` as `t0` , reviewrequest.`id` as `e0` from reviewrequest 
+
+mappingId	activityname41
+target		:event/revreq/{e0} :EcontainsA :attr/invitereviewer/revreq/{e0} . :attr/invitereviewer/revreq/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "invite reviewer"^^xsd:string . 
+source		select reviewrequest.`id` as `e0` from reviewrequest 
+
+mappingId	timestamp42
+target		:event/revreq/{e0} :EcontainsA :attr/{t0}/revreq/{e0} . :attr/{t0}/revreq/{e0} :keyA "time:timestamp"^^xsd:string ; :typeA "timestamp"^^xsd:string ; :valueA :{t0} . 
+source		select reviewrequest.`id` as `e0` , reviewrequest.`invitationtime` as `t0` from reviewrequest 
+
+mappingId	lifecycle43
+target		:event/revreq/{e0} :EcontainsA :attr/complete/revreq/{e0} . :attr/complete/revreq/{e0} :keyA "lifecycle:transition"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "complete"^^xsd:string . 
+source		select reviewrequest.`id` as `e0` from reviewrequest 
+
+mappingId	resource44
+target		:event/revreq/{e0} :EcontainsA :attr/user/{r0}/revreq/{e0} . :attr/user/{r0}/revreq/{e0} :keyA "org:resource"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA :{r0} . 
+source		select reviewrequest.`id` as `e0` , reviewrequest.`reviewer` as `r0` from reviewrequest 
+
+mappingId	attribute45
+target		:event/revreq/{e0} :EcontainsA :attr/title/paper/{c0} .
+source		select reviewrequest.`id` as `e0` , reviewrequest.`paper` as `c0` , paper.`title` as `v0` from reviewrequest, paper where (reviewrequest.`paper` = paper.`id`) 
+
+mappingId	attribute46
+target		:attr/title/paper/{c0} :keyA "title"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select reviewrequest.`id` as `e0` , reviewrequest.`paper` as `c0` , paper.`title` as `v0` from reviewrequest, paper where (reviewrequest.`paper` = paper.`id`) 
+
+mappingId	attribute47
+target		:event/revreq/{e0} :EcontainsA :attr/confname/conf/{c0} .
+source		select reviewrequest.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from reviewrequest, paper, conference where (reviewrequest.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
+
+mappingId	attribute48
+target		:attr/confname/conf/{c0} :keyA "confname"^^xsd:string ; :valueA :{v0} ; :typeA "literal"^^xsd:string . 
+source		select reviewrequest.`id` as `e0` , paper.`conf` as `c0` , conference.`name` as `v0` from reviewrequest, paper, conference where (reviewrequest.`paper` = paper.`id`) and (paper.`conf` = conference.`id`) 
 
 ]]
 

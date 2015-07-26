@@ -1,0 +1,168 @@
+[PrefixDeclaration]
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xsd:		http://www.w3.org/2001/XMLSchema#
+quest:		http://obda.org/quest#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[SourceDeclaration]
+sourceUri	e10a8f0a-cd27-42a3-9496-cafbb4afc08b
+connectionUrl	jdbc:mysql://localhost/sakilas
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	MAPPING-ID1
+target		<http://www.example.org/film_category/film_id={film_id};category_id={category_id}> a <http://www.example.org/film_category> ; <http://www.example.org/film_category#film_id> {film_id}^^xsd:integer ; <http://www.example.org/film_category#category_id> {category_id}^^xsd:integer ; <http://www.example.org/film_category#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM film_category
+
+mappingId	MAPPING-ID2
+target		<http://www.example.org/film_category/film_id={film_category_film_id};category_id={film_category_category_id}> <http://www.example.org/film_category#ref-category_id> <http://www.example.org/category/category_id={category_category_id}> . 
+source		SELECT film_category.film_id AS film_category_film_id, film_category.category_id AS film_category_category_id, category.category_id AS category_category_id FROM film_category, category WHERE film_category.category_id = category.category_id
+
+mappingId	MAPPING-ID3
+target		<http://www.example.org/film_category/film_id={film_category_film_id};category_id={film_category_category_id}> <http://www.example.org/film_category#ref-film_id> <http://www.example.org/film/film_id={film_film_id}> . 
+source		SELECT film_category.film_id AS film_category_film_id, film_category.category_id AS film_category_category_id, film.film_id AS film_film_id FROM film_category, film WHERE film_category.film_id = film.film_id
+
+mappingId	MAPPING-ID4
+target		<http://www.example.org/country/country_id={country_id}> a <http://www.example.org/country> ; <http://www.example.org/country#country_id> {country_id}^^xsd:integer ; <http://www.example.org/country#country> {country} ; <http://www.example.org/country#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM country
+
+mappingId	MAPPING-ID5
+target		<http://www.example.org/address/address_id={address_id}> a <http://www.example.org/address> ; <http://www.example.org/address#address_id> {address_id}^^xsd:integer ; <http://www.example.org/address#address> {address} ; <http://www.example.org/address#address2> {address2} ; <http://www.example.org/address#district> {district} ; <http://www.example.org/address#city_id> {city_id}^^xsd:integer ; <http://www.example.org/address#postal_code> {postal_code} ; <http://www.example.org/address#phone> {phone} ; <http://www.example.org/address#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM address
+
+mappingId	MAPPING-ID6
+target		<http://www.example.org/address/address_id={address_address_id}> <http://www.example.org/address#ref-city_id> <http://www.example.org/city/city_id={city_city_id}> . 
+source		SELECT address.address_id AS address_address_id, city.city_id AS city_city_id FROM address, city WHERE address.city_id = city.city_id
+
+mappingId	MAPPING-ID7
+target		<http://www.example.org/city/city_id={city_id}> a <http://www.example.org/city> ; <http://www.example.org/city#city_id> {city_id}^^xsd:integer ; <http://www.example.org/city#city> {city} ; <http://www.example.org/city#country_id> {country_id}^^xsd:integer ; <http://www.example.org/city#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM city
+
+mappingId	MAPPING-ID8
+target		<http://www.example.org/city/city_id={city_city_id}> <http://www.example.org/city#ref-country_id> <http://www.example.org/country/country_id={country_country_id}> . 
+source		SELECT city.city_id AS city_city_id, country.country_id AS country_country_id FROM city, country WHERE city.country_id = country.country_id
+
+mappingId	MAPPING-ID9
+target		<http://www.example.org/film_actor/actor_id={actor_id};film_id={film_id}> a <http://www.example.org/film_actor> ; <http://www.example.org/film_actor#actor_id> {actor_id}^^xsd:integer ; <http://www.example.org/film_actor#film_id> {film_id}^^xsd:integer ; <http://www.example.org/film_actor#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM film_actor
+
+mappingId	MAPPING-ID10
+target		<http://www.example.org/film_actor/actor_id={film_actor_actor_id};film_id={film_actor_film_id}> <http://www.example.org/film_actor#ref-actor_id> <http://www.example.org/actor/actor_id={actor_actor_id}> . 
+source		SELECT film_actor.actor_id AS film_actor_actor_id, film_actor.film_id AS film_actor_film_id, actor.actor_id AS actor_actor_id FROM film_actor, actor WHERE film_actor.actor_id = actor.actor_id
+
+mappingId	MAPPING-ID11
+target		<http://www.example.org/film_actor/actor_id={film_actor_actor_id};film_id={film_actor_film_id}> <http://www.example.org/film_actor#ref-film_id> <http://www.example.org/film/film_id={film_film_id}> . 
+source		SELECT film_actor.actor_id AS film_actor_actor_id, film_actor.film_id AS film_actor_film_id, film.film_id AS film_film_id FROM film_actor, film WHERE film_actor.film_id = film.film_id
+
+mappingId	MAPPING-ID12
+target		<http://www.example.org/language/language_id={language_id}> a <http://www.example.org/language> ; <http://www.example.org/language#language_id> {language_id}^^xsd:integer ; <http://www.example.org/language#name> {name} ; <http://www.example.org/language#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM language
+
+mappingId	MAPPING-ID13
+target		<http://www.example.org/staff/staff_id={staff_id}> a <http://www.example.org/staff> ; <http://www.example.org/staff#staff_id> {staff_id}^^xsd:integer ; <http://www.example.org/staff#first_name> {first_name} ; <http://www.example.org/staff#last_name> {last_name} ; <http://www.example.org/staff#address_id> {address_id}^^xsd:integer ; <http://www.example.org/staff#picture> {picture} ; <http://www.example.org/staff#email> {email} ; <http://www.example.org/staff#store_id> {store_id}^^xsd:integer ; <http://www.example.org/staff#active> {active}^^xsd:boolean ; <http://www.example.org/staff#username> {username} ; <http://www.example.org/staff#password> {password} ; <http://www.example.org/staff#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM staff
+
+mappingId	MAPPING-ID14
+target		<http://www.example.org/staff/staff_id={staff_staff_id}> <http://www.example.org/staff#ref-store_id> <http://www.example.org/store/store_id={store_store_id}> . 
+source		SELECT staff.staff_id AS staff_staff_id, store.store_id AS store_store_id FROM staff, store WHERE staff.store_id = store.store_id
+
+mappingId	MAPPING-ID15
+target		<http://www.example.org/staff/staff_id={staff_staff_id}> <http://www.example.org/staff#ref-address_id> <http://www.example.org/address/address_id={address_address_id}> . 
+source		SELECT staff.staff_id AS staff_staff_id, address.address_id AS address_address_id FROM staff, address WHERE staff.address_id = address.address_id
+
+mappingId	MAPPING-ID16
+target		<http://www.example.org/film/film_id={film_id}> a <http://www.example.org/film> ; <http://www.example.org/film#film_id> {film_id}^^xsd:integer ; <http://www.example.org/film#title> {title} ; <http://www.example.org/film#description> {description} ; <http://www.example.org/film#release_year> {release_year}^^xsd:dateTime ; <http://www.example.org/film#language_id> {language_id}^^xsd:integer ; <http://www.example.org/film#original_language_id> {original_language_id}^^xsd:integer ; <http://www.example.org/film#rental_duration> {rental_duration}^^xsd:integer ; <http://www.example.org/film#rental_rate> {rental_rate}^^xsd:decimal ; <http://www.example.org/film#length> {length}^^xsd:integer ; <http://www.example.org/film#replacement_cost> {replacement_cost}^^xsd:decimal ; <http://www.example.org/film#rating> {rating} ; <http://www.example.org/film#special_features> {special_features} ; <http://www.example.org/film#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM film
+
+mappingId	MAPPING-ID17
+target		<http://www.example.org/film/film_id={film_film_id}> <http://www.example.org/film#ref-original_language_id> <http://www.example.org/language/language_id={language_language_id}> . 
+source		SELECT film.film_id AS film_film_id, language.language_id AS language_language_id FROM film, language WHERE film.original_language_id = language.language_id
+
+mappingId	MAPPING-ID18
+target		<http://www.example.org/film/film_id={film_film_id}> <http://www.example.org/film#ref-language_id> <http://www.example.org/language/language_id={language_language_id}> . 
+source		SELECT film.film_id AS film_film_id, language.language_id AS language_language_id FROM film, language WHERE film.language_id = language.language_id
+
+mappingId	MAPPING-ID19
+target		<http://www.example.org/store/store_id={store_id}> a <http://www.example.org/store> ; <http://www.example.org/store#store_id> {store_id}^^xsd:integer ; <http://www.example.org/store#manager_staff_id> {manager_staff_id}^^xsd:integer ; <http://www.example.org/store#address_id> {address_id}^^xsd:integer ; <http://www.example.org/store#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM store
+
+mappingId	MAPPING-ID20
+target		<http://www.example.org/store/store_id={store_store_id}> <http://www.example.org/store#ref-manager_staff_id> <http://www.example.org/staff/staff_id={staff_staff_id}> . 
+source		SELECT store.store_id AS store_store_id, staff.staff_id AS staff_staff_id FROM store, staff WHERE store.manager_staff_id = staff.staff_id
+
+mappingId	MAPPING-ID21
+target		<http://www.example.org/store/store_id={store_store_id}> <http://www.example.org/store#ref-address_id> <http://www.example.org/address/address_id={address_address_id}> . 
+source		SELECT store.store_id AS store_store_id, address.address_id AS address_address_id FROM store, address WHERE store.address_id = address.address_id
+
+mappingId	MAPPING-ID22
+target		<http://www.example.org/inventory/inventory_id={inventory_id}> a <http://www.example.org/inventory> ; <http://www.example.org/inventory#inventory_id> {inventory_id}^^xsd:integer ; <http://www.example.org/inventory#film_id> {film_id}^^xsd:integer ; <http://www.example.org/inventory#store_id> {store_id}^^xsd:integer ; <http://www.example.org/inventory#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM inventory
+
+mappingId	MAPPING-ID23
+target		<http://www.example.org/inventory/inventory_id={inventory_inventory_id}> <http://www.example.org/inventory#ref-store_id> <http://www.example.org/store/store_id={store_store_id}> . 
+source		SELECT inventory.inventory_id AS inventory_inventory_id, store.store_id AS store_store_id FROM inventory, store WHERE inventory.store_id = store.store_id
+
+mappingId	MAPPING-ID24
+target		<http://www.example.org/inventory/inventory_id={inventory_inventory_id}> <http://www.example.org/inventory#ref-film_id> <http://www.example.org/film/film_id={film_film_id}> . 
+source		SELECT inventory.inventory_id AS inventory_inventory_id, film.film_id AS film_film_id FROM inventory, film WHERE inventory.film_id = film.film_id
+
+mappingId	MAPPING-ID25
+target		<http://www.example.org/rental/rental_id={rental_id}> a <http://www.example.org/rental> ; <http://www.example.org/rental#rental_id> {rental_id}^^xsd:integer ; <http://www.example.org/rental#rental_date> {rental_date}^^xsd:dateTime ; <http://www.example.org/rental#inventory_id> {inventory_id}^^xsd:integer ; <http://www.example.org/rental#customer_id> {customer_id}^^xsd:integer ; <http://www.example.org/rental#return_date> {return_date}^^xsd:dateTime ; <http://www.example.org/rental#staff_id> {staff_id}^^xsd:integer ; <http://www.example.org/rental#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM rental
+
+mappingId	MAPPING-ID26
+target		<http://www.example.org/rental/rental_id={rental_rental_id}> <http://www.example.org/rental#ref-inventory_id> <http://www.example.org/inventory/inventory_id={inventory_inventory_id}> . 
+source		SELECT rental.rental_id AS rental_rental_id, inventory.inventory_id AS inventory_inventory_id FROM rental, inventory WHERE rental.inventory_id = inventory.inventory_id
+
+mappingId	MAPPING-ID27
+target		<http://www.example.org/rental/rental_id={rental_rental_id}> <http://www.example.org/rental#ref-customer_id> <http://www.example.org/customer/customer_id={customer_customer_id}> . 
+source		SELECT rental.rental_id AS rental_rental_id, customer.customer_id AS customer_customer_id FROM rental, customer WHERE rental.customer_id = customer.customer_id
+
+mappingId	MAPPING-ID28
+target		<http://www.example.org/rental/rental_id={rental_rental_id}> <http://www.example.org/rental#ref-staff_id> <http://www.example.org/staff/staff_id={staff_staff_id}> . 
+source		SELECT rental.rental_id AS rental_rental_id, staff.staff_id AS staff_staff_id FROM rental, staff WHERE rental.staff_id = staff.staff_id
+
+mappingId	MAPPING-ID29
+target		<http://www.example.org/actor/actor_id={actor_id}> a <http://www.example.org/actor> ; <http://www.example.org/actor#actor_id> {actor_id}^^xsd:integer ; <http://www.example.org/actor#first_name> {first_name} ; <http://www.example.org/actor#last_name> {last_name} ; <http://www.example.org/actor#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM actor
+
+mappingId	MAPPING-ID30
+target		<http://www.example.org/film_text/film_id={film_id}> a <http://www.example.org/film_text> ; <http://www.example.org/film_text#film_id> {film_id}^^xsd:integer ; <http://www.example.org/film_text#title> {title} ; <http://www.example.org/film_text#description> {description} . 
+source		SELECT * FROM film_text
+
+mappingId	MAPPING-ID31
+target		<http://www.example.org/payment/payment_id={payment_id}> a <http://www.example.org/payment> ; <http://www.example.org/payment#payment_id> {payment_id}^^xsd:integer ; <http://www.example.org/payment#customer_id> {customer_id}^^xsd:integer ; <http://www.example.org/payment#staff_id> {staff_id}^^xsd:integer ; <http://www.example.org/payment#rental_id> {rental_id}^^xsd:integer ; <http://www.example.org/payment#amount> {amount}^^xsd:decimal ; <http://www.example.org/payment#payment_date> {payment_date}^^xsd:dateTime ; <http://www.example.org/payment#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM payment
+
+mappingId	MAPPING-ID32
+target		<http://www.example.org/payment/payment_id={payment_payment_id}> <http://www.example.org/payment#ref-rental_id> <http://www.example.org/rental/rental_id={rental_rental_id}> . 
+source		SELECT payment.payment_id AS payment_payment_id, rental.rental_id AS rental_rental_id FROM payment, rental WHERE payment.rental_id = rental.rental_id
+
+mappingId	MAPPING-ID33
+target		<http://www.example.org/payment/payment_id={payment_payment_id}> <http://www.example.org/payment#ref-customer_id> <http://www.example.org/customer/customer_id={customer_customer_id}> . 
+source		SELECT payment.payment_id AS payment_payment_id, customer.customer_id AS customer_customer_id FROM payment, customer WHERE payment.customer_id = customer.customer_id
+
+mappingId	MAPPING-ID34
+target		<http://www.example.org/payment/payment_id={payment_payment_id}> <http://www.example.org/payment#ref-staff_id> <http://www.example.org/staff/staff_id={staff_staff_id}> . 
+source		SELECT payment.payment_id AS payment_payment_id, staff.staff_id AS staff_staff_id FROM payment, staff WHERE payment.staff_id = staff.staff_id
+
+mappingId	MAPPING-ID35
+target		<http://www.example.org/category/category_id={category_id}> a <http://www.example.org/category> ; <http://www.example.org/category#category_id> {category_id}^^xsd:integer ; <http://www.example.org/category#name> {name} ; <http://www.example.org/category#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM category
+
+mappingId	MAPPING-ID36
+target		<http://www.example.org/customer/customer_id={customer_id}> a <http://www.example.org/customer> ; <http://www.example.org/customer#customer_id> {customer_id}^^xsd:integer ; <http://www.example.org/customer#store_id> {store_id}^^xsd:integer ; <http://www.example.org/customer#first_name> {first_name} ; <http://www.example.org/customer#last_name> {last_name} ; <http://www.example.org/customer#email> {email} ; <http://www.example.org/customer#address_id> {address_id}^^xsd:integer ; <http://www.example.org/customer#active> {active}^^xsd:boolean ; <http://www.example.org/customer#create_date> {create_date}^^xsd:dateTime ; <http://www.example.org/customer#last_update> {last_update}^^xsd:dateTime . 
+source		SELECT * FROM customer
+
+mappingId	MAPPING-ID37
+target		<http://www.example.org/customer/customer_id={customer_customer_id}> <http://www.example.org/customer#ref-store_id> <http://www.example.org/store/store_id={store_store_id}> . 
+source		SELECT customer.customer_id AS customer_customer_id, store.store_id AS store_store_id FROM customer, store WHERE customer.store_id = store.store_id
+
+mappingId	MAPPING-ID38
+target		<http://www.example.org/customer/customer_id={customer_customer_id}> <http://www.example.org/customer#ref-address_id> <http://www.example.org/address/address_id={address_address_id}> . 
+source		SELECT customer.customer_id AS customer_customer_id, address.address_id AS address_address_id FROM customer, address WHERE customer.address_id = address.address_id
+]]
+

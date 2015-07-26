@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 
 import org.deckfour.xes.extension.XExtension;
@@ -34,95 +36,143 @@ import org.deckfour.xes.out.XesXmlSerializer;
 public class Extract {
 	
 	private static XFactoryBufferedImpl factory = new XFactoryBufferedImpl();	
+	private static HashMap<String, LinkedList<String>> hashtrace = new HashMap<String, LinkedList<String>>();
+	private static HashMap<String, LinkedList<String>> hashevent = new HashMap<String, LinkedList<String>>();
 	
-	public static XLog extractEventLogFile(String logs) throws Exception{
+	private static HashMap<String, LinkedList<String>> hasheventtype = new HashMap<String, LinkedList<String>>();
+	private static HashMap<String, LinkedList<String>> hasheventkey = new HashMap<String, LinkedList<String>>();
+	private static HashMap<String, LinkedList<String>> hasheventvalue = new HashMap<String, LinkedList<String>>();
+	
+	public static XLog extractEventLogFile(String traces, String eventtypes, String eventkeys, String eventvalues) throws Exception{
 		System.out.println("enter extractEventLogFile");
 			
 		// create extension manager
-		XExtensionManager extManager = XExtensionManager.instance();
+		//XExtensionManager extManager = XExtensionManager.instance();
 		
 		// create log
 		XLog log = factory.createLog();
 		
-		// create trace	and event			
-		String prevtrace = ""; String prevevent = "";
-		String[] elem = logs.split("\n");
-		
-		
-		XAttribute attr;
-		XAttributeMapImpl attrMapTrace = null;
-		XAttributeMapImpl attrMap = null;
-		XTrace xtrace = null;
-			
+		// create hashtrace
+		String[] elem = traces.split("\n");
 		
 		for(int i = 0; i < elem.length; i++) {
-			// read every line
 			String[] arr = elem[i].split(", ");
 			String trace = arr[0];
+			trace = (trace.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
 			String tracevalue = (arr[1].replaceAll("\"", "")).replace("^^xsd:string","");
 			String event = arr[2];
 			event = (event.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
-			String type = (arr[3].replaceAll("\"", "")).replace("^^xsd:string","");
-			String key = (arr[4].replaceAll("\"", "")).replace("^^xsd:string","");
-			key = (key.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
-			String value = (arr[5].replaceAll("\"", "")).replace("^^xsd:string","");
-			value = (value.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
 			
-			// the same trace
-			if(prevtrace.equals(trace)) {
-				
-				// the same event
-				if(prevevent.equals(event)) {
-							
-					attr = createAttribute(key, value, null, type); // create attribute
-					attrMap.put(key, attr); // put attribute to the map attribute
-					
-				// not the same event
-				} else {
-					
-					// the previous event is already completed, and it needs to be printed
-					XEvent xevent = factory.createEvent(attrMap); // create xevent
-					xtrace.insertOrdered(xevent); // insert event in correct order in a trace
-							
-					attr = createAttribute(key, value, null, type); // create attribute	
-					attrMap = new XAttributeMapImpl(); // create attr map for event
-					attrMap.put(key, attr); // put attribute to the map attribute
-					
-					prevevent = event;
-					
-				}
-				
-			// not the same trace
+			if(hashtrace.containsKey(trace)){
+				LinkedList<String> lltrace = hashtrace.get(trace);
+				lltrace.add(event);
+				hashtrace.put(trace, lltrace);
 			} else {
-				
-				// there is event need to be printed
-				if(attrMap != null) {
-					XEvent xevent = factory.createEvent(attrMap); // create xevent
-					xtrace.insertOrdered(xevent); // insert event in correct order in a trace
-				}
-				
-				attr = factory.createAttributeLiteral("concept:name", tracevalue, null); // create attribute for trace
-				attrMapTrace = new XAttributeMapImpl(); // create a new map attribute
-				attrMapTrace.put("concept:name", attr);	// put attribute to the map attribute
-				xtrace = factory.createTrace(attrMapTrace); // create xtrace
-				log.add(xtrace); // add to log
-				
-				attr = createAttribute(key, value, null, type); // create attribute		
-				attrMap = new XAttributeMapImpl(); // create a new map attribute
-				attrMap.put(key, attr); // put attribute to the map attribute
-				
-				prevtrace = trace;
-				prevevent = event;
+				LinkedList<String> lltrace = new LinkedList<String>();
+				lltrace.add(tracevalue);
+				lltrace.add(event);
+				hashtrace.put(trace, lltrace);
 			}
-		} 
-		
-		// there is event need to be printed
-		if(attrMap != null) {
-			XEvent xevent = factory.createEvent(attrMap); // create xevent
-			xtrace.insertOrdered(xevent); // insert event in correct order in a trace
 		}
 		
+		//create hasheventtype
+		elem = eventtypes.split("\n");
+		
+		for(int i = 0; i < elem.length; i++) {
+			String[] arr = elem[i].split(", ");
+			String event = arr[0];
+			event = (event.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+			String type = (arr[1].replaceAll("\"", "")).replace("^^xsd:string","");
+			
+			LinkedList<String> llevent;
+			if(hasheventtype.containsKey(event)){
+				llevent = hasheventtype.get(event);
+			} else {
+				llevent = new LinkedList<String>();
+			}
+			llevent.add(type);
+			hasheventtype.put(event, llevent);
+		}
+		
+		//create hasheventkey
+		elem = eventkeys.split("\n");
+		
+		for(int i = 0; i < elem.length; i++) {
+			String[] arr = elem[i].split(", ");
+			String event = arr[0];
+			event = (event.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+			String key = (arr[1].replaceAll("\"", "")).replace("^^xsd:string","");
+			key = (key.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+			
+			LinkedList<String> llevent;
+			if(hasheventkey.containsKey(event)){
+				llevent = hasheventkey.get(event);
+			} else {
+				llevent = new LinkedList<String>();
+			}
+			llevent.add(key);
+			hasheventkey.put(event, llevent);
+		}
+		
+		//create hasheventvalue
+		elem = eventvalues.split("\n");
+		
+		for(int i = 0; i < elem.length; i++) {
+			String[] arr = elem[i].split(", ");
+			String event = arr[0];
+			event = (event.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+			String value = (arr[1].replaceAll("\"", "")).replace("^^xsd:string","");
+			value = (value.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+			
+			LinkedList<String> llevent;
+			if(hasheventvalue.containsKey(event)){
+				llevent = hasheventvalue.get(event);
+			} else {
+				llevent = new LinkedList<String>();
+			}
+			llevent.add(value);
+			hasheventvalue.put(event, llevent);
+		}
+		
+		//create objects of OpenXES
+		for (String trace : hashtrace.keySet()) {
+			LinkedList<String> lltrace = hashtrace.get(trace);
+			
+			String tracevalue = lltrace.get(0);
+			XAttribute attr = factory.createAttributeLiteral("concept:name", tracevalue, null); // create attribute for trace
+			XAttributeMap attrMapTrace = new XAttributeMapImpl(); // create a new map attribute
+			attrMapTrace.put("concept:name", attr);	// put attribute to the map attribute
+			XTrace xtrace = factory.createTrace(attrMapTrace); // create xtrace			
+			
+			// for each event id in a trace
+			for(int i = 1; i < lltrace.size(); i++) {
+				String event = lltrace.get(i);
 				
+				LinkedList<String> lleventtype = hasheventtype.get(event);
+				LinkedList<String> lleventkey = hasheventkey.get(event);
+				LinkedList<String> lleventvalue = hasheventvalue.get(event);
+				
+				int j = 0; XAttribute attrEvent; XAttributeMap attrMapEvent = new XAttributeMapImpl();
+				
+				// for each event attribute
+				while(j < lleventtype.size()) {
+					String type = lleventtype.get(j); 
+					String key = lleventkey.get(j);
+					String value = lleventvalue.get(j); 
+					j++;
+					
+					attrEvent = createAttribute(key, value, null, type); // create attribute		
+					attrMapEvent.put(key, attrEvent); // put attribute to the map attribute					
+				}
+				
+				XEvent xevent = factory.createEvent(attrMapEvent);
+				xtrace.insertOrdered(xevent);
+			}
+			
+			log.add(xtrace); // add to log
+		}
+			
+			
 		// create serializer
 		XesXmlSerializer s = new XesXmlSerializer();		
 		File f = new File("src/main/resources/example/eventlog.xes");
@@ -132,6 +182,166 @@ public class Extract {
 		return log;
 			
 	}
+	
+	public static XLog extractEventLog(HashMap<String, LinkedList<String>> traces, HashMap<String, LinkedList<String>> eventtypes, HashMap<String, LinkedList<String>> eventkeys, HashMap<String, LinkedList<String>> eventvalues) throws Exception{
+		System.out.println("enter extractEventLogFromHash");
+		
+		// create log
+		XLog log = factory.createLog();
+		
+		//create objects of OpenXES
+		for (String trace : traces.keySet()) {
+			LinkedList<String> lltrace = traces.get(trace);
+			
+			String tracevalue = lltrace.get(0);
+			XAttribute attr = factory.createAttributeLiteral("concept:name", tracevalue, null); // create attribute for trace
+			XAttributeMap attrMapTrace = new XAttributeMapImpl(); // create a new map attribute
+			attrMapTrace.put("concept:name", attr);	// put attribute to the map attribute
+			XTrace xtrace = factory.createTrace(attrMapTrace); // create xtrace			
+			
+			// for each event id in a trace
+			for(int i = 1; i < lltrace.size(); i++) {
+				String event = lltrace.get(i);
+				
+				LinkedList<String> lleventtype = eventtypes.get(event);
+				LinkedList<String> lleventkey = eventkeys.get(event);
+				LinkedList<String> lleventvalue = eventvalues.get(event);
+				
+				int j = 0; XAttribute attrEvent; XAttributeMap attrMapEvent = new XAttributeMapImpl();
+				
+				// for each event attribute
+				while(j < lleventtype.size()) {
+					String type = lleventtype.get(j); 
+					String key = lleventkey.get(j);
+					String value = lleventvalue.get(j); 
+					j++;
+					
+					attrEvent = createAttribute(key, value, null, type); // create attribute		
+					attrMapEvent.put(key, attrEvent); // put attribute to the map attribute					
+				}
+				
+				XEvent xevent = factory.createEvent(attrMapEvent);
+				xtrace.insertOrdered(xevent);
+			}
+			
+			log.add(xtrace); // add to log
+		}
+			
+			
+		// create serializer
+		XesXmlSerializer s = new XesXmlSerializer();		
+		File f = new File("src/main/resources/example/eventlog.xes");
+		OutputStream wr = new FileOutputStream(f);		
+		s.serialize(log, wr);
+		
+		return log;
+			
+	}
+	
+//	public static XLog extractEventLogFile(String logs) throws Exception{
+//		System.out.println("enter extractEventLogFile");
+//		
+//		// create extension manager
+//		XExtensionManager extManager = XExtensionManager.instance();
+//		
+//		// create log
+//		XLog log = factory.createLog();
+//		
+//		// create trace	and event	
+//		String prevtrace = ""; String prevevent = "";
+//		String[] elem = logs.split("\n");
+//		
+//		for(int i = 0; i < elem.length; i++) {
+//			String[] arr = elem[i].split(", ");
+//			String trace = arr[0];
+//			trace = (trace.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+//			String tracevalue = (arr[1].replaceAll("\"", "")).replace("^^xsd:string","");
+//			String event = arr[2];
+//			event = (event.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+//			String type = (arr[3].replaceAll("\"", "")).replace("^^xsd:string","");
+//			String key = (arr[4].replaceAll("\"", "")).replace("^^xsd:string","");
+//			key = (key.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+//			String value = (arr[5].replaceAll("\"", "")).replace("^^xsd:string","");
+//			value = (value.replaceAll("[\\p{Punct}\\w\\d]+#","")).replace(">","");
+//			
+//			if(hashtrace.containsKey(trace)){
+//				
+//				if(hashevent.containsKey(event)){
+//					LinkedList<String> llevent = hashevent.get(event);
+//					llevent.add(type);
+//					llevent.add(key);
+//					llevent.add(value);
+//					hashevent.put(event, llevent);
+//				} else {
+//					LinkedList<String> lltrace = hashtrace.get(trace);
+//					lltrace.add(event);
+//					hashtrace.put(trace, lltrace);
+//					
+//					LinkedList<String> llevent = new LinkedList<String>();
+//					llevent.add(type);
+//					llevent.add(key);
+//					llevent.add(value);
+//					hashevent.put(event, llevent);
+//				}
+//				
+//				
+//			} else {
+//				LinkedList<String> lltrace = new LinkedList<String>();
+//				lltrace.add(tracevalue);
+//				lltrace.add(event);
+//				hashtrace.put(trace, lltrace);
+//				
+//				LinkedList<String> llevent = new LinkedList<String>();
+//				llevent.add(type);
+//				llevent.add(key);
+//				llevent.add(value);
+//				hashevent.put(event, llevent);
+//			}
+//		}
+//		
+//		// for each trace id in hashtrace
+//		for (String trace : hashtrace.keySet()) {
+//			LinkedList<String> lltrace = hashtrace.get(trace);
+//			
+//			String tracevalue = lltrace.get(0);
+//			XAttribute attr = factory.createAttributeLiteral("concept:name", tracevalue, null); // create attribute for trace
+//			XAttributeMap attrMapTrace = new XAttributeMapImpl(); // create a new map attribute
+//			attrMapTrace.put("concept:name", attr);	// put attribute to the map attribute
+//			XTrace xtrace = factory.createTrace(attrMapTrace); // create xtrace			
+//			
+//			// for each event id in a trace
+//			for(int i = 1; i < lltrace.size(); i++) {
+//				String event = lltrace.get(i);
+//				
+//				LinkedList<String> llevent = hashevent.get(event);
+//				
+//				int j = 0; XAttribute attrEvent; XAttributeMap attrMapEvent = new XAttributeMapImpl();
+//				
+//				// for each event attribute
+//				while(j < llevent.size()) {
+//					String type = llevent.get(j); j++;
+//					String key = llevent.get(j); j++;
+//					String value = llevent.get(j); j++;
+//					
+//					attrEvent = createAttribute(key, value, null, type); // create attribute		
+//					attrMapEvent.put(key, attrEvent); // put attribute to the map attribute					
+//				}
+//				
+//				XEvent xevent = factory.createEvent(attrMapEvent);
+//				xtrace.insertOrdered(xevent);
+//			}
+//			
+//			log.add(xtrace); // add to log
+//		}
+//		
+//		// create serializer
+//		XesXmlSerializer s = new XesXmlSerializer();		
+//		File f = new File("src/main/resources/example/eventlog.xes");
+//		OutputStream wr = new FileOutputStream(f);		
+//		s.serialize(log, wr);
+//		
+//		return log;
+//	}
 	
 	@SuppressWarnings("deprecation")
 	public static XAttribute createAttribute(String key, String value, XExtension extension, String type) {

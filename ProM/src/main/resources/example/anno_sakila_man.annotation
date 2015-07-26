@@ -1,0 +1,41 @@
+prefix : <http://www.example.org/>
+
+trace
+select ?t ?l
+where {?t a :customer . bind ("log 1" as ?l) . }
+
+event
+select ?e ?t
+where {?r :rental_customer ?t ; :paid_by ?e . }
+
+activityname
+select ?n ?e
+where {?e a :payment. bind ("make a payment" as ?n) . }
+
+timestamp
+select ?t ?e
+where {?e :paymentdate ?t . }
+
+event
+select ?a ?e ?t
+where {?e :rentaldate ?a ; :rental_customer ?t . }
+
+activityname
+select ?n ?a ?e
+where {?e :rentaldate ?a . bind ("rent a film" as ?n) . }
+
+timestamp
+select ?t ?t ?e
+where {?e :rentaldate ?t .}
+
+event
+select ?a ?e ?t
+where {?e :returndate ?a ; :rental_customer ?t . }
+
+activityname
+select ?n ?a ?e
+where {?e :returndate ?a . bind ("return the film" as ?n) . }
+
+timestamp
+select ?t ?t ?e
+where {?e :returndate ?t .}

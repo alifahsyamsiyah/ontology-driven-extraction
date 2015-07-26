@@ -1,0 +1,38 @@
+[PrefixDeclaration]
+:		http://www.example.org/
+:		http://www.example.org/
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xsd:		http://www.w3.org/2001/XMLSchema#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[SourceDeclaration]
+sourceUri	sakilas
+connectionUrl	jdbc:mysql://localhost/sakilas
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	trace0
+target		:log/log1 :LcontainsT :trace/inventory/{t0}//film/{t1} . 
+source		select inventory.`inventory_id` as `t0` , inventory.`film_id` as `t1` from inventory, film where (inventory.`film_id` = film.`film_id`) 
+
+mappingId	trace1
+target		:trace/inventory/{t0}//film/{t1} :TcontainsA :attr/inventory/{t0}//film/{t1} . 
+source		select inventory.`inventory_id` as `t0` , inventory.`film_id` as `t1` from inventory, film where (inventory.`film_id` = film.`film_id`) 
+
+mappingId	trace2
+target		:attr/inventory/{t0}//film/{t1} :keyA "concept:name"^^xsd:string ; :valueA :{t0}{t1} ; :typeA "literal"^^xsd:string . 
+source		select inventory.`inventory_id` as `t0` , inventory.`film_id` as `t1` from inventory, film where (inventory.`film_id` = film.`film_id`) 
+
+mappingId	event3
+target		:trace/inventory/{t0}//film/{t1} :TcontainsE :event/payment/{e0} . 
+source		select inventory.`inventory_id` as `t0` , inventory.`film_id` as `t1`, payment.`payment_id` as `e0` from inventory, film, rental, payment where (inventory.`film_id` = film.`film_id`) and (inventory.`inventory_id` = rental.`inventory_id`) and (rental.`rental_id` = payment.`rental_id`) 
+
+mappingId	activityname4
+target		:event/payment/{e0} :EcontainsA :attr/makeapayment/payment/{e0} . :attr/makeapayment/payment/{e0} :keyA "concept:name"^^xsd:string ; :typeA "literal"^^xsd:string ; :valueA "make a payment"^^xsd:string . 
+source		select payment.`payment_id` as `e0` from payment 
+
+]]
+

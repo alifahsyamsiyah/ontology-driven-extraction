@@ -1,0 +1,317 @@
+    <!-- http#AcontainsA -->
+
+    <owl:ObjectProperty rdf:about="http#AcontainsA">
+        <rdfs:domain rdf:resource="http#Attribute"/>
+        <rdfs:range rdf:resource="http#Attribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#EcontainsA -->
+
+    <owl:ObjectProperty rdf:about="http#EcontainsA">
+        <rdfs:range rdf:resource="http#Attribute"/>
+        <rdfs:domain rdf:resource="http#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#LcontainsA -->
+
+    <owl:ObjectProperty rdf:about="http#LcontainsA">
+        <rdfs:range rdf:resource="http#Attribute"/>
+        <rdfs:domain rdf:resource="http#Log"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#LcontainsT -->
+
+    <owl:ObjectProperty rdf:about="http#LcontainsT">
+        <rdfs:domain rdf:resource="http#Log"/>
+        <rdfs:range rdf:resource="http#Trace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#TcontainsA -->
+
+    <owl:ObjectProperty rdf:about="http#TcontainsA">
+        <rdfs:range rdf:resource="http#Attribute"/>
+        <rdfs:domain rdf:resource="http#Trace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#TcontainsE -->
+
+    <owl:ObjectProperty rdf:about="http#TcontainsE">
+        <rdfs:range rdf:resource="http#Event"/>
+        <rdfs:domain rdf:resource="http#Trace"/>
+    </owl:ObjectProperty>
+
+
+
+   <!-- http#declare1 -->
+
+    <owl:ObjectProperty rdf:about="http#declare1">
+        <rdfs:range rdf:resource="http#Extension"/>
+        <rdfs:domain rdf:resource="http#Log"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#declare2 -->
+
+    <owl:ObjectProperty rdf:about="http#declare2">
+        <rdfs:range rdf:resource="http#Attribute"/>
+        <rdfs:domain rdf:resource="http#Extension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#define1 -->
+
+    <owl:ObjectProperty rdf:about="http#define1">
+        <rdfs:range rdf:resource="http#Classifier"/>
+        <rdfs:domain rdf:resource="http#Log"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http#define2 -->
+
+    <owl:ObjectProperty rdf:about="http#define2">
+        <rdfs:domain rdf:resource="http#Classifier"/>
+        <rdfs:range rdf:resource="http#GlobalAttribute"/>
+    </owl:ObjectProperty>
+
+
+
+// Data properties
+    <!-- http#feature -->
+
+    <owl:DatatypeProperty rdf:about="http#feature">
+        <rdfs:domain rdf:resource="http#Log"/>
+        <rdfs:range rdf:resource="&xsd;token"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http#keyA -->
+
+    <owl:DatatypeProperty rdf:about="http#keyA">
+        <rdfs:domain rdf:resource="http#Attribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http#keyC -->
+
+    <owl:DatatypeProperty rdf:about="http#keyC">
+        <rdfs:domain rdf:resource="http#Classifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http#keyE -->
+
+    <owl:DatatypeProperty rdf:about="http#keyE">
+        <rdfs:domain rdf:resource="http#Extension"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http#nameC -->
+
+    <owl:DatatypeProperty rdf:about="http#nameC">
+        <rdfs:domain rdf:resource="http#Classifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- http#prefixE -->
+
+    <owl:DatatypeProperty rdf:about="http#prefixE">
+        <rdfs:domain rdf:resource="http#Extension"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http#scope -->
+
+    <owl:DatatypeProperty rdf:about="http#scope">
+        <rdfs:domain rdf:resource="http#GlobalAttribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http#typeA -->
+
+    <owl:DatatypeProperty rdf:about="http#typeA">
+        <rdfs:domain rdf:resource="http#Attribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http#valueA -->
+
+    <owl:DatatypeProperty rdf:about="http#valueA">
+        <rdfs:domain rdf:resource="http#Attribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http#version -->
+
+    <owl:DatatypeProperty rdf:about="http#version">
+        <rdfs:domain rdf:resource="http#Log"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+// Classes
+    <!-- http#Attribute -->
+
+    <owl:Class rdf:about="http#Attribute">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#declare2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#declare2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http#Classifier -->
+
+    <owl:Class rdf:about="http#Classifier">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#define1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http#define2"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#define1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+    <!-- http#Event -->
+
+    <owl:Class rdf:about="http#Event"/>
+    
+
+
+    <!-- http#Extension -->
+
+    <owl:Class rdf:about="http#Extension">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http#declare2"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#declare1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#declare1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http#declare2"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http#GlobalAttribute -->
+
+    <owl:Class rdf:about="http#GlobalAttribute">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http#define2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http#Log -->
+
+    <owl:Class rdf:about="http#Log">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http#define1"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+
+   <!-- http#Trace -->
+
+    <owl:Class rdf:about="http#Trace"/>

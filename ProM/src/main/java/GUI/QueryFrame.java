@@ -27,7 +27,7 @@ public class QueryFrame extends JPanel {
 	public QueryFrame(UIPluginContext context, String ontology, String mapping) throws OWLOntologyCreationException, IOException, InvalidPredicateDeclarationException, InvalidMappingException {
 		ctrl = new QueryFrameController(ontology, mapping);
 		initComponents();
-		System.out.println("yes");
+		
 		
 		processButton.addActionListener(new ActionListener() {
 			

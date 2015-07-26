@@ -1,0 +1,125 @@
+trace
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?l
+WHERE {?t a :Paper . BIND ("log1" AS ?l) .}
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE {?t a :Paper; :has1 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE {?e a :UploadSubmitted. BIND ("submit paper" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE {?e a :UploadSubmitted; :uploadTime ?t.}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?l ?e
+where {?e a :UploadSubmitted. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?e a :UploadAccepted. ?a a :AcceptedPaper; :has2 ?e; :correspondsto ?t .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?e a :UploadAccepted; :uploadAcceptedTime ?t .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?e a :UploadAccepted. BIND ("receive final version" AS ?n) . }
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?l ?e
+where {?e a :UploadAccepted. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE { ?e a :Review. ?r a :ReviewRequest; :has4 ?e; :for ?t .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE { ?e a :Review; :submissionTime ?t .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE { ?e a :Review. BIND ("get review" AS ?n) .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?l ?e
+where {?e a :Review. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. BIND ("acceptance" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean; :decisionTime ?t .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?l ?e
+where {?e a :Decision; :outcome "false"^^xsd:boolean. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?e ?t
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. BIND ("rejection" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean; :decisionTime ?t .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?l ?e
+where {?e a :Decision; :outcome "true"^^xsd:boolean. bind ("complete" as ?l) . }
+
+event
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?e ?t
+where {?e a :ReviewRequest; :for ?t . }
+
+activityname
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?n ?e
+WHERE {?e a :ReviewRequest. BIND ("invite reviewer" AS ?n) .}
+
+timestamp
+PREFIX : <http://myproject.org/odbs#>
+SELECT DISTINCT ?t ?e
+WHERE {?e a :ReviewRequest; :invitationTime ?t .}
+
+lifecycle
+PREFIX : <http://myproject.org/odbs#>
+select distinct ?l ?e
+where {?e a :ReviewRequest. bind ("complete" as ?l) . }
+

@@ -1,0 +1,649 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>  
+<rdf:RDF xmlns="http://www.example.org/"
+     xml:base="http://www.example.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/acts_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/acts_in">
+        <rdfs:domain rdf:resource="http://www.example.org/actor"/>
+        <rdfs:range rdf:resource="http://www.example.org/film"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/inventory_film -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/inventory_film">
+        <rdfs:range rdf:resource="http://www.example.org/film"/>
+        <rdfs:domain rdf:resource="http://www.example.org/inventory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/inventory_store -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/inventory_store">
+        <rdfs:domain rdf:resource="http://www.example.org/inventory"/>
+        <rdfs:range rdf:resource="http://www.example.org/store"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/lives_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/lives_in">
+        <rdfs:range rdf:resource="http://www.example.org/address"/>
+        <rdfs:domain rdf:resource="http://www.example.org/person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/located_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/located_in">
+        <rdfs:range rdf:resource="http://www.example.org/address"/>
+        <rdfs:domain rdf:resource="http://www.example.org/store"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/paid_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/paid_by">
+        <rdfs:range rdf:resource="http://www.example.org/payment"/>
+        <rdfs:domain rdf:resource="http://www.example.org/rental"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/processed_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/processed_by">
+        <rdfs:domain rdf:resource="http://www.example.org/payment"/>
+        <rdfs:range rdf:resource="http://www.example.org/staff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/rental_customer -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/rental_customer">
+        <rdfs:range rdf:resource="http://www.example.org/customer"/>
+        <rdfs:domain rdf:resource="http://www.example.org/rental"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/rental_inventory -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/rental_inventory">
+        <rdfs:range rdf:resource="http://www.example.org/inventory"/>
+        <rdfs:domain rdf:resource="http://www.example.org/rental"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/works_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/works_in">
+        <rdfs:domain rdf:resource="http://www.example.org/staff"/>
+        <rdfs:range rdf:resource="http://www.example.org/store"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/active -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/active">
+        <rdfs:domain rdf:resource="http://www.example.org/customer"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/actorid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/actorid">
+        <rdfs:domain rdf:resource="http://www.example.org/actor"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/amount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/amount">
+        <rdfs:domain rdf:resource="http://www.example.org/payment"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/city -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/city">
+        <rdfs:domain rdf:resource="http://www.example.org/address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/country -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/country">
+        <rdfs:domain rdf:resource="http://www.example.org/address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/createdate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/createdate">
+        <rdfs:domain rdf:resource="http://www.example.org/customer"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/district -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/district">
+        <rdfs:domain rdf:resource="http://www.example.org/address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/email">
+        <rdfs:domain rdf:resource="http://www.example.org/customer"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/firstname -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/firstname">
+        <rdfs:domain rdf:resource="http://www.example.org/person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/genre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/genre">
+        <rdfs:domain rdf:resource="http://www.example.org/film"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/inventoryid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/inventoryid">
+        <rdfs:domain rdf:resource="http://www.example.org/inventory"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/language -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/language">
+        <rdfs:domain rdf:resource="http://www.example.org/film"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/lastname -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/lastname">
+        <rdfs:domain rdf:resource="http://www.example.org/person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/manager -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/manager">
+        <rdfs:domain rdf:resource="http://www.example.org/store"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/name">
+        <rdfs:domain rdf:resource="http://www.example.org/store"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/numberofavailabilities -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/numberofavailabilities">
+        <rdfs:domain rdf:resource="http://www.example.org/inventory"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/numberofcopies -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/numberofcopies">
+        <rdfs:domain rdf:resource="http://www.example.org/inventory"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/password -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/password">
+        <rdfs:domain rdf:resource="http://www.example.org/staff"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/paymentdate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/paymentdate">
+        <rdfs:domain rdf:resource="http://www.example.org/payment"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/postalcode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/postalcode">
+        <rdfs:domain rdf:resource="http://www.example.org/address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/releaseyear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/releaseyear">
+        <rdfs:domain rdf:resource="http://www.example.org/film"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/rentaldate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/rentaldate">
+        <rdfs:domain rdf:resource="http://www.example.org/rental"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/returndate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/returndate">
+        <rdfs:domain rdf:resource="http://www.example.org/rental"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/staffemail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staffemail">
+        <rdfs:domain rdf:resource="http://www.example.org/staff"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/staffid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/staffid">
+        <rdfs:domain rdf:resource="http://www.example.org/staff"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/street -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/street">
+        <rdfs:domain rdf:resource="http://www.example.org/address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/title">
+        <rdfs:domain rdf:resource="http://www.example.org/film"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/username -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/username">
+        <rdfs:domain rdf:resource="http://www.example.org/staff"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/actor -->
+
+    <owl:Class rdf:about="http://www.example.org/actor">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/acts_in"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/address -->
+
+    <owl:Class rdf:about="http://www.example.org/address">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.example.org/lives_in"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/customer -->
+
+    <owl:Class rdf:about="http://www.example.org/customer">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/film -->
+
+    <owl:Class rdf:about="http://www.example.org/film">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.example.org/acts_in"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.example.org/inventory_film"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/inventory -->
+
+    <owl:Class rdf:about="http://www.example.org/inventory">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/inventory_film"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/inventory_store"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/inventory_film"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/inventory_store"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/payment -->
+
+    <owl:Class rdf:about="http://www.example.org/payment">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.example.org/paid_by"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/processed_by"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/processed_by"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/person -->
+
+    <owl:Class rdf:about="http://www.example.org/person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/lives_in"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/rental -->
+
+    <owl:Class rdf:about="http://www.example.org/rental">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/paid_by"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/paid_by"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/rental_customer"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/rental_inventory"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/rental_customer"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/rental_inventory"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/staff -->
+
+    <owl:Class rdf:about="http://www.example.org/staff">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/works_in"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/store -->
+
+    <owl:Class rdf:about="http://www.example.org/store">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.example.org/works_in"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.example.org/inventory_store"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.example.org/inventory"/>
+        <owl:onProperty rdf:resource="http://www.example.org/inventory_film"/>
+        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.example.org/inventory"/>
+        <owl:onProperty rdf:resource="http://www.example.org/inventory_store"/>
+        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.example.org/rental"/>
+        <owl:onProperty rdf:resource="http://www.example.org/rental_customer"/>
+        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.example.org/rental"/>
+        <owl:onProperty rdf:resource="http://www.example.org/rental_inventory"/>
+        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

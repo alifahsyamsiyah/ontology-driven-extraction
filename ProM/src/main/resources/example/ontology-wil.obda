@@ -1,0 +1,57 @@
+[PrefixDeclaration]
+:		http://myproject.org/odbs#
+
+[SourceDeclaration]
+sourceUri	database_conference
+connectionUrl	jdbc:mysql://localhost/conference600
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	user
+target		:user{ID} a :User ; :username {User} . 
+source		select ID, User
+			from Login
+
+mappingId	upload_submitted
+target		:uplsub{ID} a :UploadSubmitted ; :uploadTime {UploadTime} ; :uploadby1 :user{User} . :paper{Paper} :has1 :uplsub{ID} . 
+source		select ID, UploadTime, User, Paper
+			from Submission
+
+mappingId	upload_accepted
+target		:accpaper{Paper} :correspondsto :paper{Paper} ; :has2 :uplacc{ID} . :uplacc{ID} a :UploadAccepted ; :uploadAcceptedTime {UploadTime} ; :uploadby2 :user{User} . 
+source		select Paper, ID, UploadTime, User
+			from acceptance
+
+mappingId	conference
+target		:conf{ID} a :Conference ; :confName {Name} ; :confTime {Time} . :user{Organizer} :organizerof :conf{ID} . 
+source		select ID, Name, Time, Organizer
+			from conference
+
+mappingId	decision
+target		:paper{Paper} :has3 :dec{ID} . :dec{ID} a :Decision ; :decisionTime {DecisionTime} ; :outcome {Outcome} ; :by :user{Chair} . 
+source		select ID, Paper, DecisionTime, Outcome, Chair
+			from decision
+
+mappingId	review
+target		:revreq{IDrr} a :ReviewRequest ; :has4 :rev{ID} . :rev{ID} a :Review ; :submissionTime {SubmissionTime} . 
+source		select IDrr, ID, SubmissionTime
+			from review
+
+mappingId	review-request
+target		:user{Reviewer} :reviewer :revreq{ID} . :revreq{ID} a :ReviewRequest ; :invitationTime {InvitationTime} ; :for :paper{Paper} . 
+source		select Reviewer, ID, InvitationTime, Paper
+			from reviewrequest as q
+
+mappingId	paper
+target		:paper{ID} a :Paper ; :title {Title} ; :paperCT {CT} ; :submittedto :conf{Conf} . :user{User} :creator :paper{ID} ; :author :paper{ID} . 
+source		select ID, Title, CT, Status, Conf, User
+			from paper 
+
+mappingId	user-ct
+target		:user{User} a :User ; :userCT {CT} . 
+source		select User, CT
+			from LoginStats
+]]
+

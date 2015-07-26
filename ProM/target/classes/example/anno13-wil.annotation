@@ -1,0 +1,79 @@
+PREFIX : <http://myproject.org/odbs#>
+
+trace
+SELECT ?t ?l
+WHERE {?t a :Paper . BIND ("log1" AS ?l) .}
+
+event
+SELECT ?e ?t
+WHERE {?t a :Paper; :has1 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :UploadSubmitted. BIND ("submit paper" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :UploadSubmitted; :uploadTime ?t.}
+
+event
+SELECT ?e ?t
+WHERE { ?e a :UploadAccepted. ?a a :AcceptedPaper; :has2 ?e; :correspondsto ?t .}
+
+timestamp
+SELECT ?t ?e
+WHERE { ?e a :UploadAccepted; :uploadAcceptedTime ?t .}
+
+activityname
+SELECT ?n ?e
+WHERE { ?e a :UploadAccepted. BIND ("receive final version" AS ?n) . }
+
+event
+SELECT ?e ?t
+WHERE { ?e a :Review. ?r a :ReviewRequest; :has4 ?e; :for ?t .}
+
+timestamp
+SELECT ?t ?e
+WHERE { ?e a :Review; :submissionTime ?t .}
+
+activityname
+SELECT ?n ?e
+WHERE { ?e a :Review. BIND ("get review" AS ?n) .}
+
+event
+SELECT ?e ?t
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. BIND ("acceptance" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean; :decisionTime ?t .}
+
+event
+SELECT ?e ?t
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. BIND ("rejection" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean; :decisionTime ?t .}
+
+event
+select ?e ?t
+where {?e a :ReviewRequest; :for ?t . }
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :ReviewRequest. BIND ("invite reviewer" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :ReviewRequest; :invitationTime ?t .}
+
+

@@ -1,0 +1,7 @@
+owl	/Users/user/Dropbox/Thesis/ProM/src/main/resources/example/ontology-boot-sakilas.owl
+obda	/Users/user/Dropbox/Thesis/ProM/src/main/resources/example/ontology-boot-sakilas.obda
+baseUri	http://www.example.org/
+jdbcUrl	jdbc:mysql://localhost/sakilas
+jdbcUserName	root
+jdbcPassword	root
+jdbcDriverClass	com.mysql.jdbc.Driver

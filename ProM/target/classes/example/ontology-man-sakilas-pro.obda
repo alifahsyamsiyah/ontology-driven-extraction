@@ -1,0 +1,126 @@
+[PrefixDeclaration]
+:		http://www.example.org/
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xsd:		http://www.w3.org/2001/XMLSchema#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[SourceDeclaration]
+sourceUri	sakilas
+connectionUrl	jdbc:mysql://localhost/sakilas
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	customer
+target		:customer{customer_id} a :customer ; :email {email} ; :createdate {create_date} ; :active {active} ; :firstname {first_name} ; :lastname {last_name} . 
+source		select customer_id, email, create_date, active, first_name, last_name
+			from customer
+
+mappingId	store
+target		:store{store_id} a :store ; :name :str#{store_id} ; :manager {manager_staff_id} . 
+source		select store_id, manager_staff_id
+			from store
+
+mappingId	staff
+target		:staff{staff_id} a :staff ; :username {username} ; :password {password} ; :staffemail {email} ; :firstname {first_name} ; :lastname {last_name} ; :staffid {staff_id} . 
+source		select staff_id, username, password, email, first_name, last_name
+			from staff
+
+mappingId	actor
+target		:actor{actor_id} a :actor ; :actorid {actor_id} ; :firstname {first_name} ; :lastname {last_name} . 
+source		select actor_id, first_name, last_name
+			from actor
+
+mappingId	rental
+target		:rental{rental_id} a :rental ; :rentaldate {rental_date} ; :returndate {return_date} . 
+source		select rental_id, rental_date, return_date
+			from rental 
+
+mappingId	payment
+target		:payment{payment_id} a :payment ; :amount {amount} ; :paymentdate {payment_date} . 
+source		select payment_id, amount, payment_date
+			from payment
+
+mappingId	address
+target		:address{id} a :address ; :street {street} ; :district {district} ; :postalcode {postal_code} ; :city {city} ; :country {country} . 
+source		select a.address_id as id, a.address as street, a.district as district, a.postal_code as postal_code, i.city as city, c.country as country
+			from address as a, city as i, country as c
+			where a.city_id = i.city_id and i.country_id = c.country_id
+
+mappingId	film
+target		:film{id} a :film ; :title {title} ; :releaseyear {release_year} ; :language {language} ; :genre {genre} . 
+source		select f.film_id as id, f.title as title, f.release_year as release_year, l.name as language, g.name as genre
+			from film f, film_category c, category g, language l
+			where f.language_id = l.language_id and f.film_id = c.film_id and c.category_id = g.category_id
+
+mappingId	inventory
+target		:inventory{inventory_id} a :inventory ; :inventoryid {inventory_id} . 
+source		select inventory_id
+			from inventory
+
+mappingId	paid_by
+target		:rental{rentalid} :paid_by :payment{paymentid} . 
+source		select r.rental_id as rentalid, p.payment_id as paymentid
+			from rental r, payment p
+			where r.rental_id = p.rental_id
+
+mappingId	processed_by
+target		:payment{paymentid} :processed_by :staff{staffid} . 
+source		select p.payment_id as paymentid, s.staff_id as staffid
+			from payment p, staff s
+			where p.staff_id = s.staff_id
+
+mappingId	rental_customer
+target		:rental{rentalid} :rental_customer :customer{customerid} . 
+source		select c.customer_id as customerid, r.rental_id as rentalid
+			from customer c, rental r
+			where r.customer_id = c.customer_id
+
+mappingId	rental_inventory
+target		:rental{rentalid} :rental_inventory :inventory{inventory_id} . 
+source		select r.rental_id as rentalid, i.inventory_id as inventoryid
+			from rental r, inventory i
+			where r.inventory_id = i.inventory_id
+
+mappingId	inventory_store
+target		:inventory{inventoryid} :inventory_store :store{storeid} . 
+source		select i.inventory_id as inventoryid, s.store_id as storeid
+			from inventory i, store s
+			where i.store_id = s.store_id
+
+mappingId	inventory_film
+target		:inventory{inventoryid} :inventory_film :film{filmid} . 
+source		select i.inventory_id as inventoryid, f.film_id as filmid
+			from inventory i, film f
+			where i.film_id = f.film_id
+
+mappingId	works_in
+target		:staff{staffid} :works_in :store{storeid} . 
+source		select f.staff_id as staffid, s.store_id as storeid
+			from staff f, store s
+			where f.store_id = s.store_id
+
+mappingId	acts_in
+target		:actor{actor_id} :acts_in :film{film_id} . 
+source		select actor_id, film_id
+			from film_actor
+
+mappingId	located_in
+target		:store{storeid} :located_in :address{addressid} . 
+source		select s.store_id as storeid, a.address_id as addressid
+			from store s, address a
+			where s.address_id = a.address_id
+
+mappingId	lives_in customer
+target		:customer{customer_id} :lives_in :address{address_id} . 
+source		select customer_id, address_id
+			from customer
+
+mappingId	lives_in staff
+target		:staff{staff_id} :lives_in :address{address_id} . 
+source		select staff_id, address_id
+			from staff
+]]
+

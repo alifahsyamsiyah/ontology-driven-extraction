@@ -1,0 +1,142 @@
+PREFIX : <http://myproject.org/odbs#>
+
+trace
+SELECT ?t ?l
+WHERE {?t a :Paper . BIND ("log1" AS ?l) .}
+
+event
+SELECT ?e ?t
+WHERE {?t a :Paper; :has1 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :UploadSubmitted. BIND ("submit paper" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :UploadSubmitted; :uploadTime ?t.}
+
+lifecycle
+select ?l ?e
+where {?e a :UploadSubmitted. bind ("complete" as ?l) . }
+
+resource
+SELECT ?r ?e
+WHERE {?e :uploadby1 ?c . ?c :username ?r .}
+
+attribute
+SELECT ?v ?r ?c ?e
+where {?c :has1 ?e; :title ?v . ?c ?r ?v . }
+
+attribute
+SELECT ?v ?r ?c ?e
+where {?p :has1 ?e; :submittedto ?c . ?c :confName ?v . ?c ?r ?v . }
+
+event
+SELECT ?e ?t
+WHERE { ?e a :UploadAccepted. ?a a :AcceptedPaper; :has2 ?e; :correspondsto ?t .}
+
+timestamp
+SELECT ?t ?e
+WHERE { ?e a :UploadAccepted; :uploadAcceptedTime ?t .}
+
+activityname
+SELECT ?n ?e
+WHERE { ?e a :UploadAccepted. BIND ("receive final version" AS ?n) . }
+
+lifecycle
+select ?l ?e
+where {?e a :UploadAccepted. bind ("complete" as ?l) . }
+
+resource
+SELECT ?r ?e
+WHERE {?e :uploadby2 ?c . ?c :username ?r .}
+
+event
+SELECT ?e ?t
+WHERE { ?e a :Review. ?r a :ReviewRequest; :has4 ?e; :for ?t .}
+
+timestamp
+SELECT ?t ?e
+WHERE { ?e a :Review; :submissionTime ?t .}
+
+activityname
+SELECT ?n ?e
+WHERE { ?e a :Review. BIND ("get review" AS ?n) .}
+
+lifecycle
+select ?l ?e
+where {?e a :Review. bind ("complete" as ?l) . }
+
+resource
+SELECT ?r ?e
+WHERE {?q :has4 ?e . ?r :reviewer ?q . }
+
+event
+SELECT ?e ?t
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean. BIND ("acceptance" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean; :decisionTime ?t .}
+
+lifecycle
+select ?l ?e
+where {?e a :Decision; :outcome "true"^^xsd:boolean. bind ("complete" as ?l) . }
+
+resource
+SELECT ?r ?e
+WHERE {?e a :Decision; :outcome "true"^^xsd:boolean; :by ?r . }
+
+attribute
+SELECT ?v ?r ?c ?e
+where {?c :has3 ?e; :title ?v . ?c ?r ?v . }
+
+attribute
+SELECT ?v ?r ?c ?e
+where {?p :has3 ?e; :submittedto ?c . ?c :confName ?v . ?c ?r ?v . }
+
+event
+SELECT ?e ?t
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. ?t :has3 ?e .}
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean. BIND ("rejection" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean; :decisionTime ?t .}
+
+lifecycle
+select ?l ?e
+where {?e a :Decision; :outcome "false"^^xsd:boolean. bind ("complete" as ?l) . }
+
+resource
+SELECT ?r ?e
+WHERE {?e a :Decision; :outcome "false"^^xsd:boolean; :by ?r . }
+
+event
+select ?e ?t
+where {?e a :ReviewRequest; :for ?t . }
+
+activityname
+SELECT ?n ?e
+WHERE {?e a :ReviewRequest. BIND ("invite reviewer" AS ?n) .}
+
+timestamp
+SELECT ?t ?e
+WHERE {?e a :ReviewRequest; :invitationTime ?t .}
+
+lifecycle
+select ?l ?e
+where {?e a :ReviewRequest. bind ("complete" as ?l) . }
+
+resource
+SELECT ?r ?e
+WHERE {?r :reviewer ?e . }
+

@@ -1,0 +1,49 @@
+prefix : <http://www.example.org/>
+
+trace
+select ?t ?l
+where {?t a :customer . bind ("log1" as ?l) . }
+
+event
+prefix pay: <http://www.example.org/payment#>
+select ?e ?t
+where {?e pay:ref-customer_id ?t . }
+
+activityname
+select ?n ?e
+where {?e a :payment . bind ("make a payment" as ?n) .}
+
+timestamp
+prefix pay: <http://www.example.org/payment#>
+select ?t ?e
+where {?e a :payment ; pay:payment_date ?t . }
+
+event
+prefix rent: <http://www.example.org/rental#>
+select ?a ?e ?t
+where {?e rent:ref-customer_id ?t ; rent:rental_date ?a . }
+
+activityname
+prefix rent: <http://www.example.org/rental#>
+select ?n ?a ?e
+where {?e a :rental ; rent:rental_date ?a . bind ("rent a film" as ?n) . }
+
+timestamp
+prefix rent: <http://www.example.org/rental#>
+select ?t ?t ?e
+where {?e a :rental ; rent:rental_date ?t . }
+
+event
+prefix rent: <http://www.example.org/rental#>
+select ?a ?e ?t
+where {?e rent:ref-customer_id ?t ; rent:return_date ?a . }
+
+activityname
+prefix rent: <http://www.example.org/rental#>
+select ?n ?a ?e
+where {?e a :rental ; rent:return_date ?a . bind ("return the film" as ?n) . }
+
+timestamp
+prefix rent: <http://www.example.org/rental#>
+select ?t ?t ?e
+where {?e a :rental ; rent:return_date ?t . }

@@ -1,0 +1,104 @@
+[PrefixDeclaration]
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xsd:		http://www.w3.org/2001/XMLSchema#
+quest:		http://obda.org/quest#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[SourceDeclaration]
+sourceUri	3601d304-60a2-46e3-9df3-6ed429097716
+connectionUrl	jdbc:mysql://localhost/conference10
+username	root
+password	root
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	MAPPING-ID1
+target		<http://www.semanticweb.org/user/ontologies/conference/ID={ID}> a <http://www.semanticweb.org/user/ontologies/conference> ; <http://www.semanticweb.org/user/ontologies/conference#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/conference#Name> {Name} ; <http://www.semanticweb.org/user/ontologies/conference#Organizer> {Organizer}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/conference#Time> {Time}^^xsd:dateTime . 
+source		SELECT * FROM "conference"
+
+mappingId	MAPPING-ID2
+target		<http://www.semanticweb.org/user/ontologies/conference/ID={conference_ID}> <http://www.semanticweb.org/user/ontologies/conference#ref-Organizer> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "conference"."ID" AS conference_ID, "login"."ID" AS login_ID FROM "conference", "login" WHERE "conference"."Organizer" = "login"."ID"
+
+mappingId	MAPPING-ID3
+target		<http://www.semanticweb.org/user/ontologies/acceptance/ID={ID}> a <http://www.semanticweb.org/user/ontologies/acceptance> ; <http://www.semanticweb.org/user/ontologies/acceptance#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/acceptance#UploadTime> {UploadTime}^^xsd:dateTime ; <http://www.semanticweb.org/user/ontologies/acceptance#User> {User}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/acceptance#paper> {paper}^^xsd:integer . 
+source		SELECT * FROM "acceptance"
+
+mappingId	MAPPING-ID4
+target		<http://www.semanticweb.org/user/ontologies/acceptance/ID={acceptance_ID}> <http://www.semanticweb.org/user/ontologies/acceptance#ref-User_paper> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "acceptance"."ID" AS acceptance_ID, "login"."ID" AS login_ID FROM "acceptance", "login" WHERE "acceptance"."User" = "login"."ID"
+
+mappingId	MAPPING-ID5
+target		<http://www.semanticweb.org/user/ontologies/acceptance/ID={acceptance_ID}> <http://www.semanticweb.org/user/ontologies/acceptance#ref-User_paper> <http://www.semanticweb.org/user/ontologies/paper/ID={paper_ID}> . 
+source		SELECT "acceptance"."ID" AS acceptance_ID, "paper"."ID" AS paper_ID FROM "acceptance", "paper" WHERE "acceptance"."paper" = "paper"."ID"
+
+mappingId	MAPPING-ID6
+target		<http://www.semanticweb.org/user/ontologies/decision/ID={ID}> a <http://www.semanticweb.org/user/ontologies/decision> ; <http://www.semanticweb.org/user/ontologies/decision#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/decision#paper> {paper}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/decision#decisionTime> {decisionTime}^^xsd:dateTime ; <http://www.semanticweb.org/user/ontologies/decision#Chair> {Chair}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/decision#Outcome> {Outcome}^^xsd:boolean . 
+source		SELECT * FROM "decision"
+
+mappingId	MAPPING-ID7
+target		<http://www.semanticweb.org/user/ontologies/decision/ID={decision_ID}> <http://www.semanticweb.org/user/ontologies/decision#ref-paper_Chair> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "decision"."ID" AS decision_ID, "login"."ID" AS login_ID FROM "decision", "login" WHERE "decision"."Chair" = "login"."ID"
+
+mappingId	MAPPING-ID8
+target		<http://www.semanticweb.org/user/ontologies/decision/ID={decision_ID}> <http://www.semanticweb.org/user/ontologies/decision#ref-paper_Chair> <http://www.semanticweb.org/user/ontologies/paper/ID={paper_ID}> . 
+source		SELECT "decision"."ID" AS decision_ID, "paper"."ID" AS paper_ID FROM "decision", "paper" WHERE "decision"."paper" = "paper"."ID"
+
+mappingId	MAPPING-ID9
+target		<http://www.semanticweb.org/user/ontologies/paper/ID={ID}> a <http://www.semanticweb.org/user/ontologies/paper> ; <http://www.semanticweb.org/user/ontologies/paper#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/paper#Title> {Title} ; <http://www.semanticweb.org/user/ontologies/paper#CT> {CT}^^xsd:dateTime ; <http://www.semanticweb.org/user/ontologies/paper#User> {User}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/paper#Conf> {Conf}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/paper#Type> {Type} ; <http://www.semanticweb.org/user/ontologies/paper#Status> {Status} . 
+source		SELECT * FROM "paper"
+
+mappingId	MAPPING-ID10
+target		<http://www.semanticweb.org/user/ontologies/paper/ID={paper_ID}> <http://www.semanticweb.org/user/ontologies/paper#ref-User_Conf> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "paper"."ID" AS paper_ID, "login"."ID" AS login_ID FROM "paper", "login" WHERE "paper"."User" = "login"."ID"
+
+mappingId	MAPPING-ID11
+target		<http://www.semanticweb.org/user/ontologies/paper/ID={paper_ID}> <http://www.semanticweb.org/user/ontologies/paper#ref-User_Conf> <http://www.semanticweb.org/user/ontologies/conference/ID={conference_ID}> . 
+source		SELECT "paper"."ID" AS paper_ID, "conference"."ID" AS conference_ID FROM "paper", "conference" WHERE "paper"."Conf" = "conference"."ID"
+
+mappingId	MAPPING-ID12
+target		<http://www.semanticweb.org/user/ontologies/reviewrequest/ID={ID}> a <http://www.semanticweb.org/user/ontologies/reviewrequest> ; <http://www.semanticweb.org/user/ontologies/reviewrequest#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/reviewrequest#InvitationTime> {InvitationTime}^^xsd:dateTime ; <http://www.semanticweb.org/user/ontologies/reviewrequest#reviewer> {reviewer}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/reviewrequest#paper> {paper}^^xsd:integer . 
+source		SELECT * FROM "reviewrequest"
+
+mappingId	MAPPING-ID13
+target		<http://www.semanticweb.org/user/ontologies/reviewrequest/ID={reviewrequest_ID}> <http://www.semanticweb.org/user/ontologies/reviewrequest#ref-reviewer_paper> <http://www.semanticweb.org/user/ontologies/paper/ID={paper_ID}> . 
+source		SELECT "reviewrequest"."ID" AS reviewrequest_ID, "paper"."ID" AS paper_ID FROM "reviewrequest", "paper" WHERE "reviewrequest"."paper" = "paper"."ID"
+
+mappingId	MAPPING-ID14
+target		<http://www.semanticweb.org/user/ontologies/reviewrequest/ID={reviewrequest_ID}> <http://www.semanticweb.org/user/ontologies/reviewrequest#ref-reviewer_paper> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "reviewrequest"."ID" AS reviewrequest_ID, "login"."ID" AS login_ID FROM "reviewrequest", "login" WHERE "reviewrequest"."reviewer" = "login"."ID"
+
+mappingId	MAPPING-ID15
+target		<http://www.semanticweb.org/user/ontologies/review/ID={ID}> a <http://www.semanticweb.org/user/ontologies/review> ; <http://www.semanticweb.org/user/ontologies/review#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/review#IDrr> {IDrr}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/review#submissionTime> {submissionTime}^^xsd:dateTime . 
+source		SELECT * FROM "review"
+
+mappingId	MAPPING-ID16
+target		<http://www.semanticweb.org/user/ontologies/review/ID={review_ID}> <http://www.semanticweb.org/user/ontologies/review#ref-IDrr> <http://www.semanticweb.org/user/ontologies/reviewrequest/ID={reviewrequest_ID}> . 
+source		SELECT "review"."ID" AS review_ID, "reviewrequest"."ID" AS reviewrequest_ID FROM "review", "reviewrequest" WHERE "review"."IDrr" = "reviewrequest"."ID"
+
+mappingId	MAPPING-ID17
+target		<http://www.semanticweb.org/user/ontologies/loginstats/ID={ID}> a <http://www.semanticweb.org/user/ontologies/loginstats> ; <http://www.semanticweb.org/user/ontologies/loginstats#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/loginstats#User> {User}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/loginstats#CT> {CT}^^xsd:dateTime ; <http://www.semanticweb.org/user/ontologies/loginstats#LastAccess> {LastAccess}^^xsd:dateTime . 
+source		SELECT * FROM "loginstats"
+
+mappingId	MAPPING-ID18
+target		<http://www.semanticweb.org/user/ontologies/loginstats/ID={loginstats_ID}> <http://www.semanticweb.org/user/ontologies/loginstats#ref-User> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "loginstats"."ID" AS loginstats_ID, "login"."ID" AS login_ID FROM "loginstats", "login" WHERE "loginstats"."User" = "login"."ID"
+
+mappingId	MAPPING-ID19
+target		<http://www.semanticweb.org/user/ontologies/submission/ID={ID}> a <http://www.semanticweb.org/user/ontologies/submission> ; <http://www.semanticweb.org/user/ontologies/submission#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/submission#UploadTime> {UploadTime}^^xsd:dateTime ; <http://www.semanticweb.org/user/ontologies/submission#User> {User}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/submission#paper> {paper}^^xsd:integer . 
+source		SELECT * FROM "submission"
+
+mappingId	MAPPING-ID20
+target		<http://www.semanticweb.org/user/ontologies/submission/ID={submission_ID}> <http://www.semanticweb.org/user/ontologies/submission#ref-User_paper> <http://www.semanticweb.org/user/ontologies/paper/ID={paper_ID}> . 
+source		SELECT "submission"."ID" AS submission_ID, "paper"."ID" AS paper_ID FROM "submission", "paper" WHERE "submission"."paper" = "paper"."ID"
+
+mappingId	MAPPING-ID21
+target		<http://www.semanticweb.org/user/ontologies/submission/ID={submission_ID}> <http://www.semanticweb.org/user/ontologies/submission#ref-User_paper> <http://www.semanticweb.org/user/ontologies/login/ID={login_ID}> . 
+source		SELECT "submission"."ID" AS submission_ID, "login"."ID" AS login_ID FROM "submission", "login" WHERE "submission"."User" = "login"."ID"
+
+mappingId	MAPPING-ID22
+target		<http://www.semanticweb.org/user/ontologies/login/ID={ID}> a <http://www.semanticweb.org/user/ontologies/login> ; <http://www.semanticweb.org/user/ontologies/login#ID> {ID}^^xsd:integer ; <http://www.semanticweb.org/user/ontologies/login#User> {User} . 
+source		SELECT * FROM "login"
+]]
+

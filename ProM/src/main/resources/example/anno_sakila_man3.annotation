@@ -1,0 +1,65 @@
+prefix : <http://www.example.org/>
+
+trace
+select ?t ?l
+where {?r :rental_customer ?c ; :rental_inventory ?i . bind(concat (?c, ?i) as ?t) . bind ("log 1" as ?l) . }
+
+event
+select ?e ?t
+where {?r :rental_customer ?c ; :rental_inventory ?i ; :paid_by ?e .  bind(concat (?c, ?i) as ?t) . }
+
+activityname
+select ?n ?e
+where {?e a :payment. bind ("pay the rental fee" as ?n) . }
+
+timestamp
+select ?t ?e
+where {?e :paymentdate ?t . }
+
+lifecycle
+select ?l ?e
+where {?e a :payment. bind ("complete" as ?l) .}
+
+resource
+select ?r ?e
+where {?e :processed_by ?s . ?s :firstname ?r . }
+
+event
+select ?a ?e ?t
+where {?e :rentaldate ?a ; :rental_customer ?c ; :rental_inventory ?i . bind(concat (?c, ?i) as ?t) . }
+
+activityname
+select ?n ?a ?e
+where {?e :rentaldate ?a . bind ("rent a CD" as ?n) . }
+
+timestamp
+select ?t ?t ?e
+where {?e :rentaldate ?t .}
+
+lifecycle
+select ?l ?a ?e
+where {?e :rentaldate ?a . bind ("complete" as ?l) .}
+
+resource
+select ?r ?a ?e
+where {?e :rentaldate ?a  ; :rental_customer ?c . ?c :firstname ?r . }
+
+event
+select ?a ?e ?t
+where {?e :returndate ?a ; :rental_customer ?c ; :rental_inventory ?i . bind(concat (?c, ?i) as ?t) . }
+
+activityname
+select ?n ?a ?e
+where {?e :returndate ?a . bind ("return the CD" as ?n) . }
+
+timestamp
+select ?t ?t ?e
+where {?e :returndate ?t .}
+
+lifecycle
+select ?l ?a ?e
+where {?e :returndate ?a . bind ("complete" as ?l) .}
+
+resource
+select ?r ?a ?e
+where {?e :returndate ?a  ; :rental_customer ?c . ?c :firstname ?r . }

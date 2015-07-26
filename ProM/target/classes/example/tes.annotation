@@ -1,0 +1,13 @@
+prefix : <http://www.example.org/>
+
+trace
+select ?t ?l
+where {?i :inventory_film ?f . bind(concat (?i, " ", ?f) as ?t) . bind ("log1" as ?l) .}
+
+event
+select ?e ?t
+where {?i :inventory_film ?f . bind(concat (?i, " ", ?f) as ?t) . ?r :rental_inventory ?i ; :paid_by ?e .}
+
+activityname
+select ?n ?e 
+where {?e a :payment . bind ("make a payment" as ?n) . }
