@@ -49,7 +49,7 @@ WHERE { ?x a :Trace; :TcontainsE ?y.}
 Ontology file: `src/main/resources/example/ontology-boot-sakilas.owl` <br />
 Mapping file: `src/main/resources/example/ontology-boot-sakilas.obda` <br />
 Base URI: `http://www.example.org/` <br />
-Jdbc URL: `jdbc:mysql://[your local server name]/sakila` <br />
+Jdbc URL: `jdbc:mysql://[your local server name]/sakilas` <br />
 Username: `[your username]` <br />
 Password: `[your password]` <br />
 Jdbc Driver Class: `com.mysql.jdbc.Driver` <br />
